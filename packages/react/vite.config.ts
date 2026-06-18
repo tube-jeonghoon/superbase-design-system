@@ -14,7 +14,8 @@ const viteConfig = defineConfig({
       entry: resolve(import.meta.dirname, "src/index.ts"),
       formats: ["es"],
       fileName: "index",
-      cssFileName: "style",
+      // vite emits library CSS as dist/style.css by default; package
+      // exports["./styles.css"] points there. (No vite-6-only cssFileName.)
     },
     rollupOptions: {
       external: [
