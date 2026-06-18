@@ -20,4 +20,13 @@ describe("TextField", () => {
     expect(screen.getByRole("alert")).toHaveTextContent("Required");
     expect(screen.getByLabelText("Email")).toHaveAttribute("aria-invalid", "true");
   });
+
+  it("reflects the value prop when used as a controlled input", () => {
+    const { rerender } = render(
+      <TextField label="Name" value="a" onChange={() => {}} />,
+    );
+    expect(screen.getByLabelText("Name")).toHaveValue("a");
+    rerender(<TextField label="Name" value="ab" onChange={() => {}} />);
+    expect(screen.getByLabelText("Name")).toHaveValue("ab");
+  });
 });

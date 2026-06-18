@@ -14,7 +14,7 @@
 
 - `Text` — variant(caption/body/title/display), weight, color
 - `Button` — variant(primary/secondary), size(sm/md/lg)
-- `TextField` — label, error, value, onChange(value: string)
+- `TextField` — label, error, value, onChange(value: string). `value`를 넘기면 제어(controlled) 컴포넌트로 동작하므로 `onChange`에서 상태를 갱신해야 한다. `value`를 생략하면 비제어로 동작한다.
 - `Stack` — direction, gap, padding(spacing scale), align, justify
 - `Switch` — checked, onChange(checked: boolean), disabled
 
