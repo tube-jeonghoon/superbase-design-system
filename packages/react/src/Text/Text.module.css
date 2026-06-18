@@ -1,0 +1,15 @@
+.text {
+  margin: 0;
+  font-family: inherit;
+  color: var(--color-text-primary);
+}
+.text[data-color="secondary"] { color: var(--color-text-secondary); }
+.text[data-color="disabled"] { color: var(--color-text-disabled); }
+.text[data-color="brand"] { color: var(--color-brand-primary); }
+.text[data-variant="caption"] { font-size: var(--font-size-caption); }
+.text[data-variant="body"] { font-size: var(--font-size-body); }
+.text[data-variant="title"] { font-size: var(--font-size-title); }
+.text[data-variant="display"] { font-size: var(--font-size-display); }
+.text[data-weight="regular"] { font-weight: var(--font-weight-regular); }
+.text[data-weight="medium"] { font-weight: var(--font-weight-medium); }
+.text[data-weight="bold"] { font-weight: var(--font-weight-bold); }
