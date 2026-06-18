@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import "@superbase/tokens/css";
 import "@superbase/react/styles.css";
 import "./globals.css";
+import { AppShell } from "../components/AppShell";
 
 export const metadata = {
   title: "Superbase Design System",
@@ -11,7 +12,9 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ko" data-theme="light">
-      <body>{children}</body>
+      <body>
+        <AppShell>{children}</AppShell>
+      </body>
     </html>
   );
 }
