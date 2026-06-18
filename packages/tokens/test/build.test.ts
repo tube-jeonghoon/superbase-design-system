@@ -25,4 +25,10 @@ describe("token build outputs", () => {
     const ts = readFileSync(tsPath, "utf8");
     expect(ts).toContain("export const ColorBlue500 = \"#3182f6\";");
   });
+
+  it("maps semantic tokens to resolved values in :root (light)", () => {
+    const css = readFileSync(join(pkgRoot, "dist/web/variables.css"), "utf8");
+    expect(css).toContain("--color-text-primary: #191f28;");
+    expect(css).toContain("--color-background-default: #ffffff;");
+  });
 });

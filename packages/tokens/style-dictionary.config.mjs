@@ -1,5 +1,5 @@
 export default {
-  source: ["src/primitives.json"],
+  source: ["src/primitives.json", "src/semantic.light.json"],
   platforms: {
     css: {
       transformGroup: "css",
