@@ -18,4 +18,11 @@ describe("token build outputs", () => {
     expect(css).toContain("--color-blue-500: #3182f6;");
     expect(css).toContain(":root");
   });
+
+  it("creates native TS tokens file with named exports", () => {
+    const tsPath = join(pkgRoot, "dist/native/tokens.ts");
+    expect(existsSync(tsPath)).toBe(true);
+    const ts = readFileSync(tsPath, "utf8");
+    expect(ts).toContain("export const ColorBlue500 = \"#3182f6\";");
+  });
 });

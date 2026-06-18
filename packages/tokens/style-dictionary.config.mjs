@@ -10,6 +10,16 @@ export default {
           format: "css/variables"
         }
       ]
+    },
+    native: {
+      transformGroup: "js",
+      buildPath: "dist/native/",
+      files: [
+        {
+          destination: "tokens.ts",
+          format: "javascript/es6"
+        }
+      ]
     }
   }
 };
