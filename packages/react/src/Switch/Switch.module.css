@@ -1,0 +1,22 @@
+.switch {
+  position: relative;
+  width: 52px;
+  height: 32px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--color-gray-200);
+  cursor: pointer;
+  padding: 2px;
+  transition: background-color 0.15s ease;
+}
+.switch[data-checked="true"] { background: var(--color-brand-primary); }
+.switch:disabled { opacity: 0.4; cursor: not-allowed; }
+.thumb {
+  display: block;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  transition: transform 0.15s ease;
+}
+.switch[data-checked="true"] .thumb { transform: translateX(20px); }

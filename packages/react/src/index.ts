@@ -6,3 +6,5 @@ export { TextField } from "./TextField/TextField";
 export type { TextFieldProps } from "./TextField/TextField";
 export { Stack } from "./Stack/Stack";
 export type { StackProps, SpacingScale } from "./Stack/Stack";
+export { Switch } from "./Switch/Switch";
+export type { SwitchProps } from "./Switch/Switch";
