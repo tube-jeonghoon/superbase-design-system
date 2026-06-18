@@ -1,0 +1,23 @@
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { TextField } from "./TextField";
+
+describe("TextField", () => {
+  it("associates the label with the input", () => {
+    render(<TextField label="Email" />);
+    expect(screen.getByLabelText("Email")).toBeInTheDocument();
+  });
+
+  it("calls onChange with the new string value", async () => {
+    const onChange = vi.fn();
+    render(<TextField label="Name" onChange={onChange} />);
+    await userEvent.type(screen.getByLabelText("Name"), "ab");
+    expect(onChange).toHaveBeenLastCalledWith("ab");
+  });
+
+  it("shows an error message and marks the input invalid", () => {
+    render(<TextField label="Email" error="Required" />);
+    expect(screen.getByRole("alert")).toHaveTextContent("Required");
+    expect(screen.getByLabelText("Email")).toHaveAttribute("aria-invalid", "true");
+  });
+});
