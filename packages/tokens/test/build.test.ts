@@ -19,11 +19,17 @@ describe("token build outputs", () => {
     expect(css).toContain(":root");
   });
 
-  it("creates native TS tokens file with named exports", () => {
-    const tsPath = join(pkgRoot, "dist/native/tokens.ts");
-    expect(existsSync(tsPath)).toBe(true);
-    const ts = readFileSync(tsPath, "utf8");
-    expect(ts).toContain("export const ColorBlue500 = \"#3182f6\";");
+  it("creates native JS tokens with numeric sizes and a d.ts", () => {
+    const jsPath = join(pkgRoot, "dist/native/tokens.js");
+    const dtsPath = join(pkgRoot, "dist/native/tokens.d.ts");
+    expect(existsSync(jsPath)).toBe(true);
+    expect(existsSync(dtsPath)).toBe(true);
+    const js = readFileSync(jsPath, "utf8");
+    expect(js).toContain('export const ColorBlue500 = "#3182f6";');
+    expect(js).toContain("export const Spacing4 = 16;");
+    expect(js).toContain("export const FontSizeBody = 15;");
+    const dts = readFileSync(dtsPath, "utf8");
+    expect(dts).toContain("export const Spacing4");
   });
 
   it("maps semantic tokens to resolved values in :root (light)", () => {
@@ -44,7 +50,7 @@ describe("token build outputs", () => {
   });
 
   it("matches the native TS output snapshot", () => {
-    const ts = readFileSync(join(pkgRoot, "dist/native/tokens.ts"), "utf8");
+    const ts = readFileSync(join(pkgRoot, "dist/native/tokens.js"), "utf8");
     expect(ts).toMatchSnapshot();
   });
 });

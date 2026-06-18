@@ -1,4 +1,12 @@
 import StyleDictionary from "style-dictionary";
+StyleDictionary.registerTransform({
+  name: "size/px-to-number",
+  type: "value",
+  transitive: true,
+  filter: (token) =>
+    typeof token.value === "string" && /^-?\d*\.?\d+px$/.test(token.value),
+  transform: (token) => parseFloat(token.value),
+});
 import { readFileSync, writeFileSync, rmSync } from "node:fs";
 import { lightConfig, darkConfig } from "./style-dictionary.config.mjs";
 
