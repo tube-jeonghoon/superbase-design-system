@@ -31,4 +31,10 @@ describe("token build outputs", () => {
     expect(css).toContain("--color-text-primary: #191f28;");
     expect(css).toContain("--color-background-default: #ffffff;");
   });
+
+  it("emits a dark theme block overriding semantic tokens", () => {
+    const css = readFileSync(join(pkgRoot, "dist/web/variables.css"), "utf8");
+    expect(css).toContain('[data-theme="dark"]');
+    expect(css).toContain("--color-background-default: #191f28;");
+  });
 });
