@@ -47,7 +47,7 @@ export function Stack({
           alignItems: align,
           justifyContent: justify,
         },
-        style as object,
+        style,
       ]}
       {...rest}
     />

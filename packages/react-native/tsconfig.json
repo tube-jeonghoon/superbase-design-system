@@ -4,10 +4,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "types": ["node", "vitest/globals", "@testing-library/jest-dom"],
-    "paths": {
-      "react-native": ["../../node_modules/react-native-web"]
-    }
+    "types": ["node", "vitest/globals", "@testing-library/jest-dom"]
   },
   "include": ["src", "vitest.config.ts"]
 }

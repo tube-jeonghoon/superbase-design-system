@@ -1,4 +1,11 @@
-import { Pressable, Text as RNText, type PressableProps, type TextStyle } from "react-native";
+import {
+  Pressable,
+  Text as RNText,
+  type PressableProps,
+  type StyleProp,
+  type TextStyle,
+  type ViewStyle,
+} from "react-native";
 import {
   ColorBrandPrimary,
   ColorBackgroundSubtle,
@@ -15,10 +22,13 @@ import {
 export type ButtonVariant = "primary" | "secondary";
 export type ButtonSize = "sm" | "md" | "lg";
 
-export interface ButtonProps extends Omit<PressableProps, "children"> {
+export interface ButtonProps extends Omit<PressableProps, "children" | "style"> {
   children: string;
   variant?: ButtonVariant;
   size?: ButtonSize;
+  // object/array styles only — Pressable's function-style form is intentionally
+  // not supported so it can't be silently dropped into the style array below.
+  style?: StyleProp<ViewStyle>;
 }
 
 const padFor: Record<ButtonSize, number> = { sm: Spacing3, md: Spacing4, lg: Spacing6 };
@@ -48,7 +58,7 @@ export function Button({
           alignItems: "center",
           justifyContent: "center",
         },
-        style as object,
+        style,
       ]}
       {...rest}
     >

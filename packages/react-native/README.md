@@ -1,6 +1,8 @@
 # @superbase/react-native
 
-React Native용 컴포넌트. `@superbase/react`와 동일한 컴포넌트 API(Text/Button/TextField/Stack/Switch)를 제공하며 `@superbase/tokens`의 native 토큰을 소비한다.
+React Native용 컴포넌트. `@superbase/react`(웹)와 거의 동일한 컴포넌트 API(Text/Button/TextField/Stack/Switch)를 제공하며 `@superbase/tokens`의 native 토큰을 소비한다.
+
+RN 관용에 따른 일부 차이: 콜백은 RN 방식(Button `onPress`, TextField `onChangeText`)을 따르고, `Button`의 `children`은 단일 텍스트(`string`)다(웹은 `ReactNode`).
 
 ## 사용
 

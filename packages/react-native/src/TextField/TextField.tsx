@@ -35,7 +35,7 @@ export function TextField({ label, error, style, ...rest }: TextFieldProps) {
             fontSize: FontSizeBody,
             color: ColorTextPrimary,
           },
-          style as object,
+          style,
         ]}
         {...rest}
       />
