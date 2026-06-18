@@ -16,9 +16,12 @@ export const lightConfig = {
   platforms: {
     css: cssFile(":root"),
     native: {
-      transformGroup: "js",
+      transforms: ["attribute/cti", "name/pascal", "color/css", "size/px-to-number"],
       buildPath: "dist/native/",
-      files: [{ destination: "tokens.ts", format: "javascript/es6" }]
+      files: [
+        { destination: "tokens.js", format: "javascript/es6" },
+        { destination: "tokens.d.ts", format: "typescript/es6-declarations" }
+      ]
     }
   }
 };
