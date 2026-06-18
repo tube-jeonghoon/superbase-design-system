@@ -37,4 +37,14 @@ describe("token build outputs", () => {
     expect(css).toContain('[data-theme="dark"]');
     expect(css).toContain("--color-background-default: #191f28;");
   });
+
+  it("matches the CSS output snapshot", () => {
+    const css = readFileSync(join(pkgRoot, "dist/web/variables.css"), "utf8");
+    expect(css).toMatchSnapshot();
+  });
+
+  it("matches the native TS output snapshot", () => {
+    const ts = readFileSync(join(pkgRoot, "dist/native/tokens.ts"), "utf8");
+    expect(ts).toMatchSnapshot();
+  });
 });
