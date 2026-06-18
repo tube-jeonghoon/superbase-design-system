@@ -1,8 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Switch } from "@superbase/react";
-
-const STORAGE_KEY = "superbase-theme";
+import { STORAGE_KEY } from "../lib/theme";
 
 function applyTheme(isDark: boolean) {
   document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");

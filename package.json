@@ -12,6 +12,7 @@
     "turbo": "^2.3.0",
     "typescript": "^5.7.0"
   },
+  "//pnpm-overrides": "vite is pinned to 5.x because vitest 2.x requires vite ^5; the docs (Next) test toolchain pulls it in. Revisit when bumping vitest to v3 (then vite 6 can be used).",
   "pnpm": {
     "overrides": {
       "vite": "5.4.21"
