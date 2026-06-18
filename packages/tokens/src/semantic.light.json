@@ -1,0 +1,20 @@
+{
+  "color": {
+    "text": {
+      "primary":   { "value": "{color.gray.900}" },
+      "secondary": { "value": "{color.gray.600}" },
+      "disabled":  { "value": "{color.gray.400}" }
+    },
+    "background": {
+      "default": { "value": "{color.white}" },
+      "subtle":  { "value": "{color.gray.50}" }
+    },
+    "brand": {
+      "primary": { "value": "{color.blue.500}" },
+      "pressed": { "value": "{color.blue.600}" }
+    },
+    "border": {
+      "default": { "value": "{color.gray.200}" }
+    }
+  }
+}

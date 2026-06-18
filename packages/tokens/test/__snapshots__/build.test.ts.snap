@@ -1,0 +1,140 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`token build outputs > matches the CSS output snapshot 1`] = `
+"/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --color-blue-500: #3182f6;
+  --color-blue-600: #2272eb;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f2f4f6;
+  --color-gray-200: #e5e8eb;
+  --color-gray-400: #b0b8c1;
+  --color-gray-600: #6b7684;
+  --color-gray-800: #333d4b;
+  --color-gray-900: #191f28;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-red-500: #f04452;
+  --color-text-primary: #191f28;
+  --color-text-secondary: #6b7684;
+  --color-text-disabled: #b0b8c1;
+  --color-background-default: #ffffff;
+  --color-background-subtle: #f9fafb;
+  --color-brand-primary: #3182f6;
+  --color-brand-pressed: #2272eb;
+  --color-border-default: #e5e8eb;
+  --spacing-0: 0;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  --font-size-caption: 13px;
+  --font-size-body: 15px;
+  --font-size-title: 20px;
+  --font-size-display: 28px;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+}
+
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+[data-theme="dark"] {
+  --color-blue-500: #3182f6;
+  --color-blue-600: #2272eb;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f2f4f6;
+  --color-gray-200: #e5e8eb;
+  --color-gray-400: #b0b8c1;
+  --color-gray-600: #6b7684;
+  --color-gray-800: #333d4b;
+  --color-gray-900: #191f28;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-red-500: #f04452;
+  --color-text-primary: #f9fafb;
+  --color-text-secondary: #b0b8c1;
+  --color-text-disabled: #6b7684;
+  --color-background-default: #191f28;
+  --color-background-subtle: #333d4b;
+  --color-brand-primary: #3182f6;
+  --color-brand-pressed: #2272eb;
+  --color-border-default: #333d4b;
+  --spacing-0: 0;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  --font-size-caption: 13px;
+  --font-size-body: 15px;
+  --font-size-title: 20px;
+  --font-size-display: 28px;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+}
+"
+`;
+
+exports[`token build outputs > matches the native TS output snapshot 1`] = `
+"/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+export const ColorBlue500 = "#3182f6";
+export const ColorBlue600 = "#2272eb";
+export const ColorGray50 = "#f9fafb";
+export const ColorGray100 = "#f2f4f6";
+export const ColorGray200 = "#e5e8eb";
+export const ColorGray400 = "#b0b8c1";
+export const ColorGray600 = "#6b7684";
+export const ColorGray800 = "#333d4b";
+export const ColorGray900 = "#191f28";
+export const ColorWhite = "#ffffff";
+export const ColorBlack = "#000000";
+export const ColorRed500 = "#f04452";
+export const ColorTextPrimary = "#191f28";
+export const ColorTextSecondary = "#6b7684";
+export const ColorTextDisabled = "#b0b8c1";
+export const ColorBackgroundDefault = "#ffffff";
+export const ColorBackgroundSubtle = "#f9fafb";
+export const ColorBrandPrimary = "#3182f6";
+export const ColorBrandPressed = "#2272eb";
+export const ColorBorderDefault = "#e5e8eb";
+export const Spacing0 = "0";
+export const Spacing1 = "4px";
+export const Spacing2 = "8px";
+export const Spacing3 = "12px";
+export const Spacing4 = "16px";
+export const Spacing6 = "24px";
+export const Spacing8 = "32px";
+export const RadiusSm = "8px";
+export const RadiusMd = "12px";
+export const RadiusLg = "16px";
+export const RadiusFull = "9999px";
+export const FontSizeCaption = "13px";
+export const FontSizeBody = "15px";
+export const FontSizeTitle = "20px";
+export const FontSizeDisplay = "28px";
+export const FontWeightRegular = "400";
+export const FontWeightMedium = "500";
+export const FontWeightBold = "700";
+"
+`;
