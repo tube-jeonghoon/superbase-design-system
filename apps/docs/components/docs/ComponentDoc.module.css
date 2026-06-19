@@ -1,0 +1,2 @@
+.title { font-size: var(--font-size-display); font-weight: var(--font-weight-bold); color: var(--color-text-primary); margin: 0; }
+.lead { font-size: var(--font-size-body); color: var(--color-text-secondary); margin: var(--spacing-2) 0 0; line-height: 1.6; }

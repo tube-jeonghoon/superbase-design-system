@@ -1,12 +1,7 @@
 import type { ReactNode } from "react";
 import { Text } from "@superbase/react";
+import { SideNav } from "./SideNav";
 import { ThemeToggle } from "./ThemeToggle";
-
-const NAV = [
-  { href: "/", label: "Getting Started" },
-  { href: "/foundations", label: "Foundations" },
-  { href: "/components", label: "Components" },
-];
 
 export function AppShell({ children }: { children: ReactNode }) {
   return (
@@ -19,27 +14,13 @@ export function AppShell({ children }: { children: ReactNode }) {
           position: "sticky",
           top: 0,
           height: "100vh",
+          overflowY: "auto",
         }}
       >
         <Text as="div" variant="title" weight="bold">
           Superbase
         </Text>
-        <nav
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "var(--spacing-2)",
-            marginTop: "var(--spacing-6)",
-          }}
-        >
-          {NAV.map((item) => (
-            <a key={item.href} href={item.href}>
-              <Text variant="body" color="secondary">
-                {item.label}
-              </Text>
-            </a>
-          ))}
-        </nav>
+        <SideNav />
       </aside>
       <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
         <header
@@ -57,7 +38,9 @@ export function AppShell({ children }: { children: ReactNode }) {
           </Text>
           <ThemeToggle />
         </header>
-        <main style={{ padding: "var(--spacing-8)", flex: 1 }}>{children}</main>
+        <main style={{ padding: "var(--spacing-8)", flex: 1, maxWidth: 880 }}>
+          {children}
+        </main>
       </div>
     </div>
   );
