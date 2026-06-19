@@ -26,6 +26,9 @@
   "sideEffects": [
     "**/*.css"
   ],
+  "dependencies": {
+    "@superbase/icons": "workspace:*"
+  },
   "scripts": {
     "build": "vite build",
     "test": "vitest run",
@@ -36,6 +39,7 @@
     "react-dom": ">=18"
   },
   "devDependencies": {
+    "@superbase/icons": "workspace:*",
     "@testing-library/jest-dom": "^6.6.0",
     "@testing-library/react": "^16.1.0",
     "@testing-library/user-event": "^14.5.0",

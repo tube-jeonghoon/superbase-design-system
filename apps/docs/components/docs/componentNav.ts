@@ -7,6 +7,7 @@ export const componentNav: ComponentNavItem[] = [
   { slug: "badge", label: "Badge" },
   { slug: "button", label: "Button" },
   { slug: "checkbox", label: "Checkbox" },
+  { slug: "icon", label: "Icon" },
   { slug: "radio", label: "Radio" },
   { slug: "spinner", label: "Spinner" },
   { slug: "stack", label: "Stack" },

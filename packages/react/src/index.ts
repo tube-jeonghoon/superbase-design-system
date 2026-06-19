@@ -18,3 +18,5 @@ export { Badge } from "./Badge/Badge";
 export type { BadgeProps, BadgeVariant } from "./Badge/Badge";
 export { Spinner } from "./Spinner/Spinner";
 export type { SpinnerProps, SpinnerSize } from "./Spinner/Spinner";
+export { Icon } from "./Icon/Icon";
+export type { IconProps } from "./Icon/Icon";

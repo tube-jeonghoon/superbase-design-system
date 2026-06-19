@@ -19,6 +19,7 @@ const viteConfig = defineConfig({
     },
     rollupOptions: {
       external: [
+        "@superbase/icons",
         "react",
         "react-dom",
         "react/jsx-runtime",
