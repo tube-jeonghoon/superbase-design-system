@@ -24,6 +24,13 @@ const viteConfig = defineConfig({
         "react/jsx-runtime",
         "react/jsx-dev-runtime",
       ],
+      output: {
+        // The bundle now includes createContext (RadioGroup). Next.js App
+        // Router rejects a module that calls createContext at module scope
+        // unless it is marked as a Client Component. Rollup strips in-source
+        // "use client" directives during bundling, so re-emit it as a banner.
+        banner: '"use client";',
+      },
     },
   },
 });
