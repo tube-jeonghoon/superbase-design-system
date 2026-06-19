@@ -1,8 +1,10 @@
 {
   "name": "@superbase/tokens",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
-  "publishConfig": { "access": "public" },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tube-jeonghoon/superbase-design-system.git",
@@ -10,9 +12,14 @@
   },
   "exports": {
     "./css": "./dist/web/variables.css",
-    "./native": { "types": "./dist/native/tokens.d.ts", "import": "./dist/native/tokens.js" }
+    "./native": {
+      "types": "./dist/native/tokens.d.ts",
+      "import": "./dist/native/tokens.js"
+    }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "node build.mjs",
     "test": "vitest run",
