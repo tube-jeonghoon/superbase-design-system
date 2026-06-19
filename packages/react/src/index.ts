@@ -10,3 +10,7 @@ export { Switch } from "./Switch/Switch";
 export type { SwitchProps } from "./Switch/Switch";
 export { Checkbox } from "./Checkbox/Checkbox";
 export type { CheckboxProps } from "./Checkbox/Checkbox";
+export { RadioGroup } from "./Radio/RadioGroup";
+export type { RadioGroupProps } from "./Radio/RadioGroup";
+export { Radio } from "./Radio/Radio";
+export type { RadioProps } from "./Radio/Radio";
