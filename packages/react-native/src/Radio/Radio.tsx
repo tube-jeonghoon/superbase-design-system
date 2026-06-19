@@ -24,6 +24,8 @@ export function Radio({ value, label, disabled = false }: RadioProps) {
       accessibilityRole="radio"
       accessibilityState={{ checked, disabled }}
       accessibilityLabel={label}
+      // aria-checked is required: react-native-web's Pressable does not surface
+      // accessibilityState.checked as aria-checked. Keep both. Do not remove.
       aria-checked={checked}
       disabled={disabled}
       onPress={() => group.onChange?.(value)}

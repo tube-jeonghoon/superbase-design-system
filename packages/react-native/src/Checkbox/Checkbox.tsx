@@ -38,6 +38,9 @@ export function Checkbox({
     <Pressable
       accessibilityRole="checkbox"
       accessibilityState={{ checked, disabled }}
+      // aria-checked is required: react-native-web's Pressable does not surface
+      // accessibilityState.checked as aria-checked. Keep both (native uses
+      // accessibilityState; RNW/web a11y tree needs aria-checked). Do not remove.
       aria-checked={checked}
       disabled={disabled}
       onPress={() => onChange?.(!checked)}

@@ -1,4 +1,4 @@
-import { View, Text as RNText, type TextStyle } from "react-native";
+import { View, Text as RNText } from "react-native";
 import {
   ColorBackgroundSubtle,
   ColorTextSecondary,
@@ -46,7 +46,7 @@ export function Badge({ children, variant = "neutral" }: BadgeProps) {
       }}
     >
       <RNText
-        style={{ fontSize: FontSizeCaption, fontWeight: "500" as TextStyle["fontWeight"], color: fgFor[variant] }}
+        style={{ fontSize: FontSizeCaption, fontWeight: "500", color: fgFor[variant] }}
       >
         {children}
       </RNText>
