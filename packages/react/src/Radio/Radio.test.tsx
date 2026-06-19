@@ -26,4 +26,12 @@ describe("RadioGroup + Radio", () => {
     await userEvent.click(screen.getByRole("radio", { name: "B" }));
     expect(onChange).toHaveBeenCalledWith("b");
   });
+
+  it("throws when a Radio is used outside a RadioGroup", () => {
+    const spy = vi.spyOn(console, "error").mockImplementation(() => {});
+    expect(() => render(<Radio value="a" label="A" />)).toThrow(
+      "Radio must be used within a RadioGroup",
+    );
+    spy.mockRestore();
+  });
 });
