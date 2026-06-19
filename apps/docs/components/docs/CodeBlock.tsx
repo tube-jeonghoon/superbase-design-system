@@ -21,7 +21,12 @@ export function CodeBlock({ code, language = "tsx" }: CodeBlockProps) {
     <div className={styles.wrap}>
       <div className={styles.bar}>
         <span>CODE</span>
-        <button type="button" className={styles.copy} onClick={copy}>
+        <button
+          type="button"
+          className={styles.copy}
+          onClick={copy}
+          aria-label={copied ? "코드 복사됨" : "코드 복사"}
+        >
           {copied ? "복사됨" : "복사"}
         </button>
       </div>

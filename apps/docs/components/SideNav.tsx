@@ -22,7 +22,11 @@ export function SideNav() {
           {item.label}
         </a>
       ))}
-      <a href="/components" className={styles.group} data-active={pathname === "/components"}>
+      <a
+        href="/components"
+        className={styles.group}
+        data-active={pathname.startsWith("/components")}
+      >
         Components
       </a>
       {componentNav.map((item) => {
