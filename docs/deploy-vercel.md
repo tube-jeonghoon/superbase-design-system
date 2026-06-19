@@ -1,51 +1,40 @@
-# 문서 사이트 Vercel 배포 가이드
+# 문서 사이트 Vercel 배포
 
-`apps/docs`(Next.js)를 Vercel에 배포하는 방법. 이 사이트는 정적(모든 라우트 prerender)이라 별도 런타임/환경변수가 필요 없다.
+`apps/docs`(Next.js)는 Vercel에 배포되어 있다. 정적 사이트(모든 라우트 prerender)라 런타임/환경변수가 없다.
 
-## 핵심 포인트
+## 라이브
 
-- 이 레포는 **pnpm workspace + Turborepo 모노레포**다. 문서 앱은 `apps/docs`에 있고, 빌드 전에 워크스페이스 의존성(`@superbase/tokens`·`@superbase/react`·`@superbase/icons`)이 먼저 빌드돼야 한다(`@superbase/tokens/css`, `@superbase/react/styles.css`를 import하므로).
-- Vercel은 **Turborepo를 자동 인식**해서, 선택한 앱과 그 의존성을 함께 빌드한다.
+- **프로덕션**: https://design-library-six.vercel.app
+- **Git 연동**: `tube-jeonghoon/superbase-design-system`, production branch `main` → **main에 push할 때마다 자동 배포**.
 
-## 추천 설정 (대시보드 — Root Directory 방식)
+## 프로젝트 설정 (이미 적용됨)
 
-1. [vercel.com/new](https://vercel.com/new) 에서 GitHub 레포 `tube-jeonghoon/superbase-design-system` import.
-2. **Root Directory** 를 `apps/docs` 로 설정 (Configure Project 화면 또는 Settings → Build & Development).
-3. Framework Preset: **Next.js** (자동 감지됨).
-4. Install/Build Command: **기본값 유지**.
-   - Vercel이 `packageManager: pnpm@10.27.0`(루트 package.json)를 보고 pnpm으로 설치.
-   - Turborepo 인식으로 `@superbase/docs`의 의존성(tokens/react/icons)을 먼저 빌드한 뒤 `next build` 실행.
-5. **Deploy** → `https://<프로젝트명>.vercel.app` 로 게시. main에 push할 때마다 자동 재배포.
+이 모노레포(pnpm + Turborepo)에서 문서 앱은 `apps/docs`에 있고, 빌드 전에 워크스페이스 의존성(`@superbase/tokens`·`@superbase/react`·`@superbase/icons`)이 먼저 빌드돼야 한다. 작동하는 설정:
 
-## 빌드가 의존성을 안 만들 경우 (폴백)
+- **Root Directory** = `apps/docs` (프로젝트 설정 — `apps/docs/package.json`의 `next`를 인식)
+- **Output Directory** = 기본 `.next` (Root Directory 기준 상대 경로. `apps/docs/.next` 같은 절대 표기를 쓰면 경로가 이중으로 잡혀 실패함)
+- **빌드/설치 오버라이드** = `apps/docs/vercel.json`:
+  ```json
+  {
+    "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
+    "buildCommand": "cd ../.. && pnpm turbo run build --filter=@superbase/docs"
+  }
+  ```
+  (Root Directory가 `apps/docs`이므로 `cd ../..`로 레포 루트에서 turbo가 의존성→docs 순으로 빌드.)
+- **Vercel Authentication(Deployment Protection)** = 꺼짐 (공개 문서 사이트).
 
-Turborepo 자동 빌드가 안 잡히면, 프로젝트 설정에서 명령을 오버라이드한다 (Root Directory = `apps/docs` 유지):
+> 루트에 `vercel.json`을 두고 `framework: nextjs`로 잡으면 루트 package.json에 `next`가 없어 "No Next.js detected"로 실패한다. 반드시 Root Directory를 `apps/docs`로.
 
-- **Install Command**: `cd ../.. && pnpm install --frozen-lockfile`
-- **Build Command**: `cd ../.. && pnpm turbo run build --filter=@superbase/docs`
-- **Output Directory**: `.next` (기본값)
+## 처음부터 다시 연결할 때 (참고)
 
-또는 Root Directory를 레포 루트로 두고 루트에 `vercel.json`을 만든다:
+1. `vercel link` 또는 [vercel.com/new](https://vercel.com/new) 에서 레포 import.
+2. **Root Directory = `apps/docs`** 설정. Framework: Next.js(자동).
+3. Output Directory는 기본값(`.next`) 유지.
+4. 공개로 쓰려면 Settings → Deployment Protection에서 Vercel Authentication 끄기.
 
-```json
-{
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "nextjs",
-  "installCommand": "pnpm install --frozen-lockfile",
-  "buildCommand": "pnpm turbo run build --filter=@superbase/docs",
-  "outputDirectory": "apps/docs/.next"
-}
-```
-
-## 로컬에서 프로덕션 빌드 확인
+## 로컬 프로덕션 확인
 
 ```bash
-pnpm turbo run build --filter=@superbase/docs   # 의존성 + next build
-pnpm --filter @superbase/docs exec next start -p 3100   # 프로덕션 서버
+pnpm turbo run build --filter=@superbase/docs
+pnpm --filter @superbase/docs exec next start -p 3100
 ```
-
-## 참고
-
-- 환경변수: 없음.
-- 노드: Vercel 프로젝트 설정에서 Node 22 권장(루트 `engines.node: ">=22"`).
-- 커스텀 도메인은 Vercel 대시보드 Domains에서 연결.
