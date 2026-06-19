@@ -22,4 +22,10 @@ describe("foundations token data", () => {
     ]);
     expect(radii.map((r) => r.name)).toEqual(["sm", "md", "lg", "full"]);
   });
+
+  it("assigns every semantic color a valid group", () => {
+    for (const c of semanticColors) {
+      expect(["text", "brand", "status"]).toContain(c.group);
+    }
+  });
 });
