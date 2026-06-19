@@ -14,3 +14,5 @@ export { RadioGroup } from "./Radio/RadioGroup";
 export type { RadioGroupProps } from "./Radio/RadioGroup";
 export { Radio } from "./Radio/Radio";
 export type { RadioProps } from "./Radio/Radio";
+export { Badge } from "./Badge/Badge";
+export type { BadgeProps, BadgeVariant } from "./Badge/Badge";
