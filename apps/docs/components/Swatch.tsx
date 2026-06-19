@@ -1,4 +1,4 @@
-import { Text } from "@thesuperbase/react";
+import { Text } from "@superbase/react";
 
 export function Swatch({ name, cssVar }: { name: string; cssVar: string }) {
   return (

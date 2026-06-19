@@ -1,4 +1,4 @@
-import { Text, Stack } from "@thesuperbase/react";
+import { Text, Stack } from "@superbase/react";
 import { Swatch } from "../../components/Swatch";
 import { semanticColors, spacingScale, fontSizes, radii } from "../../lib/tokens";
 

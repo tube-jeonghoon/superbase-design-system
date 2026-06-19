@@ -9,7 +9,7 @@ import {
   Spacing4,
   FontSizeBody,
   FontSizeCaption,
-} from "@thesuperbase/tokens/native";
+} from "@superbase/tokens/native";
 
 export interface TextFieldProps extends TextInputProps {
   label?: string;

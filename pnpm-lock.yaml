@@ -23,15 +23,15 @@ importers:
 
   apps/docs:
     dependencies:
-      '@thesuperbase/react':
+      '@superbase/react':
         specifier: workspace:*
         version: link:../../packages/react
-      '@thesuperbase/tokens':
+      '@superbase/tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
       next:
         specifier: ^15.1.0
-        version: 15.5.19(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+        version: 15.5.19(@babel/core@7.29.7)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       react:
         specifier: ^19.0.0
         version: 19.2.7
@@ -117,7 +117,7 @@ importers:
 
   packages/react-native:
     dependencies:
-      '@thesuperbase/tokens':
+      '@superbase/tokens':
         specifier: workspace:*
         version: link:../tokens
     devDependencies:
@@ -5572,7 +5572,7 @@ snapshots:
 
   negotiator@1.0.0: {}
 
-  next@15.5.19(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
+  next@15.5.19(@babel/core@7.29.7)(react-dom@19.2.7(react@19.2.7))(react@19.2.7):
     dependencies:
       '@next/env': 15.5.19
       '@swc/helpers': 0.5.15
@@ -5580,7 +5580,7 @@ snapshots:
       postcss: 8.4.31
       react: 19.2.7
       react-dom: 19.2.7(react@19.2.7)
-      styled-jsx: 5.1.6(react@19.2.7)
+      styled-jsx: 5.1.6(@babel/core@7.29.7)(react@19.2.7)
     optionalDependencies:
       '@next/swc-darwin-arm64': 15.5.19
       '@next/swc-darwin-x64': 15.5.19
@@ -6176,10 +6176,12 @@ snapshots:
     transitivePeerDependencies:
       - tslib
 
-  styled-jsx@5.1.6(react@19.2.7):
+  styled-jsx@5.1.6(@babel/core@7.29.7)(react@19.2.7):
     dependencies:
       client-only: 0.0.1
       react: 19.2.7
+    optionalDependencies:
+      '@babel/core': 7.29.7
 
   styleq@0.1.3: {}
 

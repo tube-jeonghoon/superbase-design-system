@@ -1,4 +1,4 @@
-# @thesuperbase/react
+# @superbase/react
 
 웹용 React 컴포넌트. 디자인 토큰(CSS 변수)을 소비한다.
 
@@ -6,9 +6,9 @@
 
 소비 앱에서 토큰 CSS와 컴포넌트 스타일을 함께 로드한다:
 
-    import "@thesuperbase/tokens/css";   // CSS 변수 (:root + [data-theme="dark"])
-    import "@thesuperbase/react/styles.css"; // 컴포넌트 스타일
-    import { Button, Text } from "@thesuperbase/react";
+    import "@superbase/tokens/css";   // CSS 변수 (:root + [data-theme="dark"])
+    import "@superbase/react/styles.css"; // 컴포넌트 스타일
+    import { Button, Text } from "@superbase/react";
 
 ## 컴포넌트
 

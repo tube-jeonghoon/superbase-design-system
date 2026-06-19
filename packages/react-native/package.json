@@ -1,5 +1,5 @@
 {
-  "name": "@thesuperbase/react-native",
+  "name": "@superbase/react-native",
   "version": "0.1.0",
   "type": "module",
   "publishConfig": { "access": "public" },
@@ -20,7 +20,7 @@
     "react-native": ">=0.74"
   },
   "dependencies": {
-    "@thesuperbase/tokens": "workspace:*"
+    "@superbase/tokens": "workspace:*"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.6.0",

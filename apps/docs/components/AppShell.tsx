@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Text } from "@thesuperbase/react";
+import { Text } from "@superbase/react";
 import { ThemeToggle } from "./ThemeToggle";
 
 const NAV = [

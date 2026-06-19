@@ -1,5 +1,5 @@
 {
-  "name": "@thesuperbase/react",
+  "name": "@superbase/react",
   "version": "0.1.0",
   "type": "module",
   "publishConfig": { "access": "public" },

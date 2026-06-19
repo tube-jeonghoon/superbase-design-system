@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Text, Button, TextField, Stack, Switch } from "@thesuperbase/react";
+import { Text, Button, TextField, Stack, Switch } from "@superbase/react";
 
 export default function ComponentsPage() {
   const [name, setName] = useState("");
