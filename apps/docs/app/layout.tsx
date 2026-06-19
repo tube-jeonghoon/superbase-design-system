@@ -18,6 +18,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ko" data-theme="light">
       <head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css"
+        />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body>
