@@ -1,5 +1,16 @@
 # @superbase/react-native
 
+## 0.3.0
+
+### Minor Changes
+
+- e4ec077: react-native-svg 기반 Icon 컴포넌트를 추가한다(@superbase/icons 패스 데이터 소비, 웹과 동일 API).
+
+### Patch Changes
+
+- Updated dependencies [c395e70]
+  - @superbase/icons@0.2.0
+
 ## 0.2.0
 
 ### Minor Changes
