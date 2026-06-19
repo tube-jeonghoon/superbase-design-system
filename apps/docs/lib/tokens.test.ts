@@ -2,7 +2,7 @@ import { semanticColors, spacingScale, fontSizes, radii } from "./tokens";
 
 describe("foundations token data", () => {
   it("lists the 8 semantic color tokens with --color-* vars", () => {
-    expect(semanticColors).toHaveLength(8);
+    expect(semanticColors).toHaveLength(12);
     for (const token of semanticColors) {
       expect(token.cssVar.startsWith("--color-")).toBe(true);
       expect(token.name.length).toBeGreaterThan(0);

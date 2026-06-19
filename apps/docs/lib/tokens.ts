@@ -12,6 +12,10 @@ export const semanticColors: DisplayToken[] = [
   { name: "brand.primary", cssVar: "--color-brand-primary" },
   { name: "brand.pressed", cssVar: "--color-brand-pressed" },
   { name: "border.default", cssVar: "--color-border-default" },
+  { name: "status.info", cssVar: "--color-status-info" },
+  { name: "status.success", cssVar: "--color-status-success" },
+  { name: "status.warning", cssVar: "--color-status-warning" },
+  { name: "status.danger", cssVar: "--color-status-danger" },
 ];
 
 export const spacingScale = [0, 1, 2, 3, 4, 6, 8] as const;
