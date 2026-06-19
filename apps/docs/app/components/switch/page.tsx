@@ -16,7 +16,7 @@ export default function SwitchPage() {
             <Code>checked</Code>와 <Code>onChange</Code>로 제어합니다.
           </>
         }
-        code={`const [on, setOn] = useState(false);\n<Switch checked={on} onChange={setOn} aria-label="알림" />`}
+        code={`const [on, setOn] = useState(false);\n<Switch checked={on} onChange={setOn} aria-label="알림" />\n<Text color="secondary">{on ? "On" : "Off"}</Text>`}
       >
         <Switch checked={on} onChange={setOn} aria-label="알림" />
         <Text variant="body" color="secondary">

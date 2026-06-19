@@ -15,7 +15,7 @@ export default function SpinnerPage() {
             지원합니다.
           </>
         }
-        code={`<Spinner size="sm" />\n<Spinner size="md" />\n<Spinner size="lg" />`}
+        code={`<Spinner size="sm" aria-label="로딩 중" />\n<Spinner size="md" aria-label="로딩 중" />\n<Spinner size="lg" aria-label="로딩 중" />`}
       >
         <Spinner size="sm" aria-label="로딩 sm" />
         <Spinner size="md" aria-label="로딩 md" />
