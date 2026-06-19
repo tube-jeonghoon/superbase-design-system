@@ -12,7 +12,9 @@
     },
     "white": { "value": "#ffffff" },
     "black": { "value": "#000000" },
-    "red":   { "500": { "value": "#f04452" } }
+    "red":   { "500": { "value": "#f04452" } },
+    "green": { "500": { "value": "#00b26d" } },
+    "yellow": { "500": { "value": "#ffb020" } }
   },
   "spacing": {
     "0": { "value": "0" },

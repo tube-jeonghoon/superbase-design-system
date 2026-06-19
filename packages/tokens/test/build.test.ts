@@ -44,6 +44,15 @@ describe("token build outputs", () => {
     expect(css).toContain("--color-background-default: #191f28;");
   });
 
+  it("emits status semantic colors (web + native)", () => {
+    const css = readFileSync(join(pkgRoot, "dist/web/variables.css"), "utf8");
+    expect(css).toContain("--color-status-success: #00b26d;");
+    expect(css).toContain("--color-status-warning: #ffb020;");
+    expect(css).toContain("--color-status-danger: #f04452;");
+    const ts = readFileSync(join(pkgRoot, "dist/native/tokens.js"), "utf8");
+    expect(ts).toContain('export const ColorStatusSuccess = "#00b26d";');
+  });
+
   it("matches the CSS output snapshot", () => {
     const css = readFileSync(join(pkgRoot, "dist/web/variables.css"), "utf8");
     expect(css).toMatchSnapshot();
