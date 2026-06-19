@@ -11,7 +11,7 @@ import {
   FontWeightRegular,
   FontWeightMedium,
   FontWeightBold,
-} from "@superbase/tokens/native";
+} from "@thesuperbase/tokens/native";
 
 export type TextVariant = "caption" | "body" | "title" | "display";
 export type TextWeight = "regular" | "medium" | "bold";

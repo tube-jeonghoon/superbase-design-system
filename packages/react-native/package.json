@@ -1,7 +1,8 @@
 {
-  "name": "@superbase/react-native",
-  "version": "0.0.0",
+  "name": "@thesuperbase/react-native",
+  "version": "0.1.0",
   "type": "module",
+  "publishConfig": { "access": "public" },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -19,7 +20,7 @@
     "react-native": ">=0.74"
   },
   "dependencies": {
-    "@superbase/tokens": "workspace:*"
+    "@thesuperbase/tokens": "workspace:*"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.6.0",

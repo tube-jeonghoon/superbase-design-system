@@ -1,5 +1,5 @@
 import { Switch as RNSwitch, type SwitchProps as RNSwitchProps } from "react-native";
-import { ColorBrandPrimary, ColorGray200 } from "@superbase/tokens/native";
+import { ColorBrandPrimary, ColorGray200 } from "@thesuperbase/tokens/native";
 
 export interface SwitchProps
   extends Omit<RNSwitchProps, "value" | "onValueChange" | "onChange"> {

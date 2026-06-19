@@ -1,10 +1,10 @@
-# @superbase/tokens
+# @thesuperbase/tokens
 
 디자인 토큰 단일 소스. `src/*.json`을 Style Dictionary로 빌드해 플랫폼별 산출물을 생성한다.
 
 ## 빌드
 
-    pnpm --filter @superbase/tokens build
+    pnpm --filter @thesuperbase/tokens build
 
 ## 산출물
 

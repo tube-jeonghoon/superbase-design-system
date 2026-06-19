@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["@superbase/react", "@superbase/tokens"],
+  transpilePackages: ["@thesuperbase/react", "@thesuperbase/tokens"],
 };
 
 export default nextConfig;

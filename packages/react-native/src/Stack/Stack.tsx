@@ -6,7 +6,7 @@ import {
   Spacing4,
   Spacing6,
   Spacing8,
-} from "@superbase/tokens/native";
+} from "@thesuperbase/tokens/native";
 
 export type SpacingScale = 0 | 1 | 2 | 3 | 4 | 6 | 8;
 

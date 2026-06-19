@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Switch } from "@superbase/react";
+import { Switch } from "@thesuperbase/react";
 import { STORAGE_KEY } from "../lib/theme";
 
 function applyTheme(isDark: boolean) {

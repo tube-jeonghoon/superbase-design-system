@@ -1,7 +1,8 @@
 {
-  "name": "@superbase/tokens",
-  "version": "0.0.0",
+  "name": "@thesuperbase/tokens",
+  "version": "0.1.0",
   "type": "module",
+  "publishConfig": { "access": "public" },
   "exports": {
     "./css": "./dist/web/variables.css",
     "./native": { "types": "./dist/native/tokens.d.ts", "import": "./dist/native/tokens.js" }

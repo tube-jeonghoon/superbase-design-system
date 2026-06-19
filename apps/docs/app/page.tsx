@@ -1,4 +1,4 @@
-import { Text, Stack, Button } from "@superbase/react";
+import { Text, Stack, Button } from "@thesuperbase/react";
 
 export default function HomePage() {
   return (
@@ -22,9 +22,9 @@ export default function HomePage() {
             overflowX: "auto",
           }}
         >
-{`import "@superbase/tokens/css";
-import "@superbase/react/styles.css";
-import { Button, Text } from "@superbase/react";`}
+{`import "@thesuperbase/tokens/css";
+import "@thesuperbase/react/styles.css";
+import { Button, Text } from "@thesuperbase/react";`}
         </pre>
       </section>
 

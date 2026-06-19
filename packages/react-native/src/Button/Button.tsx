@@ -17,7 +17,7 @@ import {
   Spacing6,
   FontSizeBody,
   FontWeightBold,
-} from "@superbase/tokens/native";
+} from "@thesuperbase/tokens/native";
 
 export type ButtonVariant = "primary" | "secondary";
 export type ButtonSize = "sm" | "md" | "lg";

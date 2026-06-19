@@ -1,5 +1,5 @@
 {
-  "name": "@superbase/docs",
+  "name": "@thesuperbase/docs",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -11,8 +11,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@superbase/react": "workspace:*",
-    "@superbase/tokens": "workspace:*",
+    "@thesuperbase/react": "workspace:*",
+    "@thesuperbase/tokens": "workspace:*",
     "next": "^15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

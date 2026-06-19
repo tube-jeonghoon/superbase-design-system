@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
-import "@superbase/tokens/css";
-import "@superbase/react/styles.css";
+import "@thesuperbase/tokens/css";
+import "@thesuperbase/react/styles.css";
 import "./globals.css";
 import { AppShell } from "../components/AppShell";
 import { STORAGE_KEY } from "../lib/theme";
