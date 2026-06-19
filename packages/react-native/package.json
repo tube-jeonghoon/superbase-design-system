@@ -29,12 +29,15 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-native": ">=0.74"
+    "react-native": ">=0.74",
+    "react-native-svg": ">=15"
   },
   "dependencies": {
+    "@superbase/icons": "workspace:*",
     "@superbase/tokens": "workspace:*"
   },
   "devDependencies": {
+    "@superbase/icons": "workspace:*",
     "@testing-library/jest-dom": "^6.6.0",
     "@testing-library/react": "^16.1.0",
     "@types/node": "^22.10.0",
@@ -44,6 +47,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-native": "^0.86.0",
+    "react-native-svg": "^15.0.0",
     "react-native-web": "^0.19.13",
     "typescript": "^5.7.0",
     "vitest": "^2.1.0"
