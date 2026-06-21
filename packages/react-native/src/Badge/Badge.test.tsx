@@ -11,4 +11,9 @@ describe("Badge (RN)", () => {
     render(<Badge variant="success">OK</Badge>);
     expect(screen.getByText("OK")).toBeInTheDocument();
   });
+
+  it("renders an icon slot", () => {
+    render(<Badge icon={<span data-testid="i" />}>X</Badge>);
+    expect(screen.getByTestId("i")).toBeInTheDocument();
+  });
 });
