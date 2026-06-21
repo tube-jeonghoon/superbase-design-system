@@ -35,4 +35,39 @@ describe("Button", () => {
     render(<Button ref={ref}>x</Button>);
     expect(ref.current).toBeInstanceOf(HTMLButtonElement);
   });
+
+  it("renders a spinner and blocks onClick while loading", async () => {
+    const onClick = vi.fn();
+    render(
+      <Button onClick={onClick} loading>
+        Save
+      </Button>,
+    );
+    const btn = screen.getByRole("button", { name: /Save/ });
+    expect(btn).toHaveAttribute("aria-busy", "true");
+    expect(screen.getByRole("status")).toBeInTheDocument();
+    await userEvent.click(btn);
+    expect(onClick).not.toHaveBeenCalled();
+  });
+
+  it("renders start/end icon slots", () => {
+    render(
+      <Button startIcon={<span data-testid="s" />} endIcon={<span data-testid="e" />}>
+        Go
+      </Button>,
+    );
+    expect(screen.getByTestId("s")).toBeInTheDocument();
+    expect(screen.getByTestId("e")).toBeInTheDocument();
+  });
+
+  it("supports ghost/outline variants and fullWidth", () => {
+    render(
+      <Button variant="outline" fullWidth>
+        X
+      </Button>,
+    );
+    const btn = screen.getByRole("button", { name: "X" });
+    expect(btn).toHaveAttribute("data-variant", "outline");
+    expect(btn).toHaveAttribute("data-full-width", "true");
+  });
 });
