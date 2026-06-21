@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import { forwardRef, type CSSProperties } from "react";
 import styles from "./Spinner.module.css";
 
 export type SpinnerSize = "sm" | "md" | "lg";
@@ -10,18 +10,14 @@ export interface SpinnerProps {
   "aria-label"?: string;
 }
 
-export function Spinner({
-  size = "md",
-  color,
-  className,
-  "aria-label": ariaLabel = "로딩 중",
-  ...rest
-}: SpinnerProps) {
-  const style = color
-    ? ({ "--spinner-color": color } as CSSProperties)
-    : undefined;
+export const Spinner = forwardRef<HTMLSpanElement, SpinnerProps>(function Spinner(
+  { size = "md", color, className, "aria-label": ariaLabel = "Loading", ...rest },
+  ref,
+) {
+  const style = color ? ({ "--spinner-color": color } as CSSProperties) : undefined;
   return (
     <span
+      ref={ref}
       role="status"
       aria-label={ariaLabel}
       data-size={size}
@@ -30,4 +26,4 @@ export function Spinner({
       {...rest}
     />
   );
-}
+});
