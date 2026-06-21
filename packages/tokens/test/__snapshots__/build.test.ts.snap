@@ -76,6 +76,8 @@ exports[`token build outputs > matches the CSS output snapshot 1`] = `
   --focus-ring-offset: 2px;
   --size-control: 20px;
   --size-field: 48px;
+  --size-field-sm: 40px;
+  --size-field-lg: 56px;
   --size-button-sm: 36px;
   --size-button-md: 44px;
   --size-button-lg: 52px;
@@ -168,6 +170,8 @@ exports[`token build outputs > matches the CSS output snapshot 1`] = `
   --focus-ring-offset: 2px;
   --size-control: 20px;
   --size-field: 48px;
+  --size-field-sm: 40px;
+  --size-field-lg: 56px;
   --size-button-sm: 36px;
   --size-button-md: 44px;
   --size-button-lg: 52px;
@@ -256,6 +260,8 @@ export const FocusRingWidth = 2;
 export const FocusRingOffset = 2;
 export const SizeControl = 20;
 export const SizeField = 48;
+export const SizeFieldSm = 40;
+export const SizeFieldLg = 56;
 export const SizeButtonSm = 36;
 export const SizeButtonMd = 44;
 export const SizeButtonLg = 52;

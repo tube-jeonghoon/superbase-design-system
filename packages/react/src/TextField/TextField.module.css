@@ -1,21 +1,52 @@
 .field { display: flex; flex-direction: column; gap: var(--spacing-1); }
 .label { font-size: var(--font-size-caption); color: var(--color-text-secondary); }
-.input {
+.control {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
   height: var(--size-field);
   padding: 0 var(--spacing-4);
   border: var(--border-width-thin) solid var(--color-border-default);
   border-radius: var(--radius-md);
-  font-size: var(--font-size-body);
-  color: var(--color-text-primary);
   background: var(--color-background-default);
   transition: border-color var(--duration-fast) var(--easing-standard),
     box-shadow var(--duration-fast) var(--easing-standard);
 }
-.input:focus { outline: none; border-color: var(--color-brand-primary); }
-.input:focus-visible {
-  outline: none;
+.control[data-size="sm"] { height: var(--size-field-sm); }
+.control[data-size="lg"] { height: var(--size-field-lg); }
+.control:focus-within {
   border-color: var(--color-brand-primary);
   box-shadow: 0 0 0 var(--focus-ring-width) var(--focus-ring-color);
 }
-.input[data-error="true"] { border-color: var(--color-status-danger); }
+.control[data-error="true"] { border-color: var(--color-status-danger); }
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: var(--font-size-body);
+  color: var(--color-text-primary);
+}
+.affix { display: inline-flex; align-items: center; color: var(--color-text-secondary); flex-shrink: 0; }
+.clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+.clear:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: var(--radius-sm);
+}
 .error { font-size: var(--font-size-caption); color: var(--color-status-danger); }
+.helper { font-size: var(--font-size-caption); color: var(--color-text-secondary); }

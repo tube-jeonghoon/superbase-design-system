@@ -2,6 +2,8 @@
   "size": {
     "control": { "value": "20px" },
     "field":   { "value": "48px" },
+    "fieldSm": { "value": "40px" },
+    "fieldLg": { "value": "56px" },
     "button": {
       "sm": { "value": "36px" },
       "md": { "value": "44px" },

@@ -120,6 +120,8 @@ export interface Theme {
   size: {
     control: number;
     field: number;
+    fieldSm: number;
+    fieldLg: number;
     button: { sm: number; md: number; lg: number };
     switch: { width: number; height: number; thumb: number };
     icon: { sm: number; md: number; lg: number };

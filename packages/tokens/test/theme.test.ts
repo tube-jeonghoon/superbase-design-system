@@ -36,6 +36,8 @@ describe("native runtime theme objects", () => {
     expect(lightTheme.shadow.md.shadowOpacity).toBe(0.08);
     expect(lightTheme.size.button.md).toBe(44);
     expect(lightTheme.size.control).toBe(20);
+    expect(lightTheme.size.fieldSm).toBe(40);
+    expect(lightTheme.size.fieldLg).toBe(56);
     expect(lightTheme.zIndex).toBeUndefined();
     expect(lightTheme.focusRing).toBeUndefined();
     expect(lightTheme.letterSpacing).toBeUndefined();
