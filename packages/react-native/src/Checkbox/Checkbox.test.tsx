@@ -20,4 +20,9 @@ describe("Checkbox (RN)", () => {
     fireEvent.click(screen.getByRole("checkbox"));
     expect(onChange).not.toHaveBeenCalled();
   });
+
+  it("reports aria-checked=mixed when indeterminate", () => {
+    render(<Checkbox checked={false} indeterminate accessibilityLabel="all" />);
+    expect(screen.getByRole("checkbox", { name: "all" })).toHaveAttribute("aria-checked", "mixed");
+  });
 });

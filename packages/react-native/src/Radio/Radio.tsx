@@ -3,20 +3,23 @@ import { Pressable, View, Text as RNText } from "react-native";
 import { useRadioContext } from "./RadioContext";
 import { useTheme } from "../theme/useTheme";
 
+export type RadioSize = "sm" | "md";
+
 export interface RadioProps {
   value: string;
   label?: string;
   disabled?: boolean;
+  size?: RadioSize;
 }
 
 export const Radio = forwardRef<ElementRef<typeof Pressable>, RadioProps>(function Radio(
-  { value, label, disabled = false },
+  { value, label, disabled = false, size = "md" },
   ref,
 ) {
   const t = useTheme();
   const group = useRadioContext();
   const checked = group.value === value;
-  const box = t.size.control;
+  const box = size === "sm" ? t.size.controlSm : t.size.control;
   const dot = Math.round(box / 2);
   return (
     <Pressable

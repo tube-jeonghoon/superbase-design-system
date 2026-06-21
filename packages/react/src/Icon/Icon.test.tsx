@@ -29,4 +29,9 @@ describe("Icon", () => {
     render(<Icon ref={ref} name="check" />);
     expect(ref.current).toBeInstanceOf(SVGSVGElement);
   });
+
+  it("resolves named sizes to pixels", () => {
+    const { container } = render(<Icon name="check" size="xs" />);
+    expect(container.querySelector("svg")).toHaveAttribute("width", "12");
+  });
 });

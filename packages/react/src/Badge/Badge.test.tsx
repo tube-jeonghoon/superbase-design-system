@@ -23,4 +23,10 @@ describe("Badge", () => {
     render(<Badge ref={ref}>x</Badge>);
     expect(ref.current).toBeInstanceOf(HTMLSpanElement);
   });
+
+  it("applies size and renders icon/dot slots", () => {
+    const { container } = render(<Badge size="sm" dot icon={<span data-testid="i" />}>X</Badge>);
+    expect(container.querySelector('[data-size="sm"]')).not.toBeNull();
+    expect(screen.getByTestId("i")).toBeInTheDocument();
+  });
 });

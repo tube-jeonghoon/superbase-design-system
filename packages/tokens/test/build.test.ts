@@ -100,6 +100,15 @@ describe("token build outputs", () => {
     expect(js).toContain("export const SizeFieldLg = 56;");
   });
 
+  it("emits 2c size tokens (icon-xs, control-sm, switch-sm)", () => {
+    const css = readFileSync(join(dist, "web/variables.css"), "utf8");
+    expect(css).toContain("--size-icon-xs: 12px;");
+    expect(css).toContain("--size-control-sm: 16px;");
+    expect(css).toContain("--size-switch-sm-width: 40px;");
+    expect(css).toContain("--size-switch-sm-height: 24px;");
+    expect(css).toContain("--size-switch-sm-thumb: 20px;");
+  });
+
   it("matches the CSS output snapshot", () => {
     const css = readFileSync(join(dist, "web/variables.css"), "utf8");
     expect(css).toMatchSnapshot();

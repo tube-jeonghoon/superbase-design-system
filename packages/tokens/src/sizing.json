@@ -1,6 +1,7 @@
 {
   "size": {
     "control": { "value": "20px" },
+    "controlSm": { "value": "16px" },
     "field":   { "value": "48px" },
     "fieldSm": { "value": "40px" },
     "fieldLg": { "value": "56px" },
@@ -14,7 +15,13 @@
       "height": { "value": "32px" },
       "thumb":  { "value": "28px" }
     },
+    "switchSm": {
+      "width":  { "value": "40px" },
+      "height": { "value": "24px" },
+      "thumb":  { "value": "20px" }
+    },
     "icon": {
+      "xs": { "value": "12px" },
       "sm": { "value": "16px" },
       "md": { "value": "20px" },
       "lg": { "value": "24px" }

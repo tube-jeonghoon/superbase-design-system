@@ -3,24 +3,27 @@ import { Svg, Path } from "react-native-svg";
 import { iconPaths, ICON_VIEWBOX, type IconName } from "@superbase/icons";
 import { useTheme } from "../theme/useTheme";
 
+export type IconSize = "xs" | "sm" | "md" | "lg";
+
 export interface IconProps {
   name: IconName;
-  size?: number;
+  size?: number | IconSize;
   color?: string;
   label?: string;
 }
 
 export const Icon = forwardRef<ElementRef<typeof Svg>, IconProps>(function Icon(
-  { name, size = 20, color, label },
+  { name, size = "md", color, label },
   ref,
 ) {
   const t = useTheme();
+  const px = typeof size === "number" ? size : t.size.icon[size];
   const stroke = color ?? t.color.text.primary;
   const a11y = label
     ? { accessibilityRole: "image" as const, accessibilityLabel: label }
     : { accessibilityElementsHidden: true, importantForAccessibility: "no-hide-descendants" as const };
   return (
-    <Svg ref={ref} width={size} height={size} viewBox={ICON_VIEWBOX} {...a11y}>
+    <Svg ref={ref} width={px} height={px} viewBox={ICON_VIEWBOX} {...a11y}>
       <Path
         d={iconPaths[name]}
         fill="none"

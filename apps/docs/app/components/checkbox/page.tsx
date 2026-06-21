@@ -23,6 +23,13 @@ export default function CheckboxPage() {
       <Example title="비활성" description={disabledDesc} code={`<Checkbox checked disabled label="비활성(선택됨)" />`}>
         <WebCheckbox checked disabled label="비활성(선택됨)" />
       </Example>
+      <Example
+        title="indeterminate"
+        description={<><Code>indeterminate</Code>로 부분 선택(혼합) 상태를 표시합니다.</>}
+        code={`<Checkbox indeterminate checked={false} label="전체 선택" />`}
+      >
+        <WebCheckbox indeterminate checked={false} label="전체 선택" />
+      </Example>
     </>
   );
   const nativeContent = (
@@ -32,6 +39,13 @@ export default function CheckboxPage() {
       </Example>
       <Example title="비활성" description={disabledDesc} code={`<Checkbox checked disabled label="비활성(선택됨)" />`}>
         <ClientOnly><RNCheckbox checked disabled label="비활성(선택됨)" /></ClientOnly>
+      </Example>
+      <Example
+        title="indeterminate"
+        description={<><Code>indeterminate</Code>로 부분 선택(혼합) 상태를 표시합니다.</>}
+        code={`<Checkbox indeterminate checked={false} label="전체 선택" />`}
+      >
+        <ClientOnly><RNCheckbox indeterminate checked={false} label="전체 선택" /></ClientOnly>
       </Example>
     </>
   );

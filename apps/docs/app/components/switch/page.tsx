@@ -24,6 +24,14 @@ export default function SwitchPage() {
       <Example title="비활성" description={disabledDesc} code={`<Switch checked disabled aria-label="비활성" />`}>
         <WebSwitch checked disabled aria-label="비활성" />
       </Example>
+      <Example
+        title="size"
+        description={<><Code>size</Code>(sm/md)로 크기를 조절합니다.</>}
+        code={`<Switch size="sm" checked={on} onChange={setOn} />`}
+      >
+        <WebSwitch size="sm" checked onChange={() => {}} aria-label="sm" />
+        <WebSwitch checked onChange={() => {}} aria-label="md" />
+      </Example>
     </>
   );
   const nativeContent = (
@@ -36,6 +44,16 @@ export default function SwitchPage() {
       </Example>
       <Example title="비활성" description={disabledDesc} code={`<Switch checked disabled accessibilityLabel="비활성" />`}>
         <ClientOnly><RNSwitch checked disabled accessibilityLabel="비활성" /></ClientOnly>
+      </Example>
+      <Example
+        title="size"
+        description={<><Code>size</Code>(sm/md)로 크기를 조절합니다.</>}
+        code={`<Switch size="sm" checked={on} onChange={setOn} />`}
+      >
+        <ClientOnly>
+          <RNSwitch size="sm" checked onChange={() => {}} accessibilityLabel="sm" />
+          <RNSwitch checked onChange={() => {}} accessibilityLabel="md" />
+        </ClientOnly>
       </Example>
     </>
   );

@@ -33,4 +33,9 @@ describe("Checkbox", () => {
     render(<Checkbox checked={false} ref={ref} />);
     expect(ref.current).toBeInstanceOf(HTMLButtonElement);
   });
+
+  it("reports aria-checked=mixed when indeterminate", () => {
+    render(<Checkbox checked={false} indeterminate aria-label="all" />);
+    expect(screen.getByRole("checkbox", { name: "all" })).toHaveAttribute("aria-checked", "mixed");
+  });
 });

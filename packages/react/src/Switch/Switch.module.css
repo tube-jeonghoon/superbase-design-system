@@ -26,3 +26,8 @@
 .switch[data-checked="true"] .thumb {
   transform: translateX(calc(var(--size-switch-width) - var(--size-switch-thumb) - 4px));
 }
+.switch[data-size="sm"] { width: var(--size-switch-sm-width); height: var(--size-switch-sm-height); }
+.switch[data-size="sm"] .thumb { width: var(--size-switch-sm-thumb); height: var(--size-switch-sm-thumb); }
+.switch[data-size="sm"][data-checked="true"] .thumb {
+  transform: translateX(calc(var(--size-switch-sm-width) - var(--size-switch-sm-thumb) - 4px));
+}

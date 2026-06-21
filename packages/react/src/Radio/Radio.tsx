@@ -2,15 +2,18 @@ import { forwardRef, type ReactNode } from "react";
 import { useRadioContext } from "./RadioContext";
 import styles from "./Radio.module.css";
 
+export type RadioSize = "sm" | "md";
+
 export interface RadioProps {
   value: string;
   label?: ReactNode;
   disabled?: boolean;
+  size?: RadioSize;
   className?: string;
 }
 
 export const Radio = forwardRef<HTMLButtonElement, RadioProps>(function Radio(
-  { value, label, disabled = false, className },
+  { value, label, disabled = false, size = "md", className },
   ref,
 ) {
   const group = useRadioContext();
@@ -23,6 +26,7 @@ export const Radio = forwardRef<HTMLButtonElement, RadioProps>(function Radio(
       aria-checked={checked}
       disabled={disabled}
       data-checked={checked ? "true" : "false"}
+      data-size={size}
       className={[styles.radio, className].filter(Boolean).join(" ")}
       onClick={() => group.onChange?.(value)}
     >

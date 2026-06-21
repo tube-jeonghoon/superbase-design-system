@@ -41,6 +41,17 @@ const webContent = (
       <WebIcon name="check" size={24} color="var(--color-brand-primary)" />
     </Example>
 
+    <Example
+      title="명명 크기"
+      description={<><Code>size</Code>에 xs/sm/md/lg를 줄 수 있습니다(숫자도 가능).</>}
+      code={`<Icon name="star" size="xs" />\n<Icon name="star" size="lg" />`}
+    >
+      <WebIcon name="star" size="xs" />
+      <WebIcon name="star" size="sm" />
+      <WebIcon name="star" size="md" />
+      <WebIcon name="star" size="lg" />
+    </Example>
+
     <Example title="전체 아이콘" description="현재 제공하는 모든 아이콘입니다." code={`iconNames.map((name) => <Icon name={name} />)`}>
       <div style={gridStyle}>
         {iconNames.map((n) => (
@@ -69,6 +80,19 @@ const nativeContent = (
       <ClientOnly>
         <RNIcon name="search" />
         <RNIcon name="check" size={24} color="#3182f6" />
+      </ClientOnly>
+    </Example>
+
+    <Example
+      title="명명 크기"
+      description={<><Code>size</Code>에 xs/sm/md/lg를 줄 수 있습니다(숫자도 가능).</>}
+      code={`<Icon name="star" size="xs" />\n<Icon name="star" size="lg" />`}
+    >
+      <ClientOnly>
+        <RNIcon name="star" size="xs" />
+        <RNIcon name="star" size="sm" />
+        <RNIcon name="star" size="md" />
+        <RNIcon name="star" size="lg" />
       </ClientOnly>
     </Example>
 

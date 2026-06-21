@@ -3,6 +3,7 @@ import styles from "./Checkbox.module.css";
 
 export interface CheckboxProps {
   checked: boolean;
+  indeterminate?: boolean;
   onChange?: (checked: boolean) => void;
   disabled?: boolean;
   label?: ReactNode;
@@ -11,7 +12,7 @@ export interface CheckboxProps {
 }
 
 export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(function Checkbox(
-  { checked, onChange, disabled = false, label, className, ...rest },
+  { checked, indeterminate = false, onChange, disabled = false, label, className, ...rest },
   ref,
 ) {
   return (
@@ -19,9 +20,10 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(function Ch
       ref={ref}
       type="button"
       role="checkbox"
-      aria-checked={checked}
+      aria-checked={indeterminate ? "mixed" : checked}
       disabled={disabled}
       data-checked={checked ? "true" : "false"}
+      data-indeterminate={indeterminate ? "true" : undefined}
       className={[styles.checkbox, className].filter(Boolean).join(" ")}
       onClick={() => onChange?.(!checked)}
       {...rest}
