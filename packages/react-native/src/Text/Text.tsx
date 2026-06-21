@@ -1,17 +1,6 @@
+import { forwardRef, type ElementRef } from "react";
 import { Text as RNText, type TextProps as RNTextProps, type TextStyle } from "react-native";
-import {
-  ColorTextPrimary,
-  ColorTextSecondary,
-  ColorTextDisabled,
-  ColorBrandPrimary,
-  FontSizeCaption,
-  FontSizeBody,
-  FontSizeTitle,
-  FontSizeDisplay,
-  FontWeightRegular,
-  FontWeightMedium,
-  FontWeightBold,
-} from "@superbase/tokens/native";
+import { useTheme } from "../theme/useTheme";
 
 export type TextVariant = "caption" | "body" | "title" | "display";
 export type TextWeight = "regular" | "medium" | "bold";
@@ -23,37 +12,25 @@ export interface TextProps extends RNTextProps {
   color?: TextColor;
 }
 
-const sizeFor: Record<TextVariant, number> = {
-  caption: FontSizeCaption,
-  body: FontSizeBody,
-  title: FontSizeTitle,
-  display: FontSizeDisplay,
-};
-const weightFor: Record<TextWeight, TextStyle["fontWeight"]> = {
-  regular: FontWeightRegular as TextStyle["fontWeight"],
-  medium: FontWeightMedium as TextStyle["fontWeight"],
-  bold: FontWeightBold as TextStyle["fontWeight"],
-};
-const colorFor: Record<TextColor, string> = {
-  primary: ColorTextPrimary,
-  secondary: ColorTextSecondary,
-  disabled: ColorTextDisabled,
-  brand: ColorBrandPrimary,
-};
-
-export function Text({
-  variant = "body",
-  weight = "regular",
-  color = "primary",
-  style,
-  ...rest
-}: TextProps) {
+export const Text = forwardRef<ElementRef<typeof RNText>, TextProps>(function Text(
+  { variant = "body", weight = "regular", color = "primary", style, ...rest },
+  ref,
+) {
+  const t = useTheme();
+  const colorFor: Record<TextColor, string> = {
+    primary: t.color.text.primary,
+    secondary: t.color.text.secondary,
+    disabled: t.color.text.disabled,
+    brand: t.color.brand.primary,
+  };
   return (
     <RNText
+      ref={ref}
       style={[
         {
-          fontSize: sizeFor[variant],
-          fontWeight: weightFor[weight],
+          fontSize: t.font.size[variant],
+          lineHeight: t.font.size[variant] * t.lineHeight[variant],
+          fontWeight: String(t.font.weight[weight]) as TextStyle["fontWeight"],
           color: colorFor[color],
         },
         style,
@@ -61,4 +38,4 @@ export function Text({
       {...rest}
     />
   );
-}
+});
