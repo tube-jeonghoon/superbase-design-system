@@ -1,12 +1,6 @@
+import { forwardRef, type ElementRef } from "react";
 import { View, type ViewProps, type FlexStyle } from "react-native";
-import {
-  Spacing1,
-  Spacing2,
-  Spacing3,
-  Spacing4,
-  Spacing6,
-  Spacing8,
-} from "@superbase/tokens/native";
+import { useTheme } from "../theme/useTheme";
 
 export type SpacingScale = 0 | 1 | 2 | 3 | 4 | 6 | 8;
 
@@ -18,27 +12,23 @@ export interface StackProps extends ViewProps {
   justify?: FlexStyle["justifyContent"];
 }
 
-const SPACING: Record<SpacingScale, number> = {
-  0: 0,
-  1: Spacing1,
-  2: Spacing2,
-  3: Spacing3,
-  4: Spacing4,
-  6: Spacing6,
-  8: Spacing8,
-};
-
-export function Stack({
-  direction = "column",
-  gap = 0,
-  padding = 0,
-  align,
-  justify,
-  style,
-  ...rest
-}: StackProps) {
+export const Stack = forwardRef<ElementRef<typeof View>, StackProps>(function Stack(
+  { direction = "column", gap = 0, padding = 0, align, justify, style, ...rest },
+  ref,
+) {
+  const t = useTheme();
+  const SPACING: Record<SpacingScale, number> = {
+    0: 0,
+    1: t.spacing["1"],
+    2: t.spacing["2"],
+    3: t.spacing["3"],
+    4: t.spacing["4"],
+    6: t.spacing["6"],
+    8: t.spacing["8"],
+  };
   return (
     <View
+      ref={ref}
       style={[
         {
           flexDirection: direction,
@@ -52,4 +42,4 @@ export function Stack({
       {...rest}
     />
   );
-}
+});
