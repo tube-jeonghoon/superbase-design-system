@@ -22,4 +22,9 @@ describe("Icon (RN)", () => {
     expect(container.querySelector("svg")?.getAttribute("width")).toBe("32");
     expect(container.querySelector("path")?.getAttribute("stroke")).toBe("red");
   });
+
+  it("resolves named sizes to pixels", () => {
+    const { container } = render(<Icon name="check" size="xs" />);
+    expect(container.querySelector("svg")).toHaveAttribute("width", "12");
+  });
 });
