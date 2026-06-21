@@ -1,3 +1,4 @@
+import { createRef } from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Checkbox } from "./Checkbox";
@@ -25,5 +26,11 @@ describe("Checkbox", () => {
     render(<Checkbox checked={false} onChange={onChange} disabled aria-label="x" />);
     await userEvent.click(screen.getByRole("checkbox"));
     expect(onChange).not.toHaveBeenCalled();
+  });
+
+  it("forwards ref to the checkbox button", () => {
+    const ref = createRef<HTMLButtonElement>();
+    render(<Checkbox checked={false} ref={ref} />);
+    expect(ref.current).toBeInstanceOf(HTMLButtonElement);
   });
 });

@@ -1,3 +1,4 @@
+import { createRef } from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { RadioGroup } from "./RadioGroup";
@@ -33,5 +34,15 @@ describe("RadioGroup + Radio", () => {
       "Radio must be used within a RadioGroup",
     );
     spy.mockRestore();
+  });
+
+  it("forwards ref on RadioGroup", () => {
+    const ref = createRef<HTMLDivElement>();
+    render(
+      <RadioGroup value="a" ref={ref}>
+        <Radio value="a" label="A" />
+      </RadioGroup>,
+    );
+    expect(ref.current).toBeInstanceOf(HTMLDivElement);
   });
 });

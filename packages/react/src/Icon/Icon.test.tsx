@@ -1,3 +1,4 @@
+import { createRef } from "react";
 import { render } from "@testing-library/react";
 import { iconPaths } from "@superbase/icons";
 import { Icon } from "./Icon";
@@ -21,5 +22,11 @@ describe("Icon", () => {
     rerender(<Icon name="search" label="검색" />);
     const labeled = container.querySelector('svg[role="img"]');
     expect(labeled?.getAttribute("aria-label")).toBe("검색");
+  });
+
+  it("forwards ref", () => {
+    const ref = createRef<SVGSVGElement>();
+    render(<Icon ref={ref} name="check" />);
+    expect(ref.current).toBeInstanceOf(SVGSVGElement);
   });
 });

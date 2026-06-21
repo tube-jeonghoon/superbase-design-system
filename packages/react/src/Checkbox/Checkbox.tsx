@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { forwardRef, type ReactNode } from "react";
 import styles from "./Checkbox.module.css";
 
 export interface CheckboxProps {
@@ -10,16 +10,13 @@ export interface CheckboxProps {
   "aria-label"?: string;
 }
 
-export function Checkbox({
-  checked,
-  onChange,
-  disabled = false,
-  label,
-  className,
-  ...rest
-}: CheckboxProps) {
+export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(function Checkbox(
+  { checked, onChange, disabled = false, label, className, ...rest },
+  ref,
+) {
   return (
     <button
+      ref={ref}
       type="button"
       role="checkbox"
       aria-checked={checked}
@@ -35,4 +32,4 @@ export function Checkbox({
       {label != null ? <span className={styles.label}>{label}</span> : null}
     </button>
   );
-}
+});

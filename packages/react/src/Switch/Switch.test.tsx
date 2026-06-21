@@ -1,3 +1,4 @@
+import { createRef } from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Switch } from "./Switch";
@@ -22,5 +23,11 @@ describe("Switch", () => {
     );
     await userEvent.click(screen.getByRole("switch"));
     expect(onChange).not.toHaveBeenCalled();
+  });
+
+  it("forwards ref to the switch button", () => {
+    const ref = createRef<HTMLButtonElement>();
+    render(<Switch checked={false} ref={ref} />);
+    expect(ref.current).toBeInstanceOf(HTMLButtonElement);
   });
 });

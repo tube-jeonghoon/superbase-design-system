@@ -1,3 +1,4 @@
+import { createRef } from "react";
 import { render, screen } from "@testing-library/react";
 import { Stack } from "./Stack";
 
@@ -21,5 +22,11 @@ describe("Stack", () => {
     const stack = screen.getByText("x").parentElement as HTMLElement;
     expect(stack).toHaveAttribute("data-direction", "row");
     expect(stack).toHaveStyle({ flexDirection: "row", gap: "var(--spacing-4)" });
+  });
+
+  it("forwards ref", () => {
+    const ref = createRef<HTMLDivElement>();
+    render(<Stack ref={ref}>x</Stack>);
+    expect(ref.current).toBeInstanceOf(HTMLDivElement);
   });
 });

@@ -1,3 +1,4 @@
+import { createRef } from "react";
 import { render, screen } from "@testing-library/react";
 import { Badge } from "./Badge";
 
@@ -15,5 +16,11 @@ describe("Badge", () => {
   it("defaults variant to neutral", () => {
     render(<Badge>n</Badge>);
     expect(screen.getByText("n")).toHaveAttribute("data-variant", "neutral");
+  });
+
+  it("forwards ref", () => {
+    const ref = createRef<HTMLSpanElement>();
+    render(<Badge ref={ref}>x</Badge>);
+    expect(ref.current).toBeInstanceOf(HTMLSpanElement);
   });
 });

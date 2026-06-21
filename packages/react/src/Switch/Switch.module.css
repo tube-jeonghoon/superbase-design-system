@@ -1,22 +1,28 @@
 .switch {
   position: relative;
-  width: 52px;
-  height: 32px;
+  width: var(--size-switch-width);
+  height: var(--size-switch-height);
   border: none;
   border-radius: var(--radius-full);
-  background: var(--color-gray-200);
+  background: var(--color-border-default);
   cursor: pointer;
   padding: 2px;
-  transition: background-color 0.15s ease;
+  transition: background-color var(--duration-fast) var(--easing-standard);
 }
 .switch[data-checked="true"] { background: var(--color-brand-primary); }
-.switch:disabled { opacity: 0.4; cursor: not-allowed; }
+.switch:disabled { opacity: var(--opacity-disabled); cursor: not-allowed; }
+.switch:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
 .thumb {
   display: block;
-  width: 28px;
-  height: 28px;
+  width: var(--size-switch-thumb);
+  height: var(--size-switch-thumb);
   border-radius: var(--radius-full);
   background: var(--color-white);
-  transition: transform 0.15s ease;
+  transition: transform var(--duration-fast) var(--easing-standard);
 }
-.switch[data-checked="true"] .thumb { transform: translateX(20px); }
+.switch[data-checked="true"] .thumb {
+  transform: translateX(calc(var(--size-switch-width) - var(--size-switch-thumb) - 4px));
+}

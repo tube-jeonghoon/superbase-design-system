@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { forwardRef, type ReactNode } from "react";
 import { useRadioContext } from "./RadioContext";
 import styles from "./Radio.module.css";
 
@@ -9,11 +9,15 @@ export interface RadioProps {
   className?: string;
 }
 
-export function Radio({ value, label, disabled = false, className }: RadioProps) {
+export const Radio = forwardRef<HTMLButtonElement, RadioProps>(function Radio(
+  { value, label, disabled = false, className },
+  ref,
+) {
   const group = useRadioContext();
   const checked = group.value === value;
   return (
     <button
+      ref={ref}
       type="button"
       role="radio"
       aria-checked={checked}
@@ -26,4 +30,4 @@ export function Radio({ value, label, disabled = false, className }: RadioProps)
       {label != null ? <span className={styles.label}>{label}</span> : null}
     </button>
   );
-}
+});
