@@ -24,4 +24,26 @@ describe("Button (RN)", () => {
     fireEvent.click(screen.getByText("Go"));
     expect(onPress).not.toHaveBeenCalled();
   });
+
+  it("blocks onPress and shows a spinner while loading", () => {
+    const onPress = vi.fn();
+    render(
+      <Button onPress={onPress} loading>
+        Save
+      </Button>,
+    );
+    expect(screen.getByLabelText("Loading")).toBeInTheDocument();
+    fireEvent.click(screen.getByText("Save"));
+    expect(onPress).not.toHaveBeenCalled();
+  });
+
+  it("renders start/end icon slots", () => {
+    render(
+      <Button onPress={() => {}} startIcon={<span data-testid="s" />} endIcon={<span data-testid="e" />}>
+        Go
+      </Button>,
+    );
+    expect(screen.getByTestId("s")).toBeInTheDocument();
+    expect(screen.getByTestId("e")).toBeInTheDocument();
+  });
 });
