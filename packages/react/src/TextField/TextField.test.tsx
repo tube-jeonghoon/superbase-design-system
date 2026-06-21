@@ -36,4 +36,27 @@ describe("TextField", () => {
     render(<TextField ref={ref} label="L" />);
     expect(ref.current).toBeInstanceOf(HTMLInputElement);
   });
+
+  it("applies the size data attribute to the control", () => {
+    const { container } = render(<TextField label="L" size="lg" />);
+    expect(container.querySelector('[data-size="lg"]')).not.toBeNull();
+  });
+
+  it("renders prefix and suffix slots", () => {
+    render(<TextField label="L" prefix={<span data-testid="p" />} suffix={<span data-testid="s" />} />);
+    expect(screen.getByTestId("p")).toBeInTheDocument();
+    expect(screen.getByTestId("s")).toBeInTheDocument();
+  });
+
+  it("shows a clear button when clearable with a value and clears on click", async () => {
+    const onChange = vi.fn();
+    render(<TextField label="L" clearable value="hi" onChange={onChange} />);
+    await userEvent.click(screen.getByRole("button", { name: "Clear" }));
+    expect(onChange).toHaveBeenCalledWith("");
+  });
+
+  it("shows helper text when there is no error", () => {
+    render(<TextField label="L" helperText="도움말" />);
+    expect(screen.getByText("도움말")).toBeInTheDocument();
+  });
 });
