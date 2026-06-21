@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { forwardRef, type ReactNode } from "react";
 import { RadioContext } from "./RadioContext";
 import styles from "./Radio.module.css";
 
@@ -10,15 +10,13 @@ export interface RadioGroupProps {
   "aria-label"?: string;
 }
 
-export function RadioGroup({
-  value,
-  onChange,
-  children,
-  className,
-  ...rest
-}: RadioGroupProps) {
+export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(function RadioGroup(
+  { value, onChange, children, className, ...rest },
+  ref,
+) {
   return (
     <div
+      ref={ref}
       role="radiogroup"
       className={[styles.group, className].filter(Boolean).join(" ")}
       {...rest}
@@ -28,4 +26,4 @@ export function RadioGroup({
       </RadioContext.Provider>
     </div>
   );
-}
+});

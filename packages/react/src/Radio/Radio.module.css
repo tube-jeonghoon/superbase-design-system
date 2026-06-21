@@ -9,23 +9,28 @@
   cursor: pointer;
   font-family: inherit;
 }
-.radio:disabled { cursor: not-allowed; opacity: 0.4; }
-.dot {
-  width: 20px;
-  height: 20px;
+.radio:disabled { cursor: not-allowed; opacity: var(--opacity-disabled); }
+.radio:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
   border-radius: var(--radius-full);
-  border: 2px solid var(--color-border-default);
+}
+.dot {
+  width: var(--size-control);
+  height: var(--size-control);
+  border-radius: var(--radius-full);
+  border: var(--border-width-medium) solid var(--color-border-default);
   background: var(--color-background-default);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: border-color 0.15s ease;
+  transition: border-color var(--duration-fast) var(--easing-standard);
 }
 .radio[data-checked="true"] .dot { border-color: var(--color-brand-primary); }
 .radio[data-checked="true"] .dot::after {
   content: "";
-  width: 10px;
-  height: 10px;
+  width: calc(var(--size-control) / 2);
+  height: calc(var(--size-control) / 2);
   border-radius: var(--radius-full);
   background: var(--color-brand-primary);
 }
