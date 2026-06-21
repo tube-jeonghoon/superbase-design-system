@@ -74,6 +74,17 @@ exports[`token build outputs > matches the CSS output snapshot 1`] = `
   --focus-ring-color: rgba(49, 130, 246, 0.4);
   --focus-ring-width: 2px;
   --focus-ring-offset: 2px;
+  --size-control: 20px;
+  --size-field: 48px;
+  --size-button-sm: 36px;
+  --size-button-md: 44px;
+  --size-button-lg: 52px;
+  --size-switch-width: 52px;
+  --size-switch-height: 32px;
+  --size-switch-thumb: 28px;
+  --size-icon-sm: 16px;
+  --size-icon-md: 20px;
+  --size-icon-lg: 24px;
 }
 
 /**
@@ -149,6 +160,17 @@ exports[`token build outputs > matches the CSS output snapshot 1`] = `
   --focus-ring-color: rgba(49, 130, 246, 0.4);
   --focus-ring-width: 2px;
   --focus-ring-offset: 2px;
+  --size-control: 20px;
+  --size-field: 48px;
+  --size-button-sm: 36px;
+  --size-button-md: 44px;
+  --size-button-lg: 52px;
+  --size-switch-width: 52px;
+  --size-switch-height: 32px;
+  --size-switch-thumb: 28px;
+  --size-icon-sm: 16px;
+  --size-icon-md: 20px;
+  --size-icon-lg: 24px;
 }
 "
 `;
@@ -226,5 +248,16 @@ export const ZIndexToast = "1500";
 export const FocusRingColor = "rgba(49, 130, 246, 0.4)";
 export const FocusRingWidth = 2;
 export const FocusRingOffset = 2;
+export const SizeControl = 20;
+export const SizeField = 48;
+export const SizeButtonSm = 36;
+export const SizeButtonMd = 44;
+export const SizeButtonLg = 52;
+export const SizeSwitchWidth = 52;
+export const SizeSwitchHeight = 32;
+export const SizeSwitchThumb = 28;
+export const SizeIconSm = 16;
+export const SizeIconMd = 20;
+export const SizeIconLg = 24;
 "
 `;

@@ -12,7 +12,7 @@ const cssFile = (selector) => ({
 });
 
 export const lightConfig = {
-  source: ["src/primitives.json", "src/semantic.light.json"],
+  source: ["src/primitives.json", "src/sizing.json", "src/semantic.light.json"],
   platforms: {
     css: cssFile(":root"),
     native: {
@@ -27,7 +27,7 @@ export const lightConfig = {
 };
 
 export const darkConfig = {
-  source: ["src/primitives.json", "src/semantic.dark.json"],
+  source: ["src/primitives.json", "src/sizing.json", "src/semantic.dark.json"],
   platforms: {
     css: cssFile('[data-theme="dark"]')
   }

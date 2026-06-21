@@ -69,6 +69,18 @@ describe("token build outputs", () => {
     expect(css).toContain("--focus-ring-width: 2px;");
   });
 
+  it("emits component-size tokens (web + native)", () => {
+    const css = readFileSync(join(pkgRoot, "dist/web/variables.css"), "utf8");
+    expect(css).toContain("--size-control: 20px;");
+    expect(css).toContain("--size-button-md: 44px;");
+    expect(css).toContain("--size-field: 48px;");
+    expect(css).toContain("--size-switch-thumb: 28px;");
+    expect(css).toContain("--size-icon-md: 20px;");
+    const js = readFileSync(join(pkgRoot, "dist/native/tokens.js"), "utf8");
+    expect(js).toContain("export const SizeControl = 20;");
+    expect(js).toContain("export const SizeButtonMd = 44;");
+  });
+
   it("matches the CSS output snapshot", () => {
     const css = readFileSync(join(pkgRoot, "dist/web/variables.css"), "utf8");
     expect(css).toMatchSnapshot();
