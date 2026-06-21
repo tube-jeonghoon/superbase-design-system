@@ -43,5 +43,45 @@
       "medium":  { "value": "500" },
       "bold":    { "value": "700" }
     }
+  },
+  "borderWidth": {
+    "thin":   { "value": "1px" },
+    "medium": { "value": "2px" }
+  },
+  "opacity": {
+    "disabled": { "value": "0.4" },
+    "pressed":  { "value": "0.85" }
+  },
+  "lineHeight": {
+    "caption": { "value": "1.4" },
+    "body":    { "value": "1.5" },
+    "title":   { "value": "1.4" },
+    "display": { "value": "1.3" }
+  },
+  "letterSpacing": {
+    "tight":  { "value": "-0.02em" },
+    "normal": { "value": "0" }
+  },
+  "duration": {
+    "fast": { "value": "120ms" },
+    "base": { "value": "200ms" },
+    "slow": { "value": "320ms" }
+  },
+  "easing": {
+    "standard":   { "value": "cubic-bezier(0.2, 0, 0, 1)" },
+    "decelerate": { "value": "cubic-bezier(0, 0, 0, 1)" },
+    "accelerate": { "value": "cubic-bezier(0.3, 0, 1, 1)" }
+  },
+  "zIndex": {
+    "dropdown": { "value": "1000" },
+    "overlay":  { "value": "1200" },
+    "modal":    { "value": "1300" },
+    "popover":  { "value": "1400" },
+    "toast":    { "value": "1500" }
+  },
+  "focusRing": {
+    "color":  { "value": "rgba(49, 130, 246, 0.4)" },
+    "width":  { "value": "2px" },
+    "offset": { "value": "2px" }
   }
 }

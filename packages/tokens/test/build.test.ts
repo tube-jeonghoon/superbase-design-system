@@ -53,6 +53,22 @@ describe("token build outputs", () => {
     expect(ts).toContain('export const ColorStatusSuccess = "#00b26d";');
   });
 
+  it("emits scalar foundation tokens as CSS variables", () => {
+    const css = readFileSync(join(pkgRoot, "dist/web/variables.css"), "utf8");
+    expect(css).toContain("--border-width-thin: 1px;");
+    expect(css).toContain("--border-width-medium: 2px;");
+    expect(css).toContain("--opacity-disabled: 0.4;");
+    expect(css).toContain("--opacity-pressed: 0.85;");
+    expect(css).toContain("--line-height-body: 1.5;");
+    expect(css).toContain("--letter-spacing-tight: -0.02em;");
+    expect(css).toContain("--duration-fast: 120ms;");
+    expect(css).toContain("--duration-slow: 320ms;");
+    expect(css).toContain("--easing-standard: cubic-bezier(0.2, 0, 0, 1);");
+    expect(css).toContain("--z-index-modal: 1300;");
+    expect(css).toContain("--focus-ring-color: rgba(49, 130, 246, 0.4);");
+    expect(css).toContain("--focus-ring-width: 2px;");
+  });
+
   it("matches the CSS output snapshot", () => {
     const css = readFileSync(join(pkgRoot, "dist/web/variables.css"), "utf8");
     expect(css).toMatchSnapshot();
