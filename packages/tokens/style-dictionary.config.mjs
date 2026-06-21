@@ -1,6 +1,8 @@
+const DIST = process.env.TOKENS_DIST || "dist";
+
 const cssFile = (selector) => ({
   transformGroup: "css",
-  buildPath: "dist/web/",
+  buildPath: `${DIST}/web/`,
   options: { outputReferences: false },
   files: [
     {
@@ -11,24 +13,34 @@ const cssFile = (selector) => ({
   ]
 });
 
+const nativeTransforms = ["attribute/cti", "name/pascal", "color/css", "size/px-to-number"];
+
 export const lightConfig = {
-  source: ["src/primitives.json", "src/semantic.light.json"],
+  source: ["src/primitives.json", "src/sizing.json", "src/semantic.light.json"],
   platforms: {
     css: cssFile(":root"),
     native: {
-      transforms: ["attribute/cti", "name/pascal", "color/css", "size/px-to-number"],
-      buildPath: "dist/native/",
+      transforms: nativeTransforms,
+      buildPath: `${DIST}/native/`,
       files: [
         { destination: "tokens.js", format: "javascript/es6" },
-        { destination: "tokens.d.ts", format: "typescript/es6-declarations" }
+        { destination: "tokens.d.ts", format: "typescript/es6-declarations" },
+        { destination: "tokens.light.json", format: "json/nested" }
       ]
     }
   }
 };
 
 export const darkConfig = {
-  source: ["src/primitives.json", "src/semantic.dark.json"],
+  source: ["src/primitives.json", "src/sizing.json", "src/semantic.dark.json"],
   platforms: {
-    css: cssFile('[data-theme="dark"]')
+    css: cssFile('[data-theme="dark"]'),
+    native: {
+      transforms: nativeTransforms,
+      buildPath: `${DIST}/native/`,
+      files: [
+        { destination: "tokens.dark.json", format: "json/nested" }
+      ]
+    }
   }
 };

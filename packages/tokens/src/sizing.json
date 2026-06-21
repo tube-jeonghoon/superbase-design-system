@@ -1,0 +1,21 @@
+{
+  "size": {
+    "control": { "value": "20px" },
+    "field":   { "value": "48px" },
+    "button": {
+      "sm": { "value": "36px" },
+      "md": { "value": "44px" },
+      "lg": { "value": "52px" }
+    },
+    "switch": {
+      "width":  { "value": "52px" },
+      "height": { "value": "32px" },
+      "thumb":  { "value": "28px" }
+    },
+    "icon": {
+      "sm": { "value": "16px" },
+      "md": { "value": "20px" },
+      "lg": { "value": "24px" }
+    }
+  }
+}
