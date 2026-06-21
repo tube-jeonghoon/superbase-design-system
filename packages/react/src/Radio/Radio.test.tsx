@@ -45,4 +45,13 @@ describe("RadioGroup + Radio", () => {
     );
     expect(ref.current).toBeInstanceOf(HTMLDivElement);
   });
+
+  it("applies the size data attribute on a radio", () => {
+    const { container } = render(
+      <RadioGroup value="a">
+        <Radio value="a" label="A" size="sm" />
+      </RadioGroup>,
+    );
+    expect(container.querySelector('[data-size="sm"]')).not.toBeNull();
+  });
 });

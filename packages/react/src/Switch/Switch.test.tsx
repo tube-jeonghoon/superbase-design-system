@@ -30,4 +30,9 @@ describe("Switch", () => {
     render(<Switch checked={false} ref={ref} />);
     expect(ref.current).toBeInstanceOf(HTMLButtonElement);
   });
+
+  it("applies the size data attribute", () => {
+    const { container } = render(<Switch checked={false} size="sm" />);
+    expect(container.querySelector('[data-size="sm"]')).not.toBeNull();
+  });
 });

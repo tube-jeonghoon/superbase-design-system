@@ -34,4 +34,9 @@
   border-radius: var(--radius-full);
   background: var(--color-brand-primary);
 }
+.radio[data-size="sm"] .dot { width: var(--size-control-sm); height: var(--size-control-sm); }
+.radio[data-size="sm"][data-checked="true"] .dot::after {
+  width: calc(var(--size-control-sm) / 2);
+  height: calc(var(--size-control-sm) / 2);
+}
 .label { font-size: var(--font-size-body); color: var(--color-text-primary); }
