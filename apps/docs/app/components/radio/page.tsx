@@ -20,24 +20,50 @@ export default function RadioPage() {
   const [rnPlan, setRnPlan] = useState("basic");
 
   const webContent = (
-    <Example title="기본 사용" description={desc} code={code}>
-      <WebRadioGroup value={webPlan} onChange={setWebPlan} aria-label="요금제">
-        <WebRadio value="basic" label="Basic" />
-        <WebRadio value="pro" label="Pro" />
-        <WebRadio value="enterprise" label="Enterprise" disabled />
-      </WebRadioGroup>
-    </Example>
+    <>
+      <Example title="기본 사용" description={desc} code={code}>
+        <WebRadioGroup value={webPlan} onChange={setWebPlan} aria-label="요금제">
+          <WebRadio value="basic" label="Basic" />
+          <WebRadio value="pro" label="Pro" />
+          <WebRadio value="enterprise" label="Enterprise" disabled />
+        </WebRadioGroup>
+      </Example>
+      <Example
+        title="size"
+        description={<><Code>size</Code>(sm/md)로 크기를 조절합니다.</>}
+        code={`<Radio value="a" label="Small" size="sm" />`}
+      >
+        <WebRadioGroup value="a" onChange={() => {}} aria-label="size">
+          <WebRadio value="a" label="Small" size="sm" />
+          <WebRadio value="b" label="Medium" />
+        </WebRadioGroup>
+      </Example>
+    </>
   );
   const nativeContent = (
-    <Example title="기본 사용" description={desc} code={code}>
-      <ClientOnly>
-        <RNRadioGroup value={rnPlan} onChange={setRnPlan}>
-          <RNRadio value="basic" label="Basic" />
-          <RNRadio value="pro" label="Pro" />
-          <RNRadio value="enterprise" label="Enterprise" disabled />
-        </RNRadioGroup>
-      </ClientOnly>
-    </Example>
+    <>
+      <Example title="기본 사용" description={desc} code={code}>
+        <ClientOnly>
+          <RNRadioGroup value={rnPlan} onChange={setRnPlan}>
+            <RNRadio value="basic" label="Basic" />
+            <RNRadio value="pro" label="Pro" />
+            <RNRadio value="enterprise" label="Enterprise" disabled />
+          </RNRadioGroup>
+        </ClientOnly>
+      </Example>
+      <Example
+        title="size"
+        description={<><Code>size</Code>(sm/md)로 크기를 조절합니다.</>}
+        code={`<Radio value="a" label="Small" size="sm" />`}
+      >
+        <ClientOnly>
+          <RNRadioGroup value="a" onChange={() => {}}>
+            <RNRadio value="a" label="Small" size="sm" />
+            <RNRadio value="b" label="Medium" />
+          </RNRadioGroup>
+        </ClientOnly>
+      </Example>
+    </>
   );
 
   return (
