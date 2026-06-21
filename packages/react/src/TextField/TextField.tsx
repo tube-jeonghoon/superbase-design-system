@@ -1,5 +1,4 @@
-import { useId } from "react";
-import type { InputHTMLAttributes } from "react";
+import { forwardRef, useId, type InputHTMLAttributes } from "react";
 import styles from "./TextField.module.css";
 
 export interface TextFieldProps
@@ -10,15 +9,10 @@ export interface TextFieldProps
   onChange?: (value: string) => void;
 }
 
-export function TextField({
-  label,
-  error,
-  id,
-  value,
-  onChange,
-  className,
-  ...rest
-}: TextFieldProps) {
+export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function TextField(
+  { label, error, id, value, onChange, className, ...rest },
+  ref,
+) {
   const generatedId = useId();
   const inputId = id ?? generatedId;
   const errorId = `${inputId}-error`;
@@ -30,6 +24,7 @@ export function TextField({
         </label>
       ) : null}
       <input
+        ref={ref}
         id={inputId}
         className={styles.input}
         aria-invalid={error ? true : undefined}
@@ -46,4 +41,4 @@ export function TextField({
       ) : null}
     </div>
   );
-}
+});

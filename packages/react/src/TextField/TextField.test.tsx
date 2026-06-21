@@ -1,3 +1,4 @@
+import { createRef } from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { TextField } from "./TextField";
@@ -28,5 +29,11 @@ describe("TextField", () => {
     expect(screen.getByLabelText("Name")).toHaveValue("a");
     rerender(<TextField label="Name" value="ab" onChange={() => {}} />);
     expect(screen.getByLabelText("Name")).toHaveValue("ab");
+  });
+
+  it("forwards ref to the input element", () => {
+    const ref = createRef<HTMLInputElement>();
+    render(<TextField ref={ref} label="L" />);
+    expect(ref.current).toBeInstanceOf(HTMLInputElement);
   });
 });
