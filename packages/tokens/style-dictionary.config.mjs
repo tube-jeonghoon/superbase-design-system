@@ -1,6 +1,8 @@
+const DIST = process.env.TOKENS_DIST || "dist";
+
 const cssFile = (selector) => ({
   transformGroup: "css",
-  buildPath: "dist/web/",
+  buildPath: `${DIST}/web/`,
   options: { outputReferences: false },
   files: [
     {
@@ -19,7 +21,7 @@ export const lightConfig = {
     css: cssFile(":root"),
     native: {
       transforms: nativeTransforms,
-      buildPath: "dist/native/",
+      buildPath: `${DIST}/native/`,
       files: [
         { destination: "tokens.js", format: "javascript/es6" },
         { destination: "tokens.d.ts", format: "typescript/es6-declarations" },
@@ -35,7 +37,7 @@ export const darkConfig = {
     css: cssFile('[data-theme="dark"]'),
     native: {
       transforms: nativeTransforms,
-      buildPath: "dist/native/",
+      buildPath: `${DIST}/native/`,
       files: [
         { destination: "tokens.dark.json", format: "json/nested" }
       ]

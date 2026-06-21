@@ -1,23 +1,25 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { execSync } from "node:child_process";
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync, mkdtempSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 const pkgRoot = dirname(fileURLToPath(import.meta.url)).replace(/\/test$/, "");
+const dist = mkdtempSync(join(tmpdir(), "sb-tokens-theme-"));
 
 beforeAll(() => {
-  execSync("node build.mjs", { cwd: pkgRoot, stdio: "inherit" });
+  execSync("node build.mjs", { cwd: pkgRoot, env: { ...process.env, TOKENS_DIST: dist }, stdio: "inherit" });
 });
 
 describe("native runtime theme objects", () => {
   it("writes theme.js and theme.d.ts", () => {
-    expect(existsSync(join(pkgRoot, "dist/native/theme.js"))).toBe(true);
-    expect(existsSync(join(pkgRoot, "dist/native/theme.d.ts"))).toBe(true);
+    expect(existsSync(join(dist, "native/theme.js"))).toBe(true);
+    expect(existsSync(join(dist, "native/theme.d.ts"))).toBe(true);
   });
 
   it("lightTheme and darkTheme have the expected shared shape with converted values", async () => {
-    const mod = await import(join(pkgRoot, "dist/native/theme.js"));
+    const mod = await import(join(dist, "native/theme.js"));
     const { lightTheme, darkTheme } = mod;
     expect(lightTheme.color.text.primary).toBe("#191f28");
     expect(darkTheme.color.background.default).toBe("#191f28");

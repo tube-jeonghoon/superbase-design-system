@@ -11,27 +11,29 @@ import { readFileSync, writeFileSync, rmSync } from "node:fs";
 import { lightConfig, darkConfig } from "./style-dictionary.config.mjs";
 import { shadowCssLines, shadowNativeObject } from "./src/shadows.mjs";
 
-rmSync("dist", { recursive: true, force: true });
+const DIST = process.env.TOKENS_DIST || "dist";
+
+rmSync(DIST, { recursive: true, force: true });
 
 // 1) light: web :root + native flat + tokens.light.json
 const light = new StyleDictionary(lightConfig);
 await light.buildAllPlatforms();
-const lightCss = readFileSync("dist/web/variables.css", "utf8");
-const lightJson = JSON.parse(readFileSync("dist/native/tokens.light.json", "utf8"));
+const lightCss = readFileSync(`${DIST}/web/variables.css`, "utf8");
+const lightJson = JSON.parse(readFileSync(`${DIST}/native/tokens.light.json`, "utf8"));
 
 // 2) dark: web [data-theme] (overwrites variables.css) + tokens.dark.json
 const dark = new StyleDictionary(darkConfig);
 await dark.buildAllPlatforms();
-const darkCss = readFileSync("dist/web/variables.css", "utf8");
-const darkJson = JSON.parse(readFileSync("dist/native/tokens.dark.json", "utf8"));
+const darkCss = readFileSync(`${DIST}/web/variables.css`, "utf8");
+const darkJson = JSON.parse(readFileSync(`${DIST}/native/tokens.dark.json`, "utf8"));
 
 // 3) shadow :root 블록 주입 후 최종 CSS 작성
 const shadowBlock = `:root {\n${shadowCssLines()}\n}`;
-writeFileSync("dist/web/variables.css", `${lightCss}\n${shadowBlock}\n${darkCss}`);
+writeFileSync(`${DIST}/web/variables.css`, `${lightCss}\n${shadowBlock}\n${darkCss}`);
 
 // 4) RN 테마 객체 조립
-writeFileSync("dist/native/theme.js", themeModule(buildTheme(lightJson), buildTheme(darkJson)));
-writeFileSync("dist/native/theme.d.ts", themeDts());
+writeFileSync(`${DIST}/native/theme.js`, themeModule(buildTheme(lightJson), buildTheme(darkJson)));
+writeFileSync(`${DIST}/native/theme.d.ts`, themeDts());
 
 // --- helpers ---
 
