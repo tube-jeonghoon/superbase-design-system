@@ -1,3 +1,4 @@
+import { createRef } from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Button } from "./Button";
@@ -27,5 +28,11 @@ describe("Button", () => {
     );
     await userEvent.click(screen.getByRole("button", { name: "Go" }));
     expect(onClick).not.toHaveBeenCalled();
+  });
+
+  it("forwards ref to the button element", () => {
+    const ref = createRef<HTMLButtonElement>();
+    render(<Button ref={ref}>x</Button>);
+    expect(ref.current).toBeInstanceOf(HTMLButtonElement);
   });
 });
