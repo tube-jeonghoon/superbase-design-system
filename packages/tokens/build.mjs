@@ -9,6 +9,7 @@ StyleDictionary.registerTransform({
 });
 import { readFileSync, writeFileSync, rmSync } from "node:fs";
 import { lightConfig, darkConfig } from "./style-dictionary.config.mjs";
+import { shadowCssLines } from "./src/shadows.mjs";
 
 rmSync("dist", { recursive: true, force: true });
 
@@ -17,10 +18,13 @@ const light = new StyleDictionary(lightConfig);
 await light.buildAllPlatforms();
 const lightCss = readFileSync("dist/web/variables.css", "utf8");
 
-// 2) dark([data-theme="dark"]) — overwrites the same file, so read separately and merge
+// 2) dark([data-theme="dark"]) — overwrites variables.css, read separately
 const dark = new StyleDictionary(darkConfig);
 await dark.buildAllPlatforms();
 const darkCss = readFileSync("dist/web/variables.css", "utf8");
 
-// 3) append dark block after light and write final file
-writeFileSync("dist/web/variables.css", `${lightCss}\n${darkCss}`);
+// 3) shadow :root 블록 (SD 밖 단일소스)
+const shadowBlock = `:root {\n${shadowCssLines()}\n}`;
+
+// 4) light + shadow + dark 병합 후 최종 파일 작성
+writeFileSync("dist/web/variables.css", `${lightCss}\n${shadowBlock}\n${darkCss}`);

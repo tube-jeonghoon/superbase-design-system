@@ -81,6 +81,14 @@ describe("token build outputs", () => {
     expect(js).toContain("export const SizeButtonMd = 44;");
   });
 
+  it("emits elevation/shadow CSS variables", () => {
+    const css = readFileSync(join(pkgRoot, "dist/web/variables.css"), "utf8");
+    expect(css).toContain("--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);");
+    expect(css).toContain("--shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08);");
+    expect(css).toContain("--shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);");
+    expect(css).toContain("--shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.16);");
+  });
+
   it("matches the CSS output snapshot", () => {
     const css = readFileSync(join(pkgRoot, "dist/web/variables.css"), "utf8");
     expect(css).toMatchSnapshot();
