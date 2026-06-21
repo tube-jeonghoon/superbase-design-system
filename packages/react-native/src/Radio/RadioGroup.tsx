@@ -1,7 +1,7 @@
-import type { ReactNode } from "react";
+import { forwardRef, type ReactNode, type ElementRef } from "react";
 import { View, type ViewProps } from "react-native";
 import { RadioContext } from "./RadioContext";
-import { Spacing2 } from "@superbase/tokens/native";
+import { useTheme } from "../theme/useTheme";
 
 export interface RadioGroupProps extends ViewProps {
   value: string;
@@ -9,10 +9,14 @@ export interface RadioGroupProps extends ViewProps {
   children: ReactNode;
 }
 
-export function RadioGroup({ value, onChange, children, style, ...rest }: RadioGroupProps) {
+export const RadioGroup = forwardRef<ElementRef<typeof View>, RadioGroupProps>(function RadioGroup(
+  { value, onChange, children, style, ...rest },
+  ref,
+) {
+  const t = useTheme();
   return (
-    <View style={[{ gap: Spacing2 }, style]} {...rest}>
+    <View ref={ref} style={[{ gap: t.spacing["2"] }, style]} {...rest}>
       <RadioContext.Provider value={{ value, onChange }}>{children}</RadioContext.Provider>
     </View>
   );
-}
+});

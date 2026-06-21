@@ -1,14 +1,7 @@
+import { forwardRef, type ElementRef } from "react";
 import { Pressable, View, Text as RNText } from "react-native";
 import { useRadioContext } from "./RadioContext";
-import {
-  ColorBrandPrimary,
-  ColorBorderDefault,
-  ColorBackgroundDefault,
-  ColorTextPrimary,
-  RadiusFull,
-  Spacing2,
-  FontSizeBody,
-} from "@superbase/tokens/native";
+import { useTheme } from "../theme/useTheme";
 
 export interface RadioProps {
   value: string;
@@ -16,11 +9,18 @@ export interface RadioProps {
   disabled?: boolean;
 }
 
-export function Radio({ value, label, disabled = false }: RadioProps) {
+export const Radio = forwardRef<ElementRef<typeof Pressable>, RadioProps>(function Radio(
+  { value, label, disabled = false },
+  ref,
+) {
+  const t = useTheme();
   const group = useRadioContext();
   const checked = group.value === value;
+  const box = t.size.control;
+  const dot = Math.round(box / 2);
   return (
     <Pressable
+      ref={ref}
       accessibilityRole="radio"
       accessibilityState={{ checked, disabled }}
       accessibilityLabel={label}
@@ -29,27 +29,34 @@ export function Radio({ value, label, disabled = false }: RadioProps) {
       aria-checked={checked}
       disabled={disabled}
       onPress={() => group.onChange?.(value)}
-      style={{ flexDirection: "row", alignItems: "center", gap: Spacing2, opacity: disabled ? 0.4 : 1 }}
+      style={{
+        flexDirection: "row",
+        alignItems: "center",
+        gap: t.spacing["2"],
+        opacity: disabled ? t.opacity.disabled : 1,
+      }}
     >
       <View
         style={{
-          width: 20,
-          height: 20,
-          borderRadius: RadiusFull,
-          borderWidth: 2,
-          borderColor: checked ? ColorBrandPrimary : ColorBorderDefault,
-          backgroundColor: ColorBackgroundDefault,
+          width: box,
+          height: box,
+          borderRadius: t.radius.full,
+          borderWidth: t.borderWidth.medium,
+          borderColor: checked ? t.color.brand.primary : t.color.border.default,
+          backgroundColor: t.color.background.default,
           alignItems: "center",
           justifyContent: "center",
         }}
       >
         {checked ? (
-          <View style={{ width: 10, height: 10, borderRadius: RadiusFull, backgroundColor: ColorBrandPrimary }} />
+          <View
+            style={{ width: dot, height: dot, borderRadius: t.radius.full, backgroundColor: t.color.brand.primary }}
+          />
         ) : null}
       </View>
       {label != null ? (
-        <RNText style={{ fontSize: FontSizeBody, color: ColorTextPrimary }}>{label}</RNText>
+        <RNText style={{ fontSize: t.font.size.body, color: t.color.text.primary }}>{label}</RNText>
       ) : null}
     </Pressable>
   );
-}
+});
