@@ -1,5 +1,6 @@
+import { forwardRef, type ElementRef } from "react";
 import { ActivityIndicator, type ActivityIndicatorProps } from "react-native";
-import { ColorBrandPrimary } from "@superbase/tokens/native";
+import { useTheme } from "../theme/useTheme";
 
 export type SpinnerSize = "sm" | "md" | "lg";
 
@@ -8,14 +9,25 @@ export interface SpinnerProps extends Omit<ActivityIndicatorProps, "size" | "col
   color?: string;
 }
 
+// ActivityIndicator's size is the semantic "small" | "large" | number, not a design token.
 const sizeFor: Record<SpinnerSize, ActivityIndicatorProps["size"]> = {
   sm: "small",
   md: 28,
   lg: "large",
 };
 
-export function Spinner({ size = "md", color = ColorBrandPrimary, ...rest }: SpinnerProps) {
+export const Spinner = forwardRef<ElementRef<typeof ActivityIndicator>, SpinnerProps>(function Spinner(
+  { size = "md", color, ...rest },
+  ref,
+) {
+  const t = useTheme();
   return (
-    <ActivityIndicator size={sizeFor[size]} color={color} accessibilityLabel="로딩 중" {...rest} />
+    <ActivityIndicator
+      ref={ref}
+      size={sizeFor[size]}
+      color={color ?? t.color.brand.primary}
+      accessibilityLabel="Loading"
+      {...rest}
+    />
   );
-}
+});
