@@ -15,4 +15,10 @@ describe("Text (RN)", () => {
     );
     expect(screen.getByText("Hi")).toBeInTheDocument();
   });
+
+  it("forwards ref to the underlying element", () => {
+    const ref = { current: null as unknown };
+    render(<Text ref={ref as never}>hello</Text>);
+    expect(ref.current).not.toBeNull();
+  });
 });

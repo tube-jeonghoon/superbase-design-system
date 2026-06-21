@@ -1,3 +1,4 @@
+import { forwardRef, type ElementRef } from "react";
 import {
   Pressable,
   View,
@@ -6,16 +7,7 @@ import {
   type StyleProp,
   type ViewStyle,
 } from "react-native";
-import {
-  ColorBrandPrimary,
-  ColorBorderDefault,
-  ColorBackgroundDefault,
-  ColorWhite,
-  ColorTextPrimary,
-  RadiusSm,
-  Spacing2,
-  FontSizeBody,
-} from "@superbase/tokens/native";
+import { useTheme } from "../theme/useTheme";
 
 export interface CheckboxProps
   extends Omit<PressableProps, "children" | "style" | "onPress"> {
@@ -26,16 +18,16 @@ export interface CheckboxProps
   style?: StyleProp<ViewStyle>;
 }
 
-export function Checkbox({
-  checked,
-  onChange,
-  disabled = false,
-  label,
-  style,
-  ...rest
-}: CheckboxProps) {
+export const Checkbox = forwardRef<ElementRef<typeof Pressable>, CheckboxProps>(function Checkbox(
+  { checked, onChange, disabled = false, label, style, ...rest },
+  ref,
+) {
+  const t = useTheme();
+  const box = t.size.control;
+  const mark = Math.round(box / 2);
   return (
     <Pressable
+      ref={ref}
       accessibilityRole="checkbox"
       accessibilityState={{ checked, disabled }}
       // aria-checked is required: react-native-web's Pressable does not surface
@@ -45,30 +37,35 @@ export function Checkbox({
       disabled={disabled}
       onPress={() => onChange?.(!checked)}
       style={[
-        { flexDirection: "row", alignItems: "center", gap: Spacing2, opacity: disabled ? 0.4 : 1 },
+        {
+          flexDirection: "row",
+          alignItems: "center",
+          gap: t.spacing["2"],
+          opacity: disabled ? t.opacity.disabled : 1,
+        },
         style,
       ]}
       {...rest}
     >
       <View
         style={{
-          width: 20,
-          height: 20,
-          borderRadius: RadiusSm,
-          borderWidth: 2,
-          borderColor: checked ? ColorBrandPrimary : ColorBorderDefault,
-          backgroundColor: checked ? ColorBrandPrimary : ColorBackgroundDefault,
+          width: box,
+          height: box,
+          borderRadius: t.radius.sm,
+          borderWidth: t.borderWidth.medium,
+          borderColor: checked ? t.color.brand.primary : t.color.border.default,
+          backgroundColor: checked ? t.color.brand.primary : t.color.background.default,
           alignItems: "center",
           justifyContent: "center",
         }}
       >
         {checked ? (
-          <View style={{ width: 10, height: 10, borderRadius: 1, backgroundColor: ColorWhite }} />
+          <View style={{ width: mark, height: mark, borderRadius: 1, backgroundColor: "#ffffff" }} />
         ) : null}
       </View>
       {label != null ? (
-        <RNText style={{ fontSize: FontSizeBody, color: ColorTextPrimary }}>{label}</RNText>
+        <RNText style={{ fontSize: t.font.size.body, color: t.color.text.primary }}>{label}</RNText>
       ) : null}
     </Pressable>
   );
-}
+});

@@ -20,3 +20,7 @@ export { Spinner } from "./Spinner/Spinner";
 export type { SpinnerProps, SpinnerSize } from "./Spinner/Spinner";
 export { Icon } from "./Icon/Icon";
 export type { IconProps } from "./Icon/Icon";
+export { ThemeProvider } from "./theme/ThemeProvider";
+export type { ThemeProviderProps } from "./theme/ThemeProvider";
+export { useTheme } from "./theme/useTheme";
+export type { Theme, ColorScheme } from "@superbase/tokens/native/theme";
