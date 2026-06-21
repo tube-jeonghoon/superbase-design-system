@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes } from "react";
+import { forwardRef, type ButtonHTMLAttributes } from "react";
 import styles from "./Switch.module.css";
 
 export interface SwitchProps
@@ -8,15 +8,13 @@ export interface SwitchProps
   disabled?: boolean;
 }
 
-export function Switch({
-  checked,
-  onChange,
-  disabled = false,
-  className,
-  ...rest
-}: SwitchProps) {
+export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch(
+  { checked, onChange, disabled = false, className, ...rest },
+  ref,
+) {
   return (
     <button
+      ref={ref}
       type="button"
       role="switch"
       aria-checked={checked}
@@ -29,4 +27,4 @@ export function Switch({
       <span className={styles.thumb} />
     </button>
   );
-}
+});
