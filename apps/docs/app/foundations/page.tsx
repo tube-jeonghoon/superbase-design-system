@@ -1,5 +1,5 @@
 import { ComponentDoc } from "../../components/docs/ComponentDoc";
-import { Tabs } from "../../components/foundations/Tabs";
+import { Tabs } from "../../components/docs/Tabs";
 import { Swatch } from "../../components/foundations/Swatch";
 import { TokenValue } from "../../components/foundations/TokenValue";
 import { semanticColors, spacingScale, fontSizes, radii, type ColorGroup } from "../../lib/tokens";
