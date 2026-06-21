@@ -2,7 +2,7 @@ import { ComponentDoc } from "../../components/docs/ComponentDoc";
 import { Tabs } from "../../components/docs/Tabs";
 import { Swatch } from "../../components/foundations/Swatch";
 import { TokenValue } from "../../components/foundations/TokenValue";
-import { semanticColors, spacingScale, fontSizes, radii, type ColorGroup } from "../../lib/tokens";
+import { semanticColors, spacingScale, fontSizes, radii, shadows, effectTokens, type ColorGroup } from "../../lib/tokens";
 
 const COLOR_GROUPS: { key: ColorGroup; label: string }[] = [
   { key: "text", label: "Text" },
@@ -124,6 +124,51 @@ const radiusPanel = (
   </div>
 );
 
+const effectsPanel = (
+  <div>
+    <p style={sub}>그림자·모션·불투명도·보더 등 효과 토큰.</p>
+    <div style={groupLabel}>Elevation</div>
+    <div style={{ display: "flex", gap: "var(--spacing-6)", flexWrap: "wrap", marginBottom: "var(--spacing-4)" }}>
+      {shadows.map((s) => (
+        <div key={s.cssVar} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "var(--spacing-2)" }}>
+          <div
+            style={{
+              width: 88,
+              height: 88,
+              borderRadius: "var(--radius-md)",
+              background: "var(--color-background-default)",
+              boxShadow: `var(${s.cssVar})`,
+            }}
+          />
+          <span style={labelMono}>shadow-{s.name}</span>
+        </div>
+      ))}
+    </div>
+    <div style={groupLabel}>Motion · Opacity · Border · Line-height</div>
+    <div style={{ display: "flex", flexDirection: "column", gap: "var(--spacing-1)" }}>
+      {effectTokens.map((tk) => (
+        <div
+          key={tk.cssVar}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "var(--spacing-4)",
+            padding: "var(--spacing-2) 0",
+            borderBottom: "1px solid var(--color-background-subtle)",
+          }}
+        >
+          <span style={{ flex: 1, fontSize: "var(--font-size-caption)", fontWeight: 600, color: "var(--color-text-primary)" }}>
+            {tk.name}
+          </span>
+          <span style={labelMono}>
+            <TokenValue cssVar={tk.cssVar} />
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
 export default function FoundationsPage() {
   return (
     <ComponentDoc
@@ -137,6 +182,7 @@ export default function FoundationsPage() {
           { id: "typography", label: "Typography", content: typographyPanel },
           { id: "spacing", label: "Spacing", content: spacingPanel },
           { id: "radius", label: "Radius", content: radiusPanel },
+          { id: "effects", label: "Effects", content: effectsPanel },
         ]}
       />
     </ComponentDoc>

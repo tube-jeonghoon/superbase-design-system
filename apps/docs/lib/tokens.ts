@@ -39,3 +39,22 @@ export const radii: DisplayToken[] = [
   { name: "lg", cssVar: "--radius-lg" },
   { name: "full", cssVar: "--radius-full" },
 ];
+
+export const shadows: DisplayToken[] = [
+  { name: "sm", cssVar: "--shadow-sm" },
+  { name: "md", cssVar: "--shadow-md" },
+  { name: "lg", cssVar: "--shadow-lg" },
+  { name: "xl", cssVar: "--shadow-xl" },
+];
+
+export const effectTokens: DisplayToken[] = [
+  { name: "duration.fast", cssVar: "--duration-fast" },
+  { name: "duration.base", cssVar: "--duration-base" },
+  { name: "duration.slow", cssVar: "--duration-slow" },
+  { name: "easing.standard", cssVar: "--easing-standard" },
+  { name: "opacity.disabled", cssVar: "--opacity-disabled" },
+  { name: "opacity.pressed", cssVar: "--opacity-pressed" },
+  { name: "border-width.thin", cssVar: "--border-width-thin" },
+  { name: "border-width.medium", cssVar: "--border-width-medium" },
+  { name: "line-height.body", cssVar: "--line-height-body" },
+];
