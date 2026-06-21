@@ -119,12 +119,14 @@ export interface Theme {
   }>;
   size: {
     control: number;
+    controlSm: number;
     field: number;
     fieldSm: number;
     fieldLg: number;
     button: { sm: number; md: number; lg: number };
     switch: { width: number; height: number; thumb: number };
-    icon: { sm: number; md: number; lg: number };
+    switchSm: { width: number; height: number; thumb: number };
+    icon: { xs: number; sm: number; md: number; lg: number };
   };
 }
 export declare const lightTheme: Theme;
