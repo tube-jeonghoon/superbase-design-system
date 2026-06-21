@@ -1,4 +1,4 @@
-import type { ElementType, ReactNode } from "react";
+import { forwardRef, type ElementType, type ReactNode } from "react";
 import styles from "./Text.module.css";
 
 export type TextVariant = "caption" | "body" | "title" | "display";
@@ -14,16 +14,13 @@ export interface TextProps {
   className?: string;
 }
 
-export function Text({
-  children,
-  variant = "body",
-  weight = "regular",
-  color = "primary",
-  as: Tag = "span",
-  className,
-}: TextProps) {
+export const Text = forwardRef<HTMLElement, TextProps>(function Text(
+  { children, variant = "body", weight = "regular", color = "primary", as: Tag = "span", className },
+  ref,
+) {
   return (
     <Tag
+      ref={ref}
       data-variant={variant}
       data-weight={weight}
       data-color={color}
@@ -32,4 +29,4 @@ export function Text({
       {children}
     </Tag>
   );
-}
+});

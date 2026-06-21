@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import { forwardRef, type SVGProps } from "react";
 import { iconPaths, ICON_VIEWBOX, type IconName } from "@superbase/icons";
 
 export interface IconProps extends Omit<SVGProps<SVGSVGElement>, "name" | "color"> {
@@ -8,18 +8,16 @@ export interface IconProps extends Omit<SVGProps<SVGSVGElement>, "name" | "color
   label?: string;
 }
 
-export function Icon({
-  name,
-  size = 20,
-  color = "currentColor",
-  label,
-  ...rest
-}: IconProps) {
+export const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon(
+  { name, size = 20, color = "currentColor", label, ...rest },
+  ref,
+) {
   const a11y = label
     ? ({ role: "img", "aria-label": label } as const)
     : ({ "aria-hidden": true } as const);
   return (
     <svg
+      ref={ref}
       width={size}
       height={size}
       viewBox={ICON_VIEWBOX}
@@ -34,4 +32,4 @@ export function Icon({
       <path d={iconPaths[name]} />
     </svg>
   );
-}
+});
