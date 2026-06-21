@@ -91,6 +91,15 @@ describe("token build outputs", () => {
     expect(css).toContain("--shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.16);");
   });
 
+  it("emits field size variant tokens (web + native)", () => {
+    const css = readFileSync(join(dist, "web/variables.css"), "utf8");
+    expect(css).toContain("--size-field-sm: 40px;");
+    expect(css).toContain("--size-field-lg: 56px;");
+    const js = readFileSync(join(dist, "native/tokens.js"), "utf8");
+    expect(js).toContain("export const SizeFieldSm = 40;");
+    expect(js).toContain("export const SizeFieldLg = 56;");
+  });
+
   it("matches the CSS output snapshot", () => {
     const css = readFileSync(join(dist, "web/variables.css"), "utf8");
     expect(css).toMatchSnapshot();
