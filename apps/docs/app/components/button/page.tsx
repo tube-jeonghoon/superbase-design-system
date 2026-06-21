@@ -1,6 +1,8 @@
 "use client";
 import { Button as WebButton } from "@superbase/react";
 import { Button as RNButton } from "@superbase/react-native";
+import { Icon as WebIcon } from "@superbase/react";
+import { Icon as RNIcon } from "@superbase/react-native";
 import { ComponentDoc } from "../../../components/docs/ComponentDoc";
 import { Tabs } from "../../../components/docs/Tabs";
 import { Example } from "../../../components/docs/Example";
@@ -44,6 +46,42 @@ const webContent = (
       code={`<Button disabled>비활성</Button>`}
     >
       <WebButton disabled>비활성</WebButton>
+    </Example>
+
+    <Example
+      title="loading"
+      description={<><Code>loading</Code>으로 작업 중 상태를 표시합니다. 스피너가 보이고 클릭이 막힙니다.</>}
+      code={`<Button loading>저장 중</Button>`}
+    >
+      <WebButton loading>저장 중</WebButton>
+    </Example>
+
+    <Example
+      title="아이콘 슬롯"
+      description={<><Code>startIcon</Code>·<Code>endIcon</Code>으로 라벨 양옆에 아이콘을 넣습니다.</>}
+      code={`<Button startIcon={<Icon name="check" />}>완료</Button>\n<Button endIcon={<Icon name="chevron-right" />}>다음</Button>`}
+    >
+      <WebButton startIcon={<WebIcon name="check" />}>완료</WebButton>
+      <WebButton variant="secondary" endIcon={<WebIcon name="chevron-right" />}>다음</WebButton>
+    </Example>
+
+    <Example
+      title="variant 확장"
+      description={<><Code>ghost</Code>·<Code>outline</Code> variant를 추가로 지원합니다.</>}
+      code={`<Button variant="ghost">Ghost</Button>\n<Button variant="outline">Outline</Button>`}
+    >
+      <WebButton variant="ghost">Ghost</WebButton>
+      <WebButton variant="outline">Outline</WebButton>
+    </Example>
+
+    <Example
+      title="fullWidth"
+      description={<><Code>fullWidth</Code>로 가로를 꽉 채웁니다.</>}
+      code={`<Button fullWidth>전체 너비</Button>`}
+    >
+      <div style={{ width: "100%" }}>
+        <WebButton fullWidth>전체 너비</WebButton>
+      </div>
     </Example>
   </>
 );
@@ -89,6 +127,48 @@ const nativeContent = (
     >
       <ClientOnly>
         <RNButton disabled onPress={() => {}}>비활성</RNButton>
+      </ClientOnly>
+    </Example>
+
+    <Example
+      title="loading"
+      description={<><Code>loading</Code>으로 작업 중 상태를 표시합니다. 스피너가 보이고 onPress가 막힙니다.</>}
+      code={`<Button loading onPress={fn}>저장 중</Button>`}
+    >
+      <ClientOnly>
+        <RNButton loading onPress={() => {}}>저장 중</RNButton>
+      </ClientOnly>
+    </Example>
+
+    <Example
+      title="아이콘 슬롯"
+      description={<><Code>startIcon</Code>·<Code>endIcon</Code>으로 라벨 양옆에 아이콘을 넣습니다.</>}
+      code={`<Button startIcon={<Icon name="check" />} onPress={fn}>완료</Button>`}
+    >
+      <ClientOnly>
+        <RNButton startIcon={<RNIcon name="check" color="#ffffff" />} onPress={() => {}}>완료</RNButton>
+        <RNButton variant="secondary" endIcon={<RNIcon name="chevron-right" />} onPress={() => {}}>다음</RNButton>
+      </ClientOnly>
+    </Example>
+
+    <Example
+      title="variant 확장"
+      description={<><Code>ghost</Code>·<Code>outline</Code> variant를 추가로 지원합니다.</>}
+      code={`<Button variant="ghost" onPress={fn}>Ghost</Button>\n<Button variant="outline" onPress={fn}>Outline</Button>`}
+    >
+      <ClientOnly>
+        <RNButton variant="ghost" onPress={() => {}}>Ghost</RNButton>
+        <RNButton variant="outline" onPress={() => {}}>Outline</RNButton>
+      </ClientOnly>
+    </Example>
+
+    <Example
+      title="fullWidth"
+      description={<><Code>fullWidth</Code>로 가로를 꽉 채웁니다.</>}
+      code={`<Button fullWidth onPress={fn}>전체 너비</Button>`}
+    >
+      <ClientOnly>
+        <RNButton fullWidth onPress={() => {}}>전체 너비</RNButton>
       </ClientOnly>
     </Example>
   </>
