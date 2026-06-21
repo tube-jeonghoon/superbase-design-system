@@ -37,4 +37,14 @@
   background: transparent;
 }
 .checkbox[data-checked="true"] .check { background: var(--color-white); }
+.checkbox[data-indeterminate="true"] .box {
+  background: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+}
+.checkbox[data-indeterminate="true"] .check {
+  background: var(--color-white);
+  width: calc(var(--size-control) / 2);
+  height: var(--border-width-medium);
+  border-radius: 1px;
+}
 .label { font-size: var(--font-size-body); color: var(--color-text-primary); }
