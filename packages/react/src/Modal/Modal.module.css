@@ -43,7 +43,7 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: var(--spacing-3);
-  padding: var(--spacing-5) var(--spacing-5) var(--spacing-3);
+  padding: var(--spacing-6) var(--spacing-6) var(--spacing-3);
 }
 .title {
   margin: 0;
@@ -69,16 +69,16 @@
   outline-offset: var(--focus-ring-offset);
 }
 .body {
-  padding: 0 var(--spacing-5);
+  padding: 0 var(--spacing-6);
   overflow-y: auto;
   color: var(--color-text-secondary);
 }
-.body:first-child { padding-top: var(--spacing-5); }
-.body:last-child { padding-bottom: var(--spacing-5); }
+.body:first-child { padding-top: var(--spacing-6); }
+.body:last-child { padding-bottom: var(--spacing-6); }
 .footer {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: var(--spacing-2);
-  padding: var(--spacing-3) var(--spacing-5) var(--spacing-5);
+  padding: var(--spacing-3) var(--spacing-6) var(--spacing-6);
 }
