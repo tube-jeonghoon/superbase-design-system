@@ -31,6 +31,7 @@ export function BottomNavigationItem({ value, icon, label, disabled = false }: B
     >
       <View>{icon(selected)}</View>
       <RNText
+        numberOfLines={1}
         style={{
           fontSize: t.font.size.caption,
           fontWeight: String(t.font.weight.medium) as TextStyle["fontWeight"],

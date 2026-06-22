@@ -31,6 +31,7 @@
   font-size: var(--font-size-caption);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-caption);
+  white-space: nowrap;
 }
 .back {
   flex-shrink: 0;
