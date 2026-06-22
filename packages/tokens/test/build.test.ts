@@ -133,6 +133,13 @@ describe("token build outputs", () => {
     expect(theme).toContain('"sm": 360');
   });
 
+  it("emits toast size token", () => {
+    const css = readFileSync(join(dist, "web/variables.css"), "utf8");
+    expect(css).toContain("--size-toast: 360px;");
+    const theme = readFileSync(join(dist, "native/theme.js"), "utf8");
+    expect(theme).toContain('"toast": 360');
+  });
+
   it("matches the CSS output snapshot", () => {
     const css = readFileSync(join(dist, "web/variables.css"), "utf8");
     expect(css).toMatchSnapshot();

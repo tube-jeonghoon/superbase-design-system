@@ -129,6 +129,7 @@ export interface Theme {
     icon: { xs: number; sm: number; md: number; lg: number };
     avatar: { sm: number; md: number; lg: number };
     modal: { sm: number; md: number; lg: number };
+    toast: number;
   };
 }
 export declare const lightTheme: Theme;
