@@ -99,6 +99,7 @@ exports[`token build outputs > matches the CSS output snapshot 1`] = `
   --size-modal-sm: 360px;
   --size-modal-md: 480px;
   --size-modal-lg: 640px;
+  --size-toast: 360px;
 }
 
 :root {
@@ -205,6 +206,7 @@ exports[`token build outputs > matches the CSS output snapshot 1`] = `
   --size-modal-sm: 360px;
   --size-modal-md: 480px;
   --size-modal-lg: 640px;
+  --size-toast: 360px;
 }
 "
 `;
@@ -307,5 +309,6 @@ export const SizeAvatarLg = 56;
 export const SizeModalSm = 360;
 export const SizeModalMd = 480;
 export const SizeModalLg = 640;
+export const SizeToast = 360;
 "
 `;

@@ -40,3 +40,7 @@ export { ModalBody } from "./Modal/ModalBody";
 export type { ModalBodyProps } from "./Modal/ModalBody";
 export { ModalFooter } from "./Modal/ModalFooter";
 export type { ModalFooterProps } from "./Modal/ModalFooter";
+export { ToastProvider } from "./Toast/ToastProvider";
+export type { ToastProviderProps } from "./Toast/ToastProvider";
+export { useToast } from "./Toast/useToast";
+export type { ToastOptions, ToastVariant, ToastAction } from "./Toast/types";

@@ -1,0 +1,81 @@
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  width: 100%;
+  max-width: var(--size-toast);
+  padding: var(--spacing-3) var(--spacing-4);
+  background: var(--color-background-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  pointer-events: auto;
+}
+.toast[data-state="entering"] {
+  animation: sb-toast-in var(--duration-base) var(--easing-decelerate);
+}
+.toast[data-state="exiting"] {
+  animation: sb-toast-out var(--duration-fast) var(--easing-accelerate) forwards;
+}
+.icon { display: inline-flex; flex-shrink: 0; padding-top: 2px; }
+.toast[data-variant="info"] .icon { color: var(--color-status-info); }
+.toast[data-variant="success"] .icon { color: var(--color-status-success); }
+.toast[data-variant="warning"] .icon { color: var(--color-status-warning); }
+.toast[data-variant="danger"] .icon { color: var(--color-status-danger); }
+.content { flex: 1; min-width: 0; }
+.title {
+  margin: 0;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+.description {
+  margin: var(--spacing-1) 0 0;
+  font-size: var(--font-size-caption);
+  color: var(--color-text-secondary);
+}
+.action {
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  padding: 0 var(--spacing-1);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-brand-primary);
+  cursor: pointer;
+}
+.close {
+  flex-shrink: 0;
+  display: inline-flex;
+  border: none;
+  background: transparent;
+  padding: var(--spacing-1);
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+.close:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+@keyframes sb-toast-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes sb-toast-out {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(8px); }
+}
+.region {
+  position: fixed;
+  left: 50%;
+  bottom: var(--spacing-6);
+  transform: translateX(-50%);
+  z-index: var(--z-index-toast);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-2);
+  width: calc(100% - var(--spacing-8));
+  max-width: var(--size-toast);
+  pointer-events: none;
+}
