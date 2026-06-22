@@ -21,7 +21,14 @@ const frame: React.CSSProperties = {
   background: "var(--color-background-subtle)",
   padding: "var(--spacing-6) var(--spacing-4)",
   borderRadius: "var(--radius-lg)",
+  width: "100%",
+  display: "flex",
+  justifyContent: "center",
 };
+
+// Realistic mobile width so the bar reads like a real bottom nav (centered),
+// rather than shrinking to content inside the flex preview canvas.
+const barStyle = { width: "100%", maxWidth: 420 } as const;
 
 function WebDemo({ withBack }: { withBack?: boolean }) {
   const [value, setValue] = useState("home");
@@ -30,7 +37,7 @@ function WebDemo({ withBack }: { withBack?: boolean }) {
   );
   return (
     <div style={frame}>
-      <WebBottomNavigation value={value} onChange={setValue} onBack={withBack ? () => {} : undefined}>
+      <WebBottomNavigation value={value} onChange={setValue} onBack={withBack ? () => {} : undefined} style={barStyle}>
         <WebBottomNavigationItem value="home" label="홈" icon={wi("home")} />
         <WebBottomNavigationItem value="calendar" label="일정" icon={wi("calendar")} />
         <WebBottomNavigationItem value="club" label={withBack ? "멤버" : "클럽"} icon={wi("users")} />
@@ -48,7 +55,7 @@ function RNDemo({ withBack }: { withBack?: boolean }) {
   );
   return (
     <div style={frame}>
-      <RNBottomNavigation value={value} onChange={setValue} onBack={withBack ? () => {} : undefined}>
+      <RNBottomNavigation value={value} onChange={setValue} onBack={withBack ? () => {} : undefined} style={barStyle}>
         <RNBottomNavigationItem value="home" label="홈" icon={ri("home")} />
         <RNBottomNavigationItem value="calendar" label="일정" icon={ri("calendar")} />
         <RNBottomNavigationItem value="club" label={withBack ? "멤버" : "클럽"} icon={ri("users")} />
