@@ -1,0 +1,8 @@
+.card {
+  background: var(--color-background-default);
+  border-radius: var(--radius-lg);
+}
+.card[data-elevation="sm"] { box-shadow: var(--shadow-sm); }
+.card[data-elevation="md"] { box-shadow: var(--shadow-md); }
+.card[data-elevation="lg"] { box-shadow: var(--shadow-lg); }
+.card[data-bordered="true"] { border: var(--border-width-thin) solid var(--color-border-default); }
