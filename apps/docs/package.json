@@ -20,7 +20,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-native-svg": "^15.0.0",
-    "react-native-web": "^0.19.13"
+    "react-native-web": "^0.21.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.6.0",
