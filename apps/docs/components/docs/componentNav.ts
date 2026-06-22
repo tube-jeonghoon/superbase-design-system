@@ -14,6 +14,7 @@ export const componentNav: ComponentNavItem[] = [
   { slug: "spinner", label: "Spinner" },
   { slug: "stack", label: "Stack" },
   { slug: "switch", label: "Switch" },
+  { slug: "tabs", label: "Tabs" },
   { slug: "text", label: "Text" },
   { slug: "textfield", label: "TextField" },
 ];
