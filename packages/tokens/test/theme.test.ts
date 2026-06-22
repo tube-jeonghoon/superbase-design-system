@@ -42,6 +42,8 @@ describe("native runtime theme objects", () => {
     expect(lightTheme.size.icon.xs).toBe(12);
     expect(lightTheme.size.switchSm.width).toBe(40);
     expect(lightTheme.size.switchSm.thumb).toBe(20);
+    expect(lightTheme.size.avatar.md).toBe(40);
+    expect(lightTheme.size.avatar.lg).toBe(56);
     expect(lightTheme.zIndex).toBeUndefined();
     expect(lightTheme.focusRing).toBeUndefined();
     expect(lightTheme.letterSpacing).toBeUndefined();

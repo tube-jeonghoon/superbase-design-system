@@ -127,6 +127,7 @@ export interface Theme {
     switch: { width: number; height: number; thumb: number };
     switchSm: { width: number; height: number; thumb: number };
     icon: { xs: number; sm: number; md: number; lg: number };
+    avatar: { sm: number; md: number; lg: number };
   };
 }
 export declare const lightTheme: Theme;
