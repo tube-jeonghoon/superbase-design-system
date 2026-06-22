@@ -7,7 +7,8 @@
     },
     "background": {
       "default": { "value": "{color.white}" },
-      "subtle":  { "value": "{color.gray.50}" }
+      "subtle":  { "value": "{color.gray.50}" },
+      "scrim":   { "value": "rgba(0, 0, 0, 0.5)" }
     },
     "brand": {
       "primary": { "value": "{color.blue.500}" },

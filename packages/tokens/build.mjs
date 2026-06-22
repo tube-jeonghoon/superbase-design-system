@@ -88,7 +88,7 @@ function themeDts() {
 export interface Theme {
   color: {
     text: { primary: string; secondary: string; disabled: string };
-    background: { default: string; subtle: string };
+    background: { default: string; subtle: string; scrim: string };
     brand: { primary: string; pressed: string };
     border: { default: string };
     status: { info: string; success: string; warning: string; danger: string };
@@ -128,6 +128,7 @@ export interface Theme {
     switchSm: { width: number; height: number; thumb: number };
     icon: { xs: number; sm: number; md: number; lg: number };
     avatar: { sm: number; md: number; lg: number };
+    modal: { sm: number; md: number; lg: number };
   };
 }
 export declare const lightTheme: Theme;

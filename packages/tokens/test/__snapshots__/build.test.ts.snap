@@ -25,6 +25,7 @@ exports[`token build outputs > matches the CSS output snapshot 1`] = `
   --color-text-disabled: #b0b8c1;
   --color-background-default: #ffffff;
   --color-background-subtle: #f9fafb;
+  --color-background-scrim: rgba(0, 0, 0, 0.5);
   --color-brand-primary: #3182f6;
   --color-brand-pressed: #2272eb;
   --color-border-default: #e5e8eb;
@@ -95,6 +96,9 @@ exports[`token build outputs > matches the CSS output snapshot 1`] = `
   --size-avatar-sm: 32px;
   --size-avatar-md: 40px;
   --size-avatar-lg: 56px;
+  --size-modal-sm: 360px;
+  --size-modal-md: 480px;
+  --size-modal-lg: 640px;
 }
 
 :root {
@@ -127,6 +131,7 @@ exports[`token build outputs > matches the CSS output snapshot 1`] = `
   --color-text-disabled: #6b7684;
   --color-background-default: #191f28;
   --color-background-subtle: #333d4b;
+  --color-background-scrim: rgba(0, 0, 0, 0.6);
   --color-brand-primary: #3182f6;
   --color-brand-pressed: #2272eb;
   --color-border-default: #333d4b;
@@ -197,6 +202,9 @@ exports[`token build outputs > matches the CSS output snapshot 1`] = `
   --size-avatar-sm: 32px;
   --size-avatar-md: 40px;
   --size-avatar-lg: 56px;
+  --size-modal-sm: 360px;
+  --size-modal-md: 480px;
+  --size-modal-lg: 640px;
 }
 "
 `;
@@ -225,6 +233,7 @@ export const ColorTextSecondary = "#6b7684";
 export const ColorTextDisabled = "#b0b8c1";
 export const ColorBackgroundDefault = "#ffffff";
 export const ColorBackgroundSubtle = "#f9fafb";
+export const ColorBackgroundScrim = "rgba(0, 0, 0, 0.5)";
 export const ColorBrandPrimary = "#3182f6";
 export const ColorBrandPressed = "#2272eb";
 export const ColorBorderDefault = "#e5e8eb";
@@ -295,5 +304,8 @@ export const SizeIconLg = 24;
 export const SizeAvatarSm = 32;
 export const SizeAvatarMd = 40;
 export const SizeAvatarLg = 56;
+export const SizeModalSm = 360;
+export const SizeModalMd = 480;
+export const SizeModalLg = 640;
 "
 `;
