@@ -1019,7 +1019,7 @@ Expected: FAIL — 모듈 없음.
 `packages/react-native/src/Toast/ToastProvider.tsx`:
 
 ```tsx
-import { useCallback, useMemo, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { View } from "react-native";
 import { useTheme } from "../theme/useTheme";
 import { ToastContext } from "./ToastContext";
@@ -1053,11 +1053,24 @@ export function ToastProvider({ children }: ToastProviderProps) {
   const startExit = useCallback(
     (id: string) => {
       setToasts((list) => list.map((x) => (x.id === id ? { ...x, status: "exiting" } : x)));
+      // Cancel any pending timer (just-fired auto-dismiss, or a prior exit timer
+      // if dismiss() is called mid-exit) before scheduling removal.
+      const existing = timers.current.get(id);
+      if (existing) clearTimeout(existing);
       const tm = setTimeout(() => remove(id), EXIT_MS);
       timers.current.set(id, tm);
     },
     [remove],
   );
+
+  // Clear pending timers if the provider unmounts while toasts are live.
+  useEffect(() => {
+    const map = timers.current;
+    return () => {
+      map.forEach((tm) => clearTimeout(tm));
+      map.clear();
+    };
+  }, []);
 
   const show = useCallback(
     (opts: ToastOptions) => {
