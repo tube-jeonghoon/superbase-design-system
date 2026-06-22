@@ -44,3 +44,7 @@ export { ToastProvider } from "./Toast/ToastProvider";
 export type { ToastProviderProps } from "./Toast/ToastProvider";
 export { useToast } from "./Toast/useToast";
 export type { ToastOptions, ToastVariant, ToastAction } from "./Toast/types";
+export { BottomNavigation } from "./BottomNavigation/BottomNavigation";
+export type { BottomNavigationProps } from "./BottomNavigation/BottomNavigation";
+export { BottomNavigationItem } from "./BottomNavigation/BottomNavigationItem";
+export type { BottomNavigationItemProps } from "./BottomNavigation/BottomNavigationItem";
