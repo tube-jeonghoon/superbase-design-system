@@ -118,6 +118,21 @@ describe("token build outputs", () => {
     expect(js).toContain("export const SizeAvatarMd = 40;");
   });
 
+  it("emits scrim color and modal size tokens", () => {
+    const css = readFileSync(join(dist, "web/variables.css"), "utf8");
+    expect(css).toContain("--color-background-scrim: rgba(0, 0, 0, 0.5);"); // light
+    expect(css).toContain("--color-background-scrim: rgba(0, 0, 0, 0.6);"); // dark
+    expect(css).toContain("--size-modal-sm: 360px;");
+    expect(css).toContain("--size-modal-md: 480px;");
+    expect(css).toContain("--size-modal-lg: 640px;");
+
+    const theme = readFileSync(join(dist, "native/theme.js"), "utf8");
+    expect(theme).toContain('"scrim": "rgba(0, 0, 0, 0.5)"'); // light
+    expect(theme).toContain('"scrim": "rgba(0, 0, 0, 0.6)"'); // dark
+    expect(theme).toContain('"modal": {');
+    expect(theme).toContain('"sm": 360');
+  });
+
   it("matches the CSS output snapshot", () => {
     const css = readFileSync(join(dist, "web/variables.css"), "utf8");
     expect(css).toMatchSnapshot();

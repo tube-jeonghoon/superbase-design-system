@@ -30,6 +30,11 @@
       "sm": { "value": "32px" },
       "md": { "value": "40px" },
       "lg": { "value": "56px" }
+    },
+    "modal": {
+      "sm": { "value": "360px" },
+      "md": { "value": "480px" },
+      "lg": { "value": "640px" }
     }
   }
 }
