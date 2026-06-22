@@ -57,4 +57,17 @@ describe("Modal", () => {
     expect(ref.current).toBeInstanceOf(HTMLDivElement);
     expect(ref.current).toHaveAttribute("role", "dialog");
   });
+
+  // Regression: Portal must mount the panel synchronously so the focus-trap
+  // effect finds the node on first open (a deferred Portal left focus untrapped).
+  it("moves focus into the panel when opened", () => {
+    render(
+      <Modal open onClose={() => {}} aria-label="dlg">
+        <button>inside</button>
+      </Modal>,
+    );
+    const inside = screen.getByText("inside");
+    expect(screen.getByRole("dialog").contains(document.activeElement)).toBe(true);
+    expect(document.activeElement).toBe(inside);
+  });
 });
