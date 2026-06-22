@@ -2,7 +2,8 @@ import { componentNav } from "./componentNav";
 
 describe("componentNav", () => {
   it("lists the components with slug + label", () => {
-    expect(componentNav).toHaveLength(15);
+    expect(componentNav).toHaveLength(16);
+    expect(componentNav.map((c) => c.slug)).toContain("bottom-navigation");
     expect(componentNav.map((c) => c.slug)).toContain("button");
     expect(componentNav.map((c) => c.slug)).toContain("tabs");
     expect(componentNav.map((c) => c.slug)).toContain("card");

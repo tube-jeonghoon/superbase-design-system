@@ -6,6 +6,7 @@ export interface ComponentNavItem {
 export const componentNav: ComponentNavItem[] = [
   { slug: "avatar", label: "Avatar" },
   { slug: "badge", label: "Badge" },
+  { slug: "bottom-navigation", label: "BottomNavigation" },
   { slug: "button", label: "Button" },
   { slug: "card", label: "Card" },
   { slug: "checkbox", label: "Checkbox" },
