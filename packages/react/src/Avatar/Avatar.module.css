@@ -1,0 +1,16 @@
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--color-background-subtle);
+  color: var(--color-text-secondary);
+}
+.avatar[data-size="sm"] { width: var(--size-avatar-sm); height: var(--size-avatar-sm); font-size: var(--font-size-caption); }
+.avatar[data-size="md"] { width: var(--size-avatar-md); height: var(--size-avatar-md); font-size: var(--font-size-body); }
+.avatar[data-size="lg"] { width: var(--size-avatar-lg); height: var(--size-avatar-lg); font-size: var(--font-size-title); }
+.avatar[data-shape="circle"] { border-radius: var(--radius-full); }
+.avatar[data-shape="square"] { border-radius: var(--radius-md); }
+.img { width: 100%; height: 100%; object-fit: cover; }
+.initials { font-weight: var(--font-weight-medium); }
