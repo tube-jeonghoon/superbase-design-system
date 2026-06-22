@@ -19,6 +19,11 @@ export const iconPaths = {
   heart: "M12 20l-1.1-1C6.6 15.2 4 12.9 4 9.9 4 7.6 5.8 6 7.9 6c1.4 0 2.8.7 3.6 1.9C12.3 6.7 13.7 6 15.1 6 17.2 6 19 7.6 19 9.9c0 3-2.6 5.3-6.9 9.1L12 20z",
   user: "M8 8a4 4 0 1 0 8 0 4 4 0 1 0-8 0zM5 20a7 7 0 0 1 14 0",
   settings: "M4 8h9M17 8h3M4 16h3M11 16h9M15 6v4M8 14v4",
+  home: "M4 11l8-7 8 7M6 9.5V20h12V9.5",
+  calendar: "M4 6h16v14H4zM4 10h16M8 4v4M16 4v4",
+  users: "M9 8.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6M3.5 19a5.5 5.5 0 0 1 11 0M16.5 3a3 3 0 0 1 0 5.5M17 13.5a5.5 5.5 0 0 1 3.5 5.5",
+  chat: "M4 5h16v11H9l-4 4v-4H4z",
+  "arrow-left": "M19 12H5M11 6l-6 6 6 6",
 } as const;
 
 export type IconName = keyof typeof iconPaths;
