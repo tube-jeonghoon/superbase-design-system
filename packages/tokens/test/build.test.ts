@@ -109,6 +109,15 @@ describe("token build outputs", () => {
     expect(css).toContain("--size-switch-sm-thumb: 20px;");
   });
 
+  it("emits avatar size tokens (web + native)", () => {
+    const css = readFileSync(join(dist, "web/variables.css"), "utf8");
+    expect(css).toContain("--size-avatar-sm: 32px;");
+    expect(css).toContain("--size-avatar-md: 40px;");
+    expect(css).toContain("--size-avatar-lg: 56px;");
+    const js = readFileSync(join(dist, "native/tokens.js"), "utf8");
+    expect(js).toContain("export const SizeAvatarMd = 40;");
+  });
+
   it("matches the CSS output snapshot", () => {
     const css = readFileSync(join(dist, "web/variables.css"), "utf8");
     expect(css).toMatchSnapshot();

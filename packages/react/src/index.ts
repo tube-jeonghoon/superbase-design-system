@@ -20,3 +20,7 @@ export { Spinner } from "./Spinner/Spinner";
 export type { SpinnerProps, SpinnerSize } from "./Spinner/Spinner";
 export { Icon } from "./Icon/Icon";
 export type { IconProps } from "./Icon/Icon";
+export { Card } from "./Card/Card";
+export type { CardProps, CardElevation, CardPadding } from "./Card/Card";
+export { Avatar } from "./Avatar/Avatar";
+export type { AvatarProps, AvatarSize, AvatarShape } from "./Avatar/Avatar";

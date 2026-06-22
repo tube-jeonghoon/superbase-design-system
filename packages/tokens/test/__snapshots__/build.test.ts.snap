@@ -92,6 +92,9 @@ exports[`token build outputs > matches the CSS output snapshot 1`] = `
   --size-icon-sm: 16px;
   --size-icon-md: 20px;
   --size-icon-lg: 24px;
+  --size-avatar-sm: 32px;
+  --size-avatar-md: 40px;
+  --size-avatar-lg: 56px;
 }
 
 :root {
@@ -191,6 +194,9 @@ exports[`token build outputs > matches the CSS output snapshot 1`] = `
   --size-icon-sm: 16px;
   --size-icon-md: 20px;
   --size-icon-lg: 24px;
+  --size-avatar-sm: 32px;
+  --size-avatar-md: 40px;
+  --size-avatar-lg: 56px;
 }
 "
 `;
@@ -286,5 +292,8 @@ export const SizeIconXs = 12;
 export const SizeIconSm = 16;
 export const SizeIconMd = 20;
 export const SizeIconLg = 24;
+export const SizeAvatarSm = 32;
+export const SizeAvatarMd = 40;
+export const SizeAvatarLg = 56;
 "
 `;

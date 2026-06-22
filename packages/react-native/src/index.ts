@@ -24,3 +24,7 @@ export { ThemeProvider } from "./theme/ThemeProvider";
 export type { ThemeProviderProps } from "./theme/ThemeProvider";
 export { useTheme } from "./theme/useTheme";
 export type { Theme, ColorScheme } from "@superbase/tokens/native/theme";
+export { Card } from "./Card/Card";
+export type { CardProps, CardElevation, CardPadding } from "./Card/Card";
+export { Avatar } from "./Avatar/Avatar";
+export type { AvatarProps, AvatarSize, AvatarShape } from "./Avatar/Avatar";
