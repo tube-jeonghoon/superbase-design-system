@@ -76,6 +76,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(function Modal(
         >
           <div
             ref={setPanel}
+            {...rest}
             role="dialog"
             aria-modal="true"
             aria-label={hasTitle ? undefined : ariaLabel}
@@ -84,7 +85,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(function Modal(
             data-size={size}
             tabIndex={-1}
             className={[styles.panel, className].filter(Boolean).join(" ")}
-            {...rest}
           >
             {children}
           </div>
