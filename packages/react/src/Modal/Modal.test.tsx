@@ -1,6 +1,9 @@
 import { createRef } from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { Modal } from "./Modal";
+import { ModalHeader } from "./ModalHeader";
+import { ModalBody } from "./ModalBody";
+import { ModalFooter } from "./ModalFooter";
 
 describe("Modal", () => {
   it("renders nothing when closed", () => {
@@ -69,5 +72,50 @@ describe("Modal", () => {
     const inside = screen.getByText("inside");
     expect(screen.getByRole("dialog").contains(document.activeElement)).toBe(true);
     expect(document.activeElement).toBe(inside);
+  });
+});
+
+describe("Modal compound", () => {
+  it("wires the header title to aria-labelledby", () => {
+    render(
+      <Modal open onClose={() => {}}>
+        <ModalHeader>제목</ModalHeader>
+        <ModalBody>내용</ModalBody>
+      </Modal>,
+    );
+    const dialog = screen.getByRole("dialog");
+    const labelledby = dialog.getAttribute("aria-labelledby");
+    expect(labelledby).toBeTruthy();
+    expect(document.getElementById(labelledby!)?.textContent).toBe("제목");
+    expect(dialog).not.toHaveAttribute("aria-label");
+  });
+
+  it("renders a close button that calls onClose", () => {
+    const onClose = vi.fn();
+    render(
+      <Modal open onClose={onClose}>
+        <ModalHeader>제목</ModalHeader>
+      </Modal>,
+    );
+    fireEvent.click(screen.getByRole("button", { name: "Close" }));
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it("hides the close button when showCloseButton=false", () => {
+    render(
+      <Modal open onClose={() => {}}>
+        <ModalHeader showCloseButton={false}>제목</ModalHeader>
+      </Modal>,
+    );
+    expect(screen.queryByRole("button", { name: "Close" })).toBeNull();
+  });
+
+  it("renders footer content", () => {
+    render(
+      <Modal open onClose={() => {}} aria-label="dlg">
+        <ModalFooter><button>확인</button></ModalFooter>
+      </Modal>,
+    );
+    expect(screen.getByRole("button", { name: "확인" })).toBeInTheDocument();
   });
 });
