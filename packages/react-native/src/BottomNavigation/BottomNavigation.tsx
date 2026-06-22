@@ -1,19 +1,19 @@
 import { forwardRef, type ElementRef, type ReactNode } from "react";
-import { View, Pressable } from "react-native";
+import { View, Pressable, type ViewProps, type StyleProp, type ViewStyle } from "react-native";
 import { Icon } from "../Icon/Icon";
 import { useTheme } from "../theme/useTheme";
 import { BottomNavigationContext } from "./BottomNavigationContext";
 
-export interface BottomNavigationProps {
+export interface BottomNavigationProps extends ViewProps {
   value: string;
   onChange?: (value: string) => void;
   onBack?: () => void;
   children: ReactNode;
-  "aria-label"?: string;
+  style?: StyleProp<ViewStyle>;
 }
 
 export const BottomNavigation = forwardRef<ElementRef<typeof View>, BottomNavigationProps>(function BottomNavigation(
-  { value, onChange, onBack, children, "aria-label": ariaLabel = "Bottom navigation" },
+  { value, onChange, onBack, children, "aria-label": ariaLabel = "Bottom navigation", style, ...rest },
   ref,
 ) {
   const t = useTheme();
@@ -21,16 +21,20 @@ export const BottomNavigation = forwardRef<ElementRef<typeof View>, BottomNaviga
     <View
       ref={ref}
       accessibilityLabel={ariaLabel}
-      style={{
-        flexDirection: "row",
-        alignItems: "center",
-        gap: t.spacing["1"],
-        paddingHorizontal: t.spacing["3"],
-        paddingVertical: t.spacing["2"],
-        backgroundColor: t.color.background.default,
-        borderRadius: t.radius.full,
-        ...t.shadow.lg,
-      }}
+      {...rest}
+      style={[
+        {
+          flexDirection: "row",
+          alignItems: "center",
+          gap: t.spacing["1"],
+          paddingHorizontal: t.spacing["3"],
+          paddingVertical: t.spacing["2"],
+          backgroundColor: t.color.background.default,
+          borderRadius: t.radius.full,
+          ...t.shadow.lg,
+        },
+        style,
+      ]}
     >
       {onBack ? (
         <>
