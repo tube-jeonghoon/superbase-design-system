@@ -66,6 +66,21 @@ describe("Header", () => {
     expect(container.querySelector('[data-badge="true"]')).not.toBeNull();
   });
 
+  it("disables the action button and does not fire its handler", () => {
+    const onClick = vi.fn();
+    render(
+      <Header>
+        <HeaderActions>
+          <HeaderAction icon={<span>i</span>} label="알림" disabled onClick={onClick} />
+        </HeaderActions>
+      </Header>,
+    );
+    const btn = screen.getByRole("button", { name: "알림" });
+    expect(btn).toBeDisabled();
+    fireEvent.click(btn);
+    expect(onClick).not.toHaveBeenCalled();
+  });
+
   it("defaults to the bar variant and accepts floating", () => {
     const { container, rerender } = render(<Header><HeaderTitle title="T" /></Header>);
     expect(container.querySelector('[data-variant="bar"]')).not.toBeNull();
