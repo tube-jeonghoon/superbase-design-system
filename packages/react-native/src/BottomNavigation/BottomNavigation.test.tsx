@@ -45,4 +45,15 @@ describe("BottomNavigation (RN)", () => {
     fireEvent.click(screen.getByLabelText("뒤로"));
     expect(onBack).toHaveBeenCalledTimes(1);
   });
+
+  it("renders both variants without crashing", () => {
+    const { rerender } = render(
+      <BottomNavigation value="home" onChange={() => {}}>{items()}</BottomNavigation>,
+    );
+    expect(screen.getByText("home-on")).toBeInTheDocument();
+    rerender(
+      <BottomNavigation value="home" onChange={() => {}} variant="floating">{items()}</BottomNavigation>,
+    );
+    expect(screen.getByText("home-on")).toBeInTheDocument();
+  });
 });

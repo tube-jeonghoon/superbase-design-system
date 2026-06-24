@@ -4,19 +4,34 @@ import { Icon } from "../Icon/Icon";
 import { useTheme } from "../theme/useTheme";
 import { BottomNavigationContext } from "./BottomNavigationContext";
 
+export type BottomNavigationVariant = "bar" | "floating";
+
 export interface BottomNavigationProps extends ViewProps {
   value: string;
   onChange?: (value: string) => void;
   onBack?: () => void;
   children: ReactNode;
   style?: StyleProp<ViewStyle>;
+  variant?: BottomNavigationVariant;
 }
 
 export const BottomNavigation = forwardRef<ElementRef<typeof View>, BottomNavigationProps>(function BottomNavigation(
-  { value, onChange, onBack, children, "aria-label": ariaLabel = "Bottom navigation", style, ...rest },
+  { value, onChange, onBack, children, "aria-label": ariaLabel = "Bottom navigation", style, variant = "bar", ...rest },
   ref,
 ) {
   const t = useTheme();
+  const variantStyle: ViewStyle =
+    variant === "floating"
+      ? {
+          borderRadius: t.radius.full,
+          borderWidth: t.borderWidth.thin,
+          borderColor: t.color.border.default,
+          ...t.shadow.sm,
+        }
+      : {
+          borderTopWidth: t.borderWidth.thin,
+          borderTopColor: t.color.border.default,
+        };
   return (
     <View
       ref={ref}
@@ -30,9 +45,8 @@ export const BottomNavigation = forwardRef<ElementRef<typeof View>, BottomNaviga
           paddingHorizontal: t.spacing["3"],
           paddingVertical: t.spacing["2"],
           backgroundColor: t.color.background.default,
-          borderRadius: t.radius.full,
-          ...t.shadow.lg,
         },
+        variantStyle,
         style,
       ]}
     >

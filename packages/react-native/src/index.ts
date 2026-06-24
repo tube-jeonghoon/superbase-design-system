@@ -49,7 +49,7 @@ export type { ToastProviderProps } from "./Toast/ToastProvider";
 export { useToast } from "./Toast/useToast";
 export type { ToastOptions, ToastVariant, ToastAction } from "./Toast/types";
 export { BottomNavigation } from "./BottomNavigation/BottomNavigation";
-export type { BottomNavigationProps } from "./BottomNavigation/BottomNavigation";
+export type { BottomNavigationProps, BottomNavigationVariant } from "./BottomNavigation/BottomNavigation";
 export { BottomNavigationItem } from "./BottomNavigation/BottomNavigationItem";
 export type { BottomNavigationItemProps } from "./BottomNavigation/BottomNavigationItem";
 export { Header } from "./Header/Header";
