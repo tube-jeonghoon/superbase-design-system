@@ -1,5 +1,14 @@
 # @superbase/docs
 
+## 0.0.4
+
+### Patch Changes
+
+- Updated dependencies [2fa3da5]
+  - @superbase/icons@0.4.0
+  - @superbase/react@0.5.0
+  - @superbase/react-native@0.5.0
+
 ## 0.0.3
 
 ### Patch Changes
