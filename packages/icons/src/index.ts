@@ -24,6 +24,7 @@ export const iconPaths = {
   users: "M9 8.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6M3.5 19a5.5 5.5 0 0 1 11 0M16.5 3a3 3 0 0 1 0 5.5M17 13.5a5.5 5.5 0 0 1 3.5 5.5",
   chat: "M4 5h16v11H9l-4 4v-4H4z",
   "arrow-left": "M19 12H5M11 6l-6 6 6 6",
+  bell: "M6 9a6 6 0 0 1 12 0v4l1.5 3h-15L6 13zM10 20a2 2 0 0 0 4 0",
 } as const;
 
 export type IconName = keyof typeof iconPaths;
