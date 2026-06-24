@@ -55,4 +55,15 @@ describe("BottomNavigation", () => {
     render(<BottomNavigation value="home" onChange={() => {}} aria-label="주요 메뉴">{items()}</BottomNavigation>);
     expect(screen.getByRole("navigation", { name: "주요 메뉴" })).toBeInTheDocument();
   });
+
+  it("defaults to the bar variant and accepts floating", () => {
+    const { container, rerender } = render(
+      <BottomNavigation value="home" onChange={() => {}}>{items()}</BottomNavigation>,
+    );
+    expect(container.querySelector('[data-variant="bar"]')).not.toBeNull();
+    rerender(
+      <BottomNavigation value="home" onChange={() => {}} variant="floating">{items()}</BottomNavigation>,
+    );
+    expect(container.querySelector('[data-variant="floating"]')).not.toBeNull();
+  });
 });

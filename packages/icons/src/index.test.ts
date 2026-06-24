@@ -1,12 +1,12 @@
 import { iconPaths, iconNames, ICON_VIEWBOX } from "./index";
 
 describe("icons data", () => {
-  it("exposes 23 icons", () => {
-    expect(iconNames).toHaveLength(23);
+  it("exposes 24 icons", () => {
+    expect(iconNames).toHaveLength(24);
   });
 
   it("includes the navigation icons", () => {
-    for (const n of ["home", "calendar", "users", "chat", "arrow-left"] as const) {
+    for (const n of ["home", "calendar", "users", "chat", "arrow-left", "bell"] as const) {
       expect(iconNames).toContain(n);
     }
   });
