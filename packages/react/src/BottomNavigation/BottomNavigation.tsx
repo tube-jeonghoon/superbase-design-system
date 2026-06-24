@@ -3,19 +3,28 @@ import { Icon } from "../Icon/Icon";
 import { BottomNavigationContext } from "./BottomNavigationContext";
 import styles from "./BottomNavigation.module.css";
 
+export type BottomNavigationVariant = "bar" | "floating";
+
 export interface BottomNavigationProps extends Omit<HTMLAttributes<HTMLElement>, "onChange"> {
   value: string;
   onChange?: (value: string) => void;
   onBack?: () => void;
+  variant?: BottomNavigationVariant;
   children: ReactNode;
 }
 
 export const BottomNavigation = forwardRef<HTMLElement, BottomNavigationProps>(function BottomNavigation(
-  { value, onChange, onBack, children, className, "aria-label": ariaLabel = "Bottom navigation", ...rest },
+  { value, onChange, onBack, variant = "bar", children, className, "aria-label": ariaLabel = "Bottom navigation", ...rest },
   ref,
 ) {
   return (
-    <nav ref={ref} aria-label={ariaLabel} className={[styles.bar, className].filter(Boolean).join(" ")} {...rest}>
+    <nav
+      ref={ref}
+      aria-label={ariaLabel}
+      data-variant={variant}
+      className={[styles.root, className].filter(Boolean).join(" ")}
+      {...rest}
+    >
       {onBack && (
         <>
           <button type="button" className={styles.back} aria-label="뒤로" onClick={onBack}>
