@@ -26,18 +26,16 @@ const frame: React.CSSProperties = {
   justifyContent: "center",
 };
 
-// Realistic mobile width so the bar reads like a real bottom nav (centered),
-// rather than shrinking to content inside the flex preview canvas.
 const barStyle = { width: "100%", maxWidth: 420 } as const;
 
-function WebDemo({ withBack }: { withBack?: boolean }) {
+function WebDemo({ variant, withBack }: { variant?: "bar" | "floating"; withBack?: boolean }) {
   const [value, setValue] = useState("home");
   const wi = (name: "home" | "calendar" | "users" | "user" | "chat") => (active: boolean) => (
     <WebIcon name={name} color={active ? "var(--color-brand-primary)" : "var(--color-text-secondary)"} />
   );
   return (
     <div style={frame}>
-      <WebBottomNavigation value={value} onChange={setValue} onBack={withBack ? () => {} : undefined} style={barStyle}>
+      <WebBottomNavigation value={value} onChange={setValue} variant={variant} onBack={withBack ? () => {} : undefined} style={barStyle}>
         <WebBottomNavigationItem value="home" label="홈" icon={wi("home")} />
         <WebBottomNavigationItem value="calendar" label="일정" icon={wi("calendar")} />
         <WebBottomNavigationItem value="club" label={withBack ? "멤버" : "클럽"} icon={wi("users")} />
@@ -47,7 +45,7 @@ function WebDemo({ withBack }: { withBack?: boolean }) {
   );
 }
 
-function RNDemo({ withBack }: { withBack?: boolean }) {
+function RNDemo({ variant, withBack }: { variant?: "bar" | "floating"; withBack?: boolean }) {
   const [value, setValue] = useState("home");
   const t = useRNTheme();
   const ri = (name: "home" | "calendar" | "users" | "user" | "chat") => (active: boolean) => (
@@ -55,7 +53,7 @@ function RNDemo({ withBack }: { withBack?: boolean }) {
   );
   return (
     <div style={frame}>
-      <RNBottomNavigation value={value} onChange={setValue} onBack={withBack ? () => {} : undefined} style={barStyle}>
+      <RNBottomNavigation value={value} onChange={setValue} variant={variant} onBack={withBack ? () => {} : undefined} style={barStyle}>
         <RNBottomNavigationItem value="home" label="홈" icon={ri("home")} />
         <RNBottomNavigationItem value="calendar" label="일정" icon={ri("calendar")} />
         <RNBottomNavigationItem value="club" label={withBack ? "멤버" : "클럽"} icon={ri("users")} />
@@ -68,8 +66,8 @@ function RNDemo({ withBack }: { withBack?: boolean }) {
 const webContent = (
   <>
     <Example
-      title="기본"
-      description={<><Code>value</Code>/<Code>onChange</Code>로 제어합니다. <Code>icon</Code>은 <Code>(active) =&gt; ReactNode</Code> 렌더 함수입니다. 활성 항목은 브랜드 색으로 강조됩니다.</>}
+      title="기본 (bar)"
+      description={<><Code>variant</Code> 기본값은 <Code>"bar"</Code>로, 화면 폭을 꽉 채우고 상단 보더가 있는 형태입니다. <Code>value</Code>/<Code>onChange</Code>로 제어하고, <Code>icon</Code>은 <Code>(active) =&gt; ReactNode</Code> 렌더 함수입니다.</>}
       code={`<BottomNavigation value={value} onChange={setValue}>
   <BottomNavigationItem value="home" label="홈"
     icon={(active) => <Icon name="home" color={active ? brand : secondary} />} />
@@ -77,6 +75,13 @@ const webContent = (
 </BottomNavigation>`}
     >
       <WebDemo />
+    </Example>
+    <Example
+      title="플로팅 (floating)"
+      description={<><Code>variant="floating"</Code>은 radius-full pill에 보더 + 은은한 그림자를 더해 화면 위에 띄웁니다.</>}
+      code={`<BottomNavigation variant="floating" value={value} onChange={setValue}>…</BottomNavigation>`}
+    >
+      <WebDemo variant="floating" />
     </Example>
     <Example
       title="중첩(뒤로가기)"
@@ -91,7 +96,7 @@ const webContent = (
 const nativeContent = (
   <>
     <Example
-      title="기본"
+      title="기본 (bar)"
       description={<>RN도 동일 API. <Code>icon</Code>의 색은 <Code>useTheme()</Code>로 가져옵니다.</>}
       code={`<BottomNavigation value={value} onChange={setValue}>
   <BottomNavigationItem value="home" label="홈"
@@ -100,6 +105,13 @@ const nativeContent = (
 </BottomNavigation>`}
     >
       <ClientOnly><RNDemo /></ClientOnly>
+    </Example>
+    <Example
+      title="플로팅 (floating)"
+      description={<><Code>variant="floating"</Code>으로 pill 형태로 띄웁니다.</>}
+      code={`<BottomNavigation variant="floating" value={value} onChange={setValue}>…</BottomNavigation>`}
+    >
+      <ClientOnly><RNDemo variant="floating" /></ClientOnly>
     </Example>
     <Example
       title="중첩(뒤로가기)"
@@ -113,7 +125,7 @@ const nativeContent = (
 
 export default function BottomNavigationPage() {
   return (
-    <ComponentDoc title="BottomNavigation" lead="화면 하단의 floating 네비게이션 바. 기본형과 뒤로가기 중첩형을 지원합니다.">
+    <ComponentDoc title="BottomNavigation" lead="화면 하단의 네비게이션 바. bar(기본)·floating 두 룩과 뒤로가기 중첩형을 지원합니다.">
       <Tabs ariaLabel="플랫폼" items={[
         { id: "web", label: "Web", content: webContent },
         { id: "native", label: "React Native", content: nativeContent },

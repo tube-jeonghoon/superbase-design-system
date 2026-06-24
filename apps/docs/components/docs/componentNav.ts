@@ -10,6 +10,7 @@ export const componentNav: ComponentNavItem[] = [
   { slug: "button", label: "Button" },
   { slug: "card", label: "Card" },
   { slug: "checkbox", label: "Checkbox" },
+  { slug: "header", label: "Header" },
   { slug: "icon", label: "Icon" },
   { slug: "modal", label: "Modal" },
   { slug: "radio", label: "Radio" },
