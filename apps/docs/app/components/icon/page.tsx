@@ -75,11 +75,11 @@ const nativeContent = (
           정합니다. RN은 기본 색이 토큰 텍스트 색입니다.
         </>
       }
-      code={`<Icon name="search" />\n<Icon name="check" size={24} color="#3182f6" />`}
+      code={`<Icon name="search" />\n<Icon name="check" size={24} color="#1d9e6b" />`}
     >
       <ClientOnly>
         <RNIcon name="search" />
-        <RNIcon name="check" size={24} color="#3182f6" />
+        <RNIcon name="check" size={24} color="#1d9e6b" />
       </ClientOnly>
     </Example>
 
