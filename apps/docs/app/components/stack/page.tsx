@@ -12,7 +12,7 @@ function WebBox() {
   return <div style={{ width: 48, height: 48, borderRadius: "var(--radius-sm)", background: "var(--color-brand-primary)" }} />;
 }
 function RNBox() {
-  return <View style={{ width: 48, height: 48, borderRadius: 8, backgroundColor: "#3182f6" }} />;
+  return <View style={{ width: 48, height: 48, borderRadius: 8, backgroundColor: "#1d9e6b" }} />;
 }
 
 const descRow = (

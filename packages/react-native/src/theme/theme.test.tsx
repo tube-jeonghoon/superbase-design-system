@@ -28,6 +28,6 @@ describe("ThemeProvider / useTheme", () => {
         <Probe />
       </ThemeProvider>,
     );
-    expect(screen.getByText("#191f28")).toBeInTheDocument();
+    expect(screen.getByText("#16211c")).toBeInTheDocument();
   });
 });
