@@ -21,8 +21,8 @@ describe("native runtime theme objects", () => {
   it("lightTheme and darkTheme have the expected shared shape with converted values", async () => {
     const mod = await import(join(dist, "native/theme.js"));
     const { lightTheme, darkTheme } = mod;
-    expect(lightTheme.color.text.primary).toBe("#191f28");
-    expect(darkTheme.color.background.default).toBe("#191f28");
+    expect(lightTheme.color.text.primary).toBe("#16211c");
+    expect(darkTheme.color.background.default).toBe("#16211c");
     expect(lightTheme.spacing["4"]).toBe(16);
     expect(lightTheme.radius.md).toBe(12);
     expect(lightTheme.font.size.body).toBe(15);

@@ -17,7 +17,7 @@ describe("token build outputs", () => {
     const cssPath = join(dist, "web/variables.css");
     expect(existsSync(cssPath)).toBe(true);
     const css = readFileSync(cssPath, "utf8");
-    expect(css).toContain("--color-blue-500: #3182f6;");
+    expect(css).toContain("--color-blue-500: #2e6ecc;");
     expect(css).toContain(":root");
   });
 
@@ -27,7 +27,7 @@ describe("token build outputs", () => {
     expect(existsSync(jsPath)).toBe(true);
     expect(existsSync(dtsPath)).toBe(true);
     const js = readFileSync(jsPath, "utf8");
-    expect(js).toContain('export const ColorBlue500 = "#3182f6";');
+    expect(js).toContain('export const ColorBlue500 = "#2e6ecc";');
     expect(js).toContain("export const Spacing4 = 16;");
     expect(js).toContain("export const FontSizeBody = 15;");
     const dts = readFileSync(dtsPath, "utf8");
@@ -36,23 +36,23 @@ describe("token build outputs", () => {
 
   it("maps semantic tokens to resolved values in :root (light)", () => {
     const css = readFileSync(join(dist, "web/variables.css"), "utf8");
-    expect(css).toContain("--color-text-primary: #191f28;");
+    expect(css).toContain("--color-text-primary: #16211c;");
     expect(css).toContain("--color-background-default: #ffffff;");
   });
 
   it("emits a dark theme block overriding semantic tokens", () => {
     const css = readFileSync(join(dist, "web/variables.css"), "utf8");
     expect(css).toContain('[data-theme="dark"]');
-    expect(css).toContain("--color-background-default: #191f28;");
+    expect(css).toContain("--color-background-default: #16211c;");
   });
 
   it("emits status semantic colors (web + native)", () => {
     const css = readFileSync(join(dist, "web/variables.css"), "utf8");
-    expect(css).toContain("--color-status-success: #00b26d;");
-    expect(css).toContain("--color-status-warning: #ffb020;");
-    expect(css).toContain("--color-status-danger: #f04452;");
+    expect(css).toContain("--color-status-success: #1d9e6b;");
+    expect(css).toContain("--color-status-warning: #7a5b16;");
+    expect(css).toContain("--color-status-danger: #c13a2a;");
     const ts = readFileSync(join(dist, "native/tokens.js"), "utf8");
-    expect(ts).toContain('export const ColorStatusSuccess = "#00b26d";');
+    expect(ts).toContain('export const ColorStatusSuccess = "#1d9e6b";');
   });
 
   it("emits scalar foundation tokens as CSS variables", () => {
@@ -67,7 +67,7 @@ describe("token build outputs", () => {
     expect(css).toContain("--duration-slow: 320ms;");
     expect(css).toContain("--easing-standard: cubic-bezier(0.2, 0, 0, 1);");
     expect(css).toContain("--z-index-modal: 1300;");
-    expect(css).toContain("--focus-ring-color: rgba(49, 130, 246, 0.4);");
+    expect(css).toContain("--focus-ring-color: rgba(29, 158, 107, 0.4);");
     expect(css).toContain("--focus-ring-width: 2px;");
   });
 
