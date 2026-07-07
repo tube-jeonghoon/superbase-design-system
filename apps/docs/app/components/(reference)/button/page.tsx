@@ -187,6 +187,50 @@ export default function ButtonPage() {
           { id: "native", label: "React Native", content: nativeContent },
         ]}
       />
+
+      <section style={{ marginTop: "var(--spacing-8)" }}>
+        <h2 style={{ fontSize: "var(--font-size-title)", fontWeight: 800, marginBottom: "var(--spacing-4)" }}>Variants</h2>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "var(--font-size-caption)" }}>
+          <thead>
+            <tr style={{ textAlign: "left", borderBottom: "1px solid var(--color-border-default)" }}>
+              <th style={{ padding: "var(--spacing-3)" }}>variant</th>
+              <th style={{ padding: "var(--spacing-3)" }}>용도</th>
+              <th style={{ padding: "var(--spacing-3)" }}>토큰</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { v: "primary", u: "화면의 핵심 행동 (1개만)", t: "brand.primary" },
+              { v: "secondary", u: "보조 행동", t: "green.100" },
+              { v: "outline", u: "낮은 강조 · 취소/닫기", t: "border.default" },
+              { v: "ghost", u: "최소 강조 · 인라인 액션", t: "transparent" },
+            ].map((r) => (
+              <tr key={r.v} style={{ borderBottom: "1px solid var(--color-background-subtle)" }}>
+                <td style={{ padding: "var(--spacing-3)", fontFamily: "ui-monospace, monospace", fontWeight: 700 }}>{r.v}</td>
+                <td style={{ padding: "var(--spacing-3)", color: "var(--color-text-secondary)" }}>{r.u}</td>
+                <td style={{ padding: "var(--spacing-3)", fontFamily: "ui-monospace, monospace", color: "var(--color-text-secondary)" }}>{r.t}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+
+      <section style={{ marginTop: "var(--spacing-8)", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "var(--spacing-6)" }}>
+        <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-lg)", padding: "var(--spacing-4)" }}>
+          <div style={{ display: "flex", gap: "var(--spacing-2)", marginBottom: "var(--spacing-3)" }}>
+            <WebButton variant="primary">가입하기</WebButton>
+            <WebButton variant="outline">둘러보기</WebButton>
+          </div>
+          <div style={{ fontSize: "var(--font-size-caption)" }}><strong style={{ color: "var(--color-status-success)" }}>✔ Do</strong> Primary는 화면당 하나. 나머지는 낮은 강조로.</div>
+        </div>
+        <div style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-lg)", padding: "var(--spacing-4)" }}>
+          <div style={{ display: "flex", gap: "var(--spacing-2)", marginBottom: "var(--spacing-3)" }}>
+            <WebButton variant="primary">가입하기</WebButton>
+            <WebButton variant="primary">둘러보기</WebButton>
+          </div>
+          <div style={{ fontSize: "var(--font-size-caption)" }}><strong style={{ color: "var(--color-status-danger)" }}>✘ Don't</strong> Primary 버튼을 나란히 두 개 쓰지 않습니다.</div>
+        </div>
+      </section>
     </ComponentDoc>
   );
 }
