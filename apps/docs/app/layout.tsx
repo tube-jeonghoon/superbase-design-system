@@ -2,7 +2,8 @@ import type { ReactNode } from "react";
 import "@superbase/tokens/css";
 import "@superbase/react/styles.css";
 import "./globals.css";
-import { AppShell } from "../components/AppShell";
+import { SiteHeader } from "../components/site/SiteHeader";
+import { SiteFooter } from "../components/site/SiteFooter";
 import { STORAGE_KEY } from "../lib/theme";
 
 export const metadata = {
@@ -25,7 +26,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body>
-        <AppShell>{children}</AppShell>
+        <SiteHeader />
+        <main style={{ maxWidth: 1200, margin: "0 auto", padding: "var(--spacing-8)", width: "100%" }}>
+          {children}
+        </main>
+        <SiteFooter />
       </body>
     </html>
   );
