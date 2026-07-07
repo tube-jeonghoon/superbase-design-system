@@ -1,0 +1,15 @@
+.footer {
+  background: var(--color-green-900, #123b2c);
+  color: #fff;
+  padding: var(--spacing-8) var(--spacing-8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-8);
+}
+.copy { font-size: var(--font-size-caption); opacity: 0.85; }
+.links { display: flex; gap: var(--spacing-6); }
+.links a { color: #fff; font-weight: 700; font-size: var(--font-size-caption); }
+.links a:hover { text-decoration: underline; }
