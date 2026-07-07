@@ -15,7 +15,7 @@ Superbase 디자인 시스템 문서 사이트 (Next.js).
 ## 구성
 
 - `app/` — App Router 페이지 (Getting Started / Foundations / Components)
-- `components/` — AppShell, ThemeToggle, Swatch
+- `components/` — SiteHeader, SiteFooter, ThemeToggle, Swatch
 - `lib/tokens.ts` — Foundations 표시용 토큰 데이터
 
 다크 테마는 헤더의 스위치로 토글되며 `<html data-theme="dark">`를 설정한다.
