@@ -93,7 +93,7 @@ export default function HomePage() {
               <span style={{ fontFamily: "ui-monospace, monospace", color: "var(--color-brand-primary)", fontWeight: 700, minWidth: 64 }}>v{r.version}</span>
               <div>
                 <div style={{ fontWeight: 700 }}>{r.title}</div>
-                <div style={{ color: "var(--color-text-secondary)", fontSize: "var(--font-size-caption)" }}>{r.summary}</div>
+                <div style={{ color: "var(--color-text-secondary)", fontSize: "var(--font-size-caption)", marginTop: "var(--spacing-2)" }}>{r.summary}</div>
               </div>
             </div>
           ))}

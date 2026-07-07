@@ -11,7 +11,7 @@ export default function ReleasesPage() {
             <span style={{ fontFamily: "ui-monospace, monospace", color: "var(--color-brand-primary)", fontWeight: 700 }}>v{r.version}</span>
             <div>
               <div style={{ fontWeight: 700, fontSize: "var(--font-size-body)" }}>{r.title}</div>
-              <p style={{ color: "var(--color-text-secondary)", marginTop: "var(--spacing-2)" }}>{r.summary}</p>
+              <p style={{ color: "var(--color-text-secondary)", marginTop: "var(--spacing-4)" }}>{r.summary}</p>
             </div>
           </div>
         ))}
