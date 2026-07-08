@@ -29,14 +29,18 @@
 
 **1. `apps/docs/components/site/PreviewFrame.tsx`** — 미리보기 박스 표준 래퍼
 - 역할: 모든 카드의 120px 미리보기 영역을 통일한다.
-- 스타일: `height: 120`, 중앙 정렬(flex center), `overflow: hidden`, `background: var(--color-background-subtle)`, `pointer-events: none`.
-- `pointer-events: none`이 **필수**다: 카드 전체가 `<a href>` 링크라서, 내부 인터랙티브 컴포넌트(Switch/Tabs/TextField 등)가 클릭/포커스를 가로채면 안 된다.
+- 스타일: `height: 120`, 중앙 정렬(flex center), `overflow: hidden`, `background: var(--color-background-subtle)`.
+- **`inert` 속성이 필수**다. 카드 전체가 `<a href>` 링크인데, 미리보기 안에는 Tab·Checkbox·Switch·Button 같은 `<button tabIndex=0>`이 들어간다. `pointer-events: none`은 클릭만 막고 **키보드 탭 순서에는 그대로 남아** 카드 17개가 탭 순서를 오염시키고, 스크린리더에도 중복 노출된다. `inert`는 포인터·탭 순서·접근성 트리에서 한 번에 제거한다(React 19가 `inert` boolean prop을 지원하고, 이 레포는 React 19 + `@types/react` 19를 쓴다). CSS의 `pointer-events: none`은 이중 안전장치로 함께 둔다.
 - props: `{ children: ReactNode }`.
 
 **2. `apps/docs/components/site/previews.tsx`** — 프리뷰 레지스트리
 - 최상단 `"use client"`.
 - `export const previews: Record<string, ReactNode>` — 키는 catalog slug 17개.
-- 실제 렌더 컴포넌트는 `@superbase/react`에서 import. 미니어처 4개는 인라인 JSX + 시맨틱 토큰.
+- 실제 렌더 컴포넌트는 `@superbase/react`에서 import. 미니어처 4개는 같은 파일 안의 작은 로컬 컴포넌트(`ToastMini`/`ModalMini`/`HeaderMini`/`BottomNavMini`)로 정의한다 — "카드가 무엇을 보여주는가"가 한 파일에 모여 응집도가 높다.
+
+**CSS 모듈 2개** — `components/site/`의 기존 관례(`SiteHeader.module.css`)를 따른다.
+- `PreviewFrame.module.css`
+- `previews.module.css` (미니어처 4종 + 폭 제한 wrapper + Stack 데코 박스)
 
 ### 수정 파일
 
@@ -57,23 +61,25 @@
 
 ### 실제 렌더링 (13개)
 
+**중요:** `Checkbox`·`Switch`·`RadioGroup`·`Tabs`·`TextField`는 모두 **controlled 컴포넌트**다(`defaultChecked`/`defaultValue` 같은 uncontrolled prop이 없다). 미리보기는 정적이므로 `checked`/`value`를 고정값으로 넘기고 핸들러는 생략하거나 no-op으로 둔다. `inert` 때문에 상호작용 자체가 불가능하다. 라벨은 children이 아니라 `label` prop으로 넘긴다(`Checkbox`, `Radio`).
+
 | slug | 미리보기 |
 |---|---|
 | `button` | `<Button variant="primary">확인</Button>` |
-| `textfield` | `<TextField placeholder="이메일" defaultValue="" />` (폭 제한 wrapper) |
-| `checkbox` | `<Checkbox defaultChecked>동의합니다</Checkbox>` |
-| `radio` | `<RadioGroup defaultValue="a"><Radio value="a">선택</Radio></RadioGroup>` |
-| `switch` | `<Switch defaultChecked />` |
-| `spinner` | `<Spinner />` |
+| `textfield` | `<TextField placeholder="이메일" value="" onChange={noop} />` (폭 220px wrapper) |
+| `checkbox` | `<Checkbox checked label="동의합니다" />` |
+| `radio` | `<RadioGroup value="a"><Radio value="a" label="선택됨" /></RadioGroup>` |
+| `switch` | `<Switch checked aria-label="미리보기" />` |
+| `spinner` | `<Spinner size="lg" />` |
 | `badge` | `<Badge variant="brand">NEW</Badge>` |
-| `tabs` | `<Tabs>` 2탭(첫 탭 활성) 스트립 — 폭 제한 |
-| `card` | `<Card elevation="sm"><Text weight="medium">Card</Text></Card>` (축소) |
-| `avatar` | `<Avatar name="김수현" />` (이니셜) |
+| `tabs` | `<Tabs value="design">` + `TabList` + `Tab` 2개(첫 탭 활성) |
+| `card` | `<Card elevation="sm" padding={3}><Text variant="caption" weight="medium">Card</Text></Card>` |
+| `avatar` | `<Avatar name="Jeong Hoon" />` → 이니셜 `JH` |
 | `text` | `<Text variant="title" weight="bold">Aa 가나다</Text>` |
-| `icon` | `<Icon name="star" size="lg" />` |
+| `icon` | `<Icon name="star" size={32} />` (명명 `lg`=24는 카드에서 작아 32px 사용) |
 | `stack` | `<Stack direction="row" gap={2}>` 안에 토큰 색 박스 3개 |
 
-> 참고: 위 props는 export된 타입에 맞춰 작성했다. 구현 시 각 컴포넌트의 실제 prop 시그니처(예: `Checkbox`의 라벨 전달 방식, `RadioGroup`/`Radio` 조합)를 확인해 정확히 맞춘다. 렌더가 부담되면 카드 크기에 맞게 wrapper로 `transform: scale()` 또는 폭 제한을 적용한다.
+> 사용 가능한 아이콘 이름(24종): `arrow-left bell calendar chat check chevron-{up,down,left,right} close error heart home info menu minus plus search settings star success user users warning`
 
 ### 대표 미니어처 (4개)
 
