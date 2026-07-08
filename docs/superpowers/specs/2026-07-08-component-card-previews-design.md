@@ -30,7 +30,8 @@
 **1. `apps/docs/components/site/PreviewFrame.tsx`** — 미리보기 박스 표준 래퍼
 - 역할: 모든 카드의 120px 미리보기 영역을 통일한다.
 - 스타일: `height: 120`, 중앙 정렬(flex center), `overflow: hidden`, `background: var(--color-background-subtle)`.
-- **`inert` 속성이 필수**다. 카드 전체가 `<a href>` 링크인데, 미리보기 안에는 Tab·Checkbox·Switch·Button 같은 `<button tabIndex=0>`이 들어간다. `pointer-events: none`은 클릭만 막고 **키보드 탭 순서에는 그대로 남아** 카드 17개가 탭 순서를 오염시키고, 스크린리더에도 중복 노출된다. `inert`는 포인터·탭 순서·접근성 트리에서 한 번에 제거한다(React 19가 `inert` boolean prop을 지원하고, 이 레포는 React 19 + `@types/react` 19를 쓴다). CSS의 `pointer-events: none`은 이중 안전장치로 함께 둔다.
+- **`inert` 속성이 필수**다. 카드 전체가 `<a href>` 링크인데, 미리보기 안에는 Tab·Checkbox·Switch·Button 같은 `<button tabIndex=0>`이 들어간다. `pointer-events: none`은 클릭만 막고 **키보드 탭 순서에는 그대로 남아** 카드 17개가 탭 순서를 오염시키고, 스크린리더에도 중복 노출된다. `inert`는 포인터·탭 순서·접근성 트리에서 한 번에 제거한다(React 19가 `inert` boolean prop을 지원하고, 이 레포는 React 19 + `@types/react` 19를 쓴다).
+- **`pointer-events: none`을 함께 두지 않는다.** HTML 명세상 inert 노드는 hit-testing이 이미 `pointer-events: none`처럼 동작하고, `inert`는 Baseline(Chrome 102+/Safari 15.5+/Firefox 112+)이라 지원 범위 안에 그 선언이 의미를 갖는 브라우저가 없다. 이중 안전장치 역할도 못 한다 — inert가 안 걸린 상황이라면 `pointer-events: none`은 위험의 3분의 1(클릭)만 막고 정작 탭 순서·a11y 트리는 그대로 두기 때문이다.
 - props: `{ children: ReactNode }`.
 
 **2. `apps/docs/components/site/previews.tsx`** — 프리뷰 레지스트리

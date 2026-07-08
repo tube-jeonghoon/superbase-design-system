@@ -14,7 +14,9 @@
 
 ## 핵심 제약 (구현 전 반드시 읽을 것)
 
-1. **`inert`가 필수다.** 카드 전체가 `<a href>` 링크다. 미리보기 안에는 `<button tabIndex=0>`인 Tab·Checkbox·Switch·Radio·Button이 들어간다. `pointer-events: none`은 클릭만 막고 **탭 순서에는 남는다** → 카드 17개가 키보드 탭 순서를 오염시키고 스크린리더에 중복 노출된다. `PreviewFrame`이 `inert`를 걸어 포인터·탭 순서·접근성 트리에서 한 번에 제거한다. React 19가 `inert` boolean prop을 지원한다.
+1. **`inert`가 필수다.** 카드 전체가 `<a href>` 링크다. 미리보기 안에는 `<button tabIndex=0>`인 Tab·Checkbox·Switch·Radio·Button이 들어간다. `pointer-events: none`은 클릭만 막고 **탭 순서에는 남는다** → 카드 17개가 키보드 탭 순서를 오염시키고 스크린리더에 중복 노출된다. `PreviewFrame`이 `inert`를 걸어 포인터·탭 순서·접근성 트리에서 한 번에 제거한다. React 19가 `inert` boolean prop을 지원한다. **`pointer-events: none`을 곁들이지 말 것** — inert 노드는 명세상 이미 그렇게 동작하고(Baseline), 이중 안전장치 역할도 못 한다(클릭만 막고 탭 순서는 그대로).
+
+**테스트 명령 주의:** `pnpm --filter @superbase/docs test -- Foo`는 `--`가 vitest로 전달되며 **이름 필터를 삼킨다**(전체 스위트가 조용히 돈다). `pnpm --filter @superbase/docs test Foo`처럼 `--` 없이 쓸 것.
 
 2. **컴포넌트가 전부 controlled다.** `defaultChecked`/`defaultValue`가 **없다**. 반드시 이 시그니처를 지킬 것:
    - `Checkbox`: `checked` **필수**, 라벨은 `label` prop (children 아님)
@@ -97,8 +99,6 @@ Expected: FAIL — `Failed to resolve import "./PreviewFrame"`
   justify-content: center;
   overflow: hidden;
   background: var(--color-background-subtle);
-  /* inert가 이미 포인터를 막지만 이중 안전장치로 둔다 */
-  pointer-events: none;
 }
 ```
 
