@@ -106,6 +106,9 @@ importers:
         specifier: workspace:*
         version: link:../icons
     devDependencies:
+      '@superbase/tokens':
+        specifier: workspace:*
+        version: link:../tokens
       '@testing-library/jest-dom':
         specifier: ^6.6.0
         version: 6.9.1
