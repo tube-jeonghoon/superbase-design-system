@@ -3,7 +3,8 @@
     "text": {
       "primary":   { "value": "{color.neutral.050}" },
       "secondary": { "value": "{color.neutral.400}" },
-      "disabled":  { "value": "{color.neutral.500}" }
+      "disabled":  { "value": "{color.neutral.500}" },
+      "onBrand":   { "value": "{color.neutral.000}" }
     },
     "background": {
       "default": { "value": "{color.neutral.900}" },

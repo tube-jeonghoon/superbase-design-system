@@ -34,6 +34,7 @@ exports[`token build outputs > matches the CSS output snapshot 1`] = `
   --color-text-primary: #16211c;
   --color-text-secondary: #5c6a62;
   --color-text-disabled: #8a968f;
+  --color-text-on-brand: #ffffff;
   --color-background-default: #ffffff;
   --color-background-subtle: #f6f8f6;
   --color-background-scrim: rgba(0, 0, 0, 0.5);
@@ -152,6 +153,7 @@ exports[`token build outputs > matches the CSS output snapshot 1`] = `
   --color-text-primary: #f6f8f6;
   --color-text-secondary: #8a968f;
   --color-text-disabled: #5c6a62;
+  --color-text-on-brand: #ffffff;
   --color-background-default: #16211c;
   --color-background-subtle: #35423b;
   --color-background-scrim: rgba(0, 0, 0, 0.6);
@@ -266,6 +268,7 @@ export const ColorBlue500 = "#2e6ecc";
 export const ColorTextPrimary = "#16211c";
 export const ColorTextSecondary = "#5c6a62";
 export const ColorTextDisabled = "#8a968f";
+export const ColorTextOnBrand = "#ffffff";
 export const ColorBackgroundDefault = "#ffffff";
 export const ColorBackgroundSubtle = "#f6f8f6";
 export const ColorBackgroundScrim = "rgba(0, 0, 0, 0.5)";

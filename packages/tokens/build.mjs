@@ -87,7 +87,8 @@ function themeDts() {
   return `/** Do not edit directly, this file was auto-generated. */
 export interface Theme {
   color: {
-    text: { primary: string; secondary: string; disabled: string };
+    /** onBrand: brand/status 배경 위에 얹는 전경색. 두 테마 모두 흰색(brand가 두 테마에서 같은 green.500). */
+    text: { primary: string; secondary: string; disabled: string; onBrand: string };
     background: { default: string; subtle: string; scrim: string };
     brand: { primary: string; pressed: string };
     border: { default: string };
