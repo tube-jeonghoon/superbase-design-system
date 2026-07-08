@@ -61,9 +61,9 @@ export const Checkbox = forwardRef<ElementRef<typeof Pressable>, CheckboxProps>(
         }}
       >
         {indeterminate ? (
-          <View style={{ width: mark, height: t.borderWidth.medium, borderRadius: 1, backgroundColor: "#ffffff" }} />
+          <View style={{ width: mark, height: t.borderWidth.medium, borderRadius: 1, backgroundColor: t.color.text.onBrand }} />
         ) : checked ? (
-          <View style={{ width: mark, height: mark, borderRadius: 1, backgroundColor: "#ffffff" }} />
+          <View style={{ width: mark, height: mark, borderRadius: 1, backgroundColor: t.color.text.onBrand }} />
         ) : null}
       </View>
       {label != null ? (

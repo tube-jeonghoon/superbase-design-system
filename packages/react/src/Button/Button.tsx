@@ -16,7 +16,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const spinnerColorFor: Record<ButtonVariant, string> = {
-  primary: "var(--color-white)",
+  primary: "var(--color-text-on-brand)",
   secondary: "var(--color-text-primary)",
   ghost: "var(--color-brand-primary)",
   outline: "var(--color-text-primary)",

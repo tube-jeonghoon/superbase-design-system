@@ -27,10 +27,10 @@ export const Badge = forwardRef<ElementRef<typeof View>, BadgeProps>(function Ba
   };
   const fgFor: Record<BadgeVariant, string> = {
     neutral: t.color.text.secondary,
-    brand: "#ffffff",
-    success: "#ffffff",
-    warning: "#ffffff",
-    danger: "#ffffff",
+    brand: t.color.text.onBrand,
+    success: t.color.text.onBrand,
+    warning: t.color.text.onBrand,
+    danger: t.color.text.onBrand,
   };
   return (
     <View
