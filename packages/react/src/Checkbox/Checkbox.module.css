@@ -36,13 +36,13 @@
   border-radius: 1px;
   background: transparent;
 }
-.checkbox[data-checked="true"] .check { background: var(--color-white); }
+.checkbox[data-checked="true"] .check { background: var(--color-text-on-brand); }
 .checkbox[data-indeterminate="true"] .box {
   background: var(--color-brand-primary);
   border-color: var(--color-brand-primary);
 }
 .checkbox[data-indeterminate="true"] .check {
-  background: var(--color-white);
+  background: var(--color-text-on-brand);
   width: calc(var(--size-control) / 2);
   height: var(--border-width-medium);
   border-radius: 1px;

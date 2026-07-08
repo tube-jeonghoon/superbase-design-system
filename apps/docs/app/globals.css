@@ -1,9 +1,13 @@
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 body {
-  font-family: "SUIT Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Apple SD Gothic Neo", sans-serif;
+  font-family: "SUITE Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Apple SD Gothic Neo", sans-serif;
   background: var(--color-background-default);
   color: var(--color-text-primary);
   -webkit-font-smoothing: antialiased;
+  /* sticky footer: 콘텐츠가 짧아도 푸터를 뷰포트 하단에 붙임 */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 a { color: inherit; text-decoration: none; }

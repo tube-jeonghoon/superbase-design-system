@@ -2,7 +2,8 @@ import type { ReactNode } from "react";
 import "@superbase/tokens/css";
 import "@superbase/react/styles.css";
 import "./globals.css";
-import { AppShell } from "../components/AppShell";
+import { SiteHeader } from "../components/site/SiteHeader";
+import { SiteFooter } from "../components/site/SiteFooter";
 import { STORAGE_KEY } from "../lib/theme";
 
 export const metadata = {
@@ -20,12 +21,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <link
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css"
+          href="https://cdn.jsdelivr.net/gh/sun-typeface/SUITE@2/fonts/variable/woff2/SUITE-Variable.css"
         />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body>
-        <AppShell>{children}</AppShell>
+        <SiteHeader />
+        <main style={{ flex: 1, maxWidth: 1200, margin: "0 auto", padding: "var(--spacing-8)", width: "100%" }}>
+          {children}
+        </main>
+        <SiteFooter />
       </body>
     </html>
   );

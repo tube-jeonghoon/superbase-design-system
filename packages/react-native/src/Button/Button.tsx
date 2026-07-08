@@ -56,7 +56,7 @@ export const Button = forwardRef<ElementRef<typeof Pressable>, ButtonProps>(func
         : "transparent";
   const fg =
     variant === "primary"
-      ? "#ffffff"
+      ? t.color.text.onBrand
       : variant === "ghost"
         ? t.color.brand.primary
         : t.color.text.primary;

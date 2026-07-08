@@ -1,26 +1,27 @@
 {
   "color": {
     "text": {
-      "primary":   { "value": "{color.gray.900}" },
-      "secondary": { "value": "{color.gray.600}" },
-      "disabled":  { "value": "{color.gray.400}" }
+      "primary":   { "value": "{color.neutral.900}" },
+      "secondary": { "value": "{color.neutral.500}" },
+      "disabled":  { "value": "{color.neutral.400}" },
+      "onBrand":   { "value": "{color.neutral.000}" }
     },
     "background": {
-      "default": { "value": "{color.white}" },
-      "subtle":  { "value": "{color.gray.50}" },
+      "default": { "value": "{color.neutral.000}" },
+      "subtle":  { "value": "{color.neutral.050}" },
       "scrim":   { "value": "rgba(0, 0, 0, 0.5)" }
     },
     "brand": {
-      "primary": { "value": "{color.blue.500}" },
-      "pressed": { "value": "{color.blue.600}" }
+      "primary": { "value": "{color.green.500}" },
+      "pressed": { "value": "{color.green.600}" }
     },
     "border": {
-      "default": { "value": "{color.gray.200}" }
+      "default": { "value": "{color.neutral.200}" }
     },
     "status": {
       "info":    { "value": "{color.blue.500}" },
       "success": { "value": "{color.green.500}" },
-      "warning": { "value": "{color.yellow.500}" },
+      "warning": { "value": "{color.amber.700}" },
       "danger":  { "value": "{color.red.500}" }
     }
   }

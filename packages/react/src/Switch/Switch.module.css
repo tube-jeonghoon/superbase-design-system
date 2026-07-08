@@ -20,7 +20,7 @@
   width: var(--size-switch-thumb);
   height: var(--size-switch-thumb);
   border-radius: var(--radius-full);
-  background: var(--color-white);
+  background: var(--color-text-on-brand);
   transition: transform var(--duration-fast) var(--easing-standard);
 }
 .switch[data-checked="true"] .thumb {
