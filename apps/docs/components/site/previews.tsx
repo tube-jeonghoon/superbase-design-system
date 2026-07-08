@@ -77,7 +77,7 @@ function BottomNavMini() {
 export const previews: Record<string, ReactNode> = {
   button: <Button variant="primary">확인</Button>,
   textfield: (
-    <div className={styles.w220}>
+    <div className={styles.textfieldWrap}>
       <TextField placeholder="이메일" value="" onChange={noop} />
     </div>
   ),
