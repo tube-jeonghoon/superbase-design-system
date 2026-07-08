@@ -1,5 +1,15 @@
 # @superbase/docs
 
+## 0.0.5
+
+### Patch Changes
+
+- Updated dependencies [2225877]
+- Updated dependencies [d186130]
+  - @superbase/tokens@0.4.0
+  - @superbase/react@0.5.1
+  - @superbase/react-native@0.5.1
+
 ## 0.0.4
 
 ### Patch Changes
