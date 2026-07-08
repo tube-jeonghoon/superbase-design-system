@@ -1,6 +1,8 @@
 "use client";
 import { useMemo, useState } from "react";
 import { catalog, categoryOrder, type Category } from "../../lib/catalog";
+import { PreviewFrame } from "../../components/site/PreviewFrame";
+import { previews } from "../../components/site/previews";
 
 const STATUS_LABEL: Record<string, string> = { stable: "STABLE", updated: "UPDATED", new: "NEW" };
 const STATUS_STYLE: Record<string, React.CSSProperties> = {
@@ -57,9 +59,7 @@ export default function ComponentsPage() {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "var(--spacing-4)" }}>
         {filtered.map((c) => (
           <a key={c.slug} href={`/components/${c.slug}`} style={{ border: "1px solid var(--color-border-default)", borderRadius: "var(--radius-lg)", overflow: "hidden", display: "flex", flexDirection: "column" }}>
-            <div style={{ height: 120, background: "var(--color-background-subtle)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--color-brand-primary)", fontWeight: 800, fontSize: "var(--font-size-title)" }}>
-              {c.name}
-            </div>
+            <PreviewFrame>{previews[c.slug]}</PreviewFrame>
             <div style={{ padding: "var(--spacing-4)" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <strong>{c.name}</strong>
